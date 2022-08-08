@@ -9,7 +9,7 @@ export class ViewerComponent implements OnInit {
 
   constructor() { }
   @Input() keyword :string | undefined;
-
+  items = [];
 
   fetchMemes(keyword: String): any {
     const apiKey$ = 'AIzaSyA0v010oX8a0ApcRYmAeN-omDVGDitxPT8';
@@ -23,7 +23,7 @@ export class ViewerComponent implements OnInit {
 
   search(keyword: String): any {
     this.fetchMemes(keyword).subscribe({
-      next: (result: any) => console.log(result),
+      next: (result: any) => {this.items= result.results; console.log(result.results)},
       complete: () => console.log(keyword),
     });
   }
