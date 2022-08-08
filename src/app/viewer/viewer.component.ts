@@ -1,14 +1,21 @@
-import { AfterViewInit, ViewChild, Component,  DoCheck, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ViewChild,
+  Component,
+  DoCheck,
+  Input,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { fromFetch } from 'rxjs/fetch';
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
-  styleUrls: ['./viewer.component.css']
+  styleUrls: ['./viewer.component.css'],
 })
 export class ViewerComponent implements OnInit {
-
-  constructor() { }
-  @Input() keyword :string = '';
+  constructor() {}
+  @Input() keyword: string = '';
   items = [];
 
   fetchMemes(keyword: string): any {
@@ -23,7 +30,10 @@ export class ViewerComponent implements OnInit {
 
   search(keyword: string): any {
     this.fetchMemes(keyword).subscribe({
-      next: (result: any) => {this.items= result.results; console.log(result.results)},
+      next: (result: any) => {
+        this.items = result.results;
+        console.log(result.results);
+      },
       complete: () => console.log(keyword),
     });
   }
@@ -32,9 +42,9 @@ export class ViewerComponent implements OnInit {
     this.search(this.keyword);
   }
 
-  ngDoCheck(){
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(1);
+    console.log(changes);
     this.search(this.keyword);
   }
-  
-  
 }

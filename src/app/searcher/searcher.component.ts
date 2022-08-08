@@ -6,6 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SearcherComponent implements OnInit {
   constructor() {}
+  keyword = 'programmer'
   @Output() emitter: EventEmitter<string> = new EventEmitter<string>();
 
   emit(keyword: string) {
