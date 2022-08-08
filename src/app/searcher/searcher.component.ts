@@ -1,45 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { of } from 'rxjs';
 import { fromFetch } from 'rxjs/fetch';
-import { switchMap, of, catchError } from 'rxjs';
 @Component({
   selector: 'app-searcher',
   templateUrl: './searcher.component.html',
-  styleUrls: ['./searcher.component.css']
+  styleUrls: ['./searcher.component.css'],
 })
 export class SearcherComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  fetchMemes(keyword :String): void{
+    const apiKey$ = 'AIzaSyA0v010oX8a0ApcRYmAeN-omDVGDitxPT8';
+    const pageLimit$ = 5;
+    const url$ = `https://tenor.googleapis.com/v2/search?q=${keyword}&key=${apiKey$}&limit=${pageLimit$}`;
 
-  ngOnInit(): void {
-    
-   const apiKey$ = 'AIzaSyA0v010oX8a0ApcRYmAeN-omDVGDitxPT8';
-   const pageLimit$ = 1;
+    const data$ = fromFetch(url$, {
+      selector: (response) => response.json(),
+    });
 
-  const data$ = fromFetch(`https://tenor.googleapis.com/v2/search?q=excited&key=${apiKey$}&limit=${pageLimit$}`).pipe(
-  switchMap(response => {
-    if (response.ok) {
-      // OK return data
-      return response.json();
-    } else {
-      // Server is returning a status requiring the client to try something else.
-      return of({ error: true, message: `Error ${ response.status }` });
-    }
-  }),
-  catchError(err => {
-    // Network or other error, handle appropriately
-    console.error(err);
-    return of({ error: true, message: err.message })
-  })
-);
-
-data$.subscribe({
-  next: result => console.log(result),
-  complete: () => console.log('done')
-});
+    data$.subscribe({
+      next: (result) => console.log(result),
+      complete: () => console.log('done'),
+    });
   }
 
+  ngOnInit(): void {
+    this.fetchMemes('java');
+  }
 }
-
-
-
-
