@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { fromFetch } from 'rxjs/fetch';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-searcher',
   templateUrl: './searcher.component.html',
@@ -8,27 +6,14 @@ import { fromFetch } from 'rxjs/fetch';
 })
 export class SearcherComponent implements OnInit {
   constructor() {}
+  @Output() emitter: EventEmitter<string> = new EventEmitter<string>();
 
-  fetchMemes(keyword: String): any {
-    const apiKey$ = 'AIzaSyA0v010oX8a0ApcRYmAeN-omDVGDitxPT8';
-    const pageLimit$ = 5;
-    const url$ = `https://tenor.googleapis.com/v2/search?q=${keyword}&key=${apiKey$}&limit=${pageLimit$}`;
-    const data$ = fromFetch(url$, {
-      selector: (response) => response.json(),
-    });
-    return data$;
+  emit(keyword: string) {
+    console.log('sending', keyword);
+    this.emitter.emit(keyword);
   }
-
-  
-  search(keyword: String): any {
-    this.fetchMemes(keyword).subscribe({
-      next: (result: any) => console.log(result),
-      complete: () => console.log(keyword),
-    });
-  }
-
 
   ngOnInit(): any {
-    this.search('programmer');
+    this.emit('programmer');
   }
 }

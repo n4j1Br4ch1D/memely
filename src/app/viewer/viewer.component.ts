@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { AfterViewInit, ViewChild, Component,  DoCheck, Input, OnInit } from '@angular/core';
+import { fromFetch } from 'rxjs/fetch';
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
@@ -8,8 +8,28 @@ import { Component, OnInit } from '@angular/core';
 export class ViewerComponent implements OnInit {
 
   constructor() { }
+  @Input() keyword :string | undefined;
 
-  ngOnInit(): void {
+
+  fetchMemes(keyword: String): any {
+    const apiKey$ = 'AIzaSyA0v010oX8a0ApcRYmAeN-omDVGDitxPT8';
+    const pageLimit$ = 5;
+    const url$ = `https://tenor.googleapis.com/v2/search?q=${keyword}&key=${apiKey$}&limit=${pageLimit$}`;
+    const data$ = fromFetch(url$, {
+      selector: (response) => response.json(),
+    });
+    return data$;
   }
 
+  search(keyword: String): any {
+    this.fetchMemes(keyword).subscribe({
+      next: (result: any) => console.log(result),
+      complete: () => console.log(keyword),
+    });
+  }
+
+  ngOnInit(): void {
+    this.search('programmer');
+  }
+  
 }

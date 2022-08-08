@@ -1,2 +1,2 @@
-<app-searcher></app-searcher>
-<app-viewer></app-viewer>
+<app-searcher (emitter)="send($event)"></app-searcher>
+<app-viewer [keyword]="keyword"></app-viewer>

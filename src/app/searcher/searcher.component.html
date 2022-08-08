@@ -3,30 +3,30 @@
     <div class="col-md-8">
       <div class="search">
         <input
-          #keyword
+          (keyup)="emit(keyword.value);" #keyword
           type="text"
           class="form-control"
           placeholder="Looking For Funny Programming Memes?"
         />
-        <button (click)="search(keyword.value)" class="btn text-white bg-primary bg-gradient">
+        <button (click)="emit(keyword.value);" class="btn text-white bg-primary bg-gradient">
           <i class="fa-solid fa-magnifying-glass me-1"></i> Search
         </button>
       </div>
     </div>
   </div>
   <div id="terms" class="d-flex gap-3 justify-content-center mt-3">
-    <button type="button" (click)="search('Java')" class="btn btn-light">Java</button>
-    <button type="button" (click)="search('Javascript')" class="btn btn-light">Javascript</button>
-    <button type="button" (click)="search('Python')" class="btn btn-light">Python</button>
-    <button type="button" (click)="search('PHP')" class="btn btn-light">PHP</button>
-    <button type="button" (click)="search('HTML')" class="btn btn-light">HTML</button>
-    <button type="button" (click)="search('Sql')" class="btn btn-light">SQL</button>
-    <button type="button" (click)="search('php')" class="btn btn-light">PHP</button>
-    <button type="button" (click)="search('typescript')" class="btn btn-light">Typescript</button>
-    <button type="button" (click)="search('css')" class="btn btn-light">Css</button>
-    <button type="button" (click)="search('angular')" class="btn btn-light">Angular</button>
-    <button type="button" (click)="search('react')" class="btn btn-light">React</button>
-    <button type="button" (click)="search('vue')" class="btn btn-light">Vue</button>
-    <button type="button" (click)="search('svelte')" class="btn btn-light">Svelte</button>
+    <button type="button" (click)="emit('Java');" class="btn btn-light">Java</button>
+    <button type="button" (click)="emit('Javascript');" class="btn btn-light">Javascript</button>
+    <button type="button" (click)="emit('Python');" class="btn btn-light">Python</button>
+    <button type="button" (click)="emit('PHP');" class="btn btn-light">PHP</button>
+    <button type="button" (click)="emit('HTML');" class="btn btn-light">HTML</button>
+    <button type="button" (click)="emit('Sql');" class="btn btn-light">SQL</button>
+    <button type="button" (click)="emit('php');" class="btn btn-light">PHP</button>
+    <button type="button" (click)="emit('typescript');" class="btn btn-light">Typescript</button>
+    <button type="button" (click)="emit('css');" class="btn btn-light">Css</button>
+    <button type="button" (click)="emit('angular');" class="btn btn-light">Angular</button>
+    <button type="button" (click)="emit('react');" class="btn btn-light">React</button>
+    <button type="button" (click)="emit('vue');" class="btn btn-light">Vue</button>
+    <button type="button" (click)="emit('svelte');" class="btn btn-light">Svelte</button>
   </div>
 </div>

@@ -7,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  keyword = "";
+  send(keyword :string){
+    console.log('from sending', keyword);
+    this.keyword = keyword;
+  }
   ngOnInit(): void {
   }
 

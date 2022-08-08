@@ -20,4 +20,10 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  keyword = "";
+  send(keyword :string){
+    console.log('from sending', keyword);
+    this.keyword = keyword;
+  }
 });
