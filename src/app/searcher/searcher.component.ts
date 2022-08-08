@@ -19,12 +19,14 @@ export class SearcherComponent implements OnInit {
     return data$;
   }
 
+  
   search(keyword: String): any {
     this.fetchMemes(keyword).subscribe({
       next: (result: any) => console.log(result),
       complete: () => console.log(keyword),
     });
   }
+
 
   ngOnInit(): any {
     this.search('programmer');
