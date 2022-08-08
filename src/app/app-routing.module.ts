@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 const routes: Routes = [
-  { path: 'Home', component: NavbarComponent },
-  { path: 'About', component: NavbarComponent }
+  { path: 'home', component: NavbarComponent },
+  { path: 'about', component: NavbarComponent }
 ];
 
 @NgModule({
