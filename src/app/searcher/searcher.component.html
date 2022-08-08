@@ -3,11 +3,12 @@
     <div class="col-md-8">
       <div class="search">
         <input
+          #keyword
           type="text"
           class="form-control"
           placeholder="Looking For Funny Programming Memes?"
         />
-        <button class="btn text-white bg-primary bg-gradient">
+        <button (click)="search(keyword.value)" class="btn text-white bg-primary bg-gradient">
           <i class="fa-solid fa-magnifying-glass me-1"></i> Search
         </button>
       </div>
