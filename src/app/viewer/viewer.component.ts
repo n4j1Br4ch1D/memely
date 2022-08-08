@@ -8,10 +8,10 @@ import { fromFetch } from 'rxjs/fetch';
 export class ViewerComponent implements OnInit {
 
   constructor() { }
-  @Input() keyword :string | undefined;
+  @Input() keyword :string = '';
   items = [];
 
-  fetchMemes(keyword: String): any {
+  fetchMemes(keyword: string): any {
     const apiKey$ = 'AIzaSyA0v010oX8a0ApcRYmAeN-omDVGDitxPT8';
     const pageLimit$ = 5;
     const url$ = `https://tenor.googleapis.com/v2/search?q=${keyword}&key=${apiKey$}&limit=${pageLimit$}`;
@@ -21,7 +21,7 @@ export class ViewerComponent implements OnInit {
     return data$;
   }
 
-  search(keyword: String): any {
+  search(keyword: string): any {
     this.fetchMemes(keyword).subscribe({
       next: (result: any) => {this.items= result.results; console.log(result.results)},
       complete: () => console.log(keyword),
@@ -29,7 +29,12 @@ export class ViewerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.search('programmer');
+    this.search(this.keyword);
   }
+
+  ngDoCheck(){
+    this.search(this.keyword);
+  }
+  
   
 }
