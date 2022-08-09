@@ -20,7 +20,7 @@ export class ViewerComponent implements OnInit {
 
   fetchMemes(keyword: string): any {
     const apiKey$ = 'AIzaSyA0v010oX8a0ApcRYmAeN-omDVGDitxPT8';
-    const pageLimit$ = 5;
+    const pageLimit$ = 40;
     const url$ = `https://tenor.googleapis.com/v2/search?q=${keyword}&key=${apiKey$}&limit=${pageLimit$}`;
     const data$ = fromFetch(url$, {
       selector: (response) => response.json(),
