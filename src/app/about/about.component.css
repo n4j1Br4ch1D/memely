@@ -28,3 +28,13 @@ i{
 a{
     text-decoration: none;
 }
+
+.imgs {
+    display: flex;
+   gap: 20px;
+   justify-content: center;
+}
+
+.imgs img{
+  
+}
