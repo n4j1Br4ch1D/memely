@@ -15,7 +15,7 @@
     </div>
   </div>
   <div id="terms" class="d-flex gap-3 justify-content-center mt-3">
-    <button type="button" (click)="emit('Java');" class="btn btn-light">Java</button>
+    <button type="button" (click)="emit('Java');" class="btn btn-light" [ngClass]="{'disabled' : keyword.value==='Java'}">Java</button>
     <button type="button" (click)="emit('Javascript');" class="btn btn-light">Javascript</button>
     <button type="button" (click)="emit('Python');" class="btn btn-light">Python</button>
     <button type="button" (click)="emit('PHP');" class="btn btn-light">PHP</button>
