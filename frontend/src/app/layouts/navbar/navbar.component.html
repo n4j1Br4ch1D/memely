@@ -1,0 +1,53 @@
+<div class="container p-0 my-3">
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-primary" id="navbarTogglerDemo01">
+      <a routerLink="/" class="nav-link text-primary navbar-brand font">Memely;</a>
+      <ul class="nav nav-pills navbar-nav me-auto">
+
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/about" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">About</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contact" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/documentation" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">Documentation</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+<div class="btn-group me-2">
+  <a routerLink="profile" class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="https://avatars.githubusercontent.com/u/38995898?v=4" style="height:28px;object-fit: contain;" class="img-fluid rounded-circle" alt="">
+    NajibRachid
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#">My Profile</a></li>
+    <li><a class="dropdown-item" href="#">My Memes</a></li>
+    <li><a class="dropdown-item" href="#">My Favorits</a></li>
+    <li><a class="dropdown-item" href="#">My Reactions</a></li>
+    <li><a class="dropdown-item" href="#">Notifications</a></li>
+    <li><a class="dropdown-item" href="#">Settings</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Sign-Out</a></li>
+  </ul>
+</div>
+        <button type="button" class="btn btn-primary rounded-circle">
+          <i class="fa-solid fa-plus-large text-primary"></i>+
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>

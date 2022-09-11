@@ -1,0 +1,288 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  rel="stylesheet"
+/>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+></script>
+<div class="container my-5 rounded-3 border p-1 snippet-body">
+  <div class="px-0 bg-light">
+    <div class="d-flex">
+      <div class="d-flex align-items-cente bg-primary font" id="navbar">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-items"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="true"
+          aria-label="Toggle navigation"
+        >
+          <span class="fas fa-bars"></span>
+        </button>
+        <a class="text-decoration-none fs14 ps-2 font" href="#"> Memely; </a>
+      </div>
+      <div id="navbar2" class="d-flex justify-content-end pe-4">
+        <div class="btn-group me-2">
+          <a routerLink="profile" class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://avatars.githubusercontent.com/u/38995898?v=4" style="height:28px;object-fit: contain;" class="img-fluid rounded-circle" alt="">
+            NajibRachid
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="#">My Memes</a></li>
+            <li><a class="dropdown-item" href="#">My Favorits</a></li>
+            <li><a class="dropdown-item" href="#">My Reactions</a></li>
+            <li><a class="dropdown-item" href="#">Notifications</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign-Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="d-md-flex">
+      <ul
+        id="navbar-items"
+        class="blue-400 rounded-3 rounded-bottom shadow-lg opacity-1 p-0"
+        style="background-color: #0d6dfdcc !important"
+      >
+        <li>
+          <span class="fas fa-th-list"></span>
+          <span class="ps-3 name">Dashboard</span>
+        </li>
+        <li>
+          <span class="fas fa-chart-line"></span>
+          <span class="ps-3 name">Profiles</span>
+        </li>
+        <li>
+          <span class="fas fa-clipboard-check"></span>
+          <span class="ps-3 name">Memes</span>
+        </li>
+        <li>
+          <span class="fas fa-suitcase-rolling"></span>
+          <span class="ps-3 name">Tags</span>
+        </li>
+        <li>
+          <span class="fas fa-comment-alt"></span>
+          <span class="ps-3 name">settings</span>
+        </li>
+        <li>
+          <span class="fas fa-comment-alt"></span>
+          <span class="ps-3 name">Reactions</span>
+        </li>
+        <li>
+          <span class="fas fa-comment-alt"></span>
+          <span class="ps-3 name">Contacts</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-folder-gear"></i>
+          <span class="ps-3 name">Settings</span>
+        </li>
+      </ul>
+      <div id="topnavbar">
+        <div class="topnav mb-3">
+          <div class="d-flex px-1">
+            <div class="d-flex align-items-center mb-3 px-md-3 px-2">
+              <span class="text-uppercase fs13 fw-bolder pe-3"
+                >search<span class="ps-1">by</span></span
+              >
+              <form class="example d-flex align-items-center">
+                <input
+                  type="text"
+                  placeholder="Type in Company Name Or Mid id"
+                  name="search"
+                />
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive px-2">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">COMPANY<span>ID</span></th>
+                <th scope="col">COMPANY</th>
+                <th scope="col">MID</th>
+                <th scope="col">BANK<span class="ps-1">NAME</span></th>
+                <th scope="col">CUR</th>
+                <th class="text-center" scope="col">3DS</th>
+                <th class="text-center" scope="col">ACTIVE</th>
+                <th class="text-center" scope="col">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="bg-blight">235</span></td>
+                <td>
+                  <span class="bg-bdark"
+                    >ABC<span class="ps-1">LOANS</span></span
+                  >
+                </td>
+                <td><span class="bg-blight">1343</span></td>
+                <td>
+                  <span class="bg-bdark">Faster<span>Trading</span></span>
+                </td>
+                <td><span class="bg-bdark">GBP</span></td>
+                <td class="text-center px-0">
+                  <span class="fas fa-check"></span>
+                </td>
+                <td class="text-center"><span class="fas fa-check"></span></td>
+                <td class="text-center">
+                  <span class="fas fa-ellipsis-h"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bg-blight">236</span></td>
+                <td>
+                  <span class="bg-bdark"
+                    >BCE<span class="ps-1">LOANS</span></span
+                  >
+                </td>
+                <td><span class="bg-blight">1298</span></td>
+                <td>
+                  <span class="bg-bdark">Secure<span>Trading</span></span>
+                </td>
+                <td><span class="bg-bdark">GBP</span></td>
+                <td class="text-center px-0">
+                  <span class="fas fa-check"></span>
+                </td>
+                <td class="text-center"><span class="fas fa-check"></span></td>
+                <td class="text-center">
+                  <span class="fas fa-ellipsis-h"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bg-blight">237</span></td>
+                <td>
+                  <span class="bg-bdark"
+                    >CDE<span class="ps-1">LOANS</span></span
+                  >
+                </td>
+                <td><span class="bg-blight">1313</span></td>
+                <td>
+                  <span class="bg-bdark">Secure<span>Trading</span></span>
+                </td>
+                <td><span class="bg-bdark">GBP</span></td>
+                <td class="text-center px-0">
+                  <span class="fas fa-times"></span>
+                </td>
+                <td class="text-center"><span class="fas fa-check"></span></td>
+                <td class="text-center">
+                  <span class="fas fa-ellipsis-h"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bg-blight">235</span></td>
+                <td>
+                  <span class="bg-bdark"
+                    >DEF<span class="ps-1">LOANS</span></span
+                  >
+                </td>
+                <td><span class="bg-blight">1323</span></td>
+                <td>
+                  <span class="bg-bdark">Secure<span>Trading</span></span>
+                </td>
+                <td><span class="bg-bdark">GBP</span></td>
+                <td class="text-center px-0">
+                  <span class="fas fa-times"></span>
+                </td>
+                <td class="text-center"><span class="fas fa-check"></span></td>
+                <td class="text-center">
+                  <span class="fas fa-ellipsis-h"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bg-blight">235</span></td>
+                <td>
+                  <span class="bg-bdark"
+                    >FEG<span class="ps-1">LOANS</span></span
+                  >
+                </td>
+                <td><span class="bg-blight">1443</span></td>
+                <td>
+                  <span class="bg-bdark">Secure<span>Trading</span></span>
+                </td>
+                <td><span class="bg-bdark">GBP</span></td>
+                <td class="text-center px-0">
+                  <span class="fas fa-times"></span>
+                </td>
+                <td class="text-center"><span class="fas fa-check"></span></td>
+                <td class="text-center">
+                  <span class="fas fa-ellipsis-h"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bg-blight">237</span></td>
+                <td>
+                  <span class="bg-bdark"
+                    >GFR<span class="ps-1">LOANS</span></span
+                  >
+                </td>
+                <td><span class="bg-blight">1943</span></td>
+                <td>
+                  <span class="bg-bdark">Faster<span>Trading</span></span>
+                </td>
+                <td><span class="bg-bdark">GBP</span></td>
+                <td class="text-center px-0">
+                  <span class="fas fa-times"></span>
+                </td>
+                <td class="text-center"><span class="fas fa-check"></span></td>
+                <td class="text-center">
+                  <span class="fas fa-ellipsis-h"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="bg-blight">235</span></td>
+                <td>
+                  <span class="bg-bdark"
+                    >ABC<span class="ps-1">LOANS</span></span
+                  >
+                </td>
+                <td><span class="bg-blight">1343</span></td>
+                <td>
+                  <span class="bg-bdark">Faster<span>Trading</span></span>
+                </td>
+                <td><span class="bg-bdark">GBP</span></td>
+                <td class="text-center px-0">
+                  <span class="fas fa-times"></span>
+                </td>
+                <td class="text-center"><span class="fas fa-check"></span></td>
+                <td class="text-center">
+                  <span class="fas fa-ellipsis-h"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="d-flex align-items-center justify-content-between px-3 mt-3"
+        >
+          <div class="bg-bdark fs13">
+            <span>Page</span>
+            <input class="input-10 text-center" type="text" value="1" />
+            <span><span class="px-1">of</span>1</span>
+          </div>
+          <div class="d-flex justify-content-end bg-bdark fs13">
+            <span class="pe-1">Show</span>
+            <input class="input-10" type="number" value="25" />
+            <span class="ps-2"><span class="pe-2">/</span>Page</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="text-center">Copyright 2022</p>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+></script>
