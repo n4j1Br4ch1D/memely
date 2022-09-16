@@ -13,7 +13,7 @@ const routes: Routes = [
     path: '',
     // component: ProfileComponent,
     children: [
-      { path: '', component: MyMemesComponent },
+      { path: 'profile/:username', component: MyMemesComponent },
       { path: 'memes', component: MyMemesComponent },
       { path: 'favorites', component: MyFavoritesComponent },
       { path: 'reactions', component: MyReactionsComponent },

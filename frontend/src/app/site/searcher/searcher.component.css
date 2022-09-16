@@ -5,7 +5,11 @@
 .custom-swiper-wrapper {
   transform: translate(0, 0);
 }
+.swiper-button-next::after, .swiper-button-prev::after{
+  content: "";
+}
 .swiper-custom-nav {
+  background-color: white;
   position: fixed;
 }
 .swiper-slide { width: auto!important;margin: 10px; }

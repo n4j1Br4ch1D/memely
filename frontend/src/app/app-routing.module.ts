@@ -9,15 +9,18 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
+import { MemeComponent } from './site/meme/meme.component';
 const routes: Routes = [
   // Site
   {
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: HomeComponent }, //$keywords
-      { path: 'about', component: AboutComponent },
-      { path: 'contact', component: ContactComponent },
+      { path: '', component: HomeComponent, title: 'Home - Memely' },
+      { path: 'memes/:keyword', component: HomeComponent, title: 'Memes - Memely' },
+      { path: 'meme', component: MemeComponent, title: 'Meme - Memely' },
+      { path: 'about', component: AboutComponent, title: 'About - Memely' },
+      { path: 'contact', component: ContactComponent, title: 'Contact - Memely' },
     ],
   },
 

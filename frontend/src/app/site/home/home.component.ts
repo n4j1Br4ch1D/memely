@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT, ViewportScroller } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
+import { fromEvent, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,5 +16,15 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  
+  readonly showScroll$: Observable<boolean> = fromEvent(
+    this.document,
+    'scroll'
+  ).pipe(
+    map(() => this.viewport.getScrollPosition()?.[1] > 0)
+  );
 
+  constructor(@Inject(DOCUMENT) private readonly document: Document, private readonly viewport: ViewportScroller) { }
 }
+
+

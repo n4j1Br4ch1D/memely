@@ -17,6 +17,8 @@ import { DocumentationComponent } from './documentation/documentation.component'
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
+import { BackToTopComponent } from './shared/back-to-top/back-to-top.component';
+import { MemeComponent } from './site/meme/meme.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.c
     MainLayoutComponent,
     DashboardLayoutComponent,
     ProfileLayoutComponent,
+    BackToTopComponent,
+    MemeComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { fromFetch } from 'rxjs/fetch';
 @Component({
   selector: 'app-viewer',
@@ -14,7 +15,9 @@ import { fromFetch } from 'rxjs/fetch';
   styleUrls: ['./viewer.component.css'],
 })
 export class ViewerComponent implements OnInit {
-  constructor() {}
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe( params => console.log("params:", params) );
+  }
   @Input() keyword: string = '';
   items = [];
 
@@ -47,4 +50,6 @@ export class ViewerComponent implements OnInit {
     console.log(changes);
     this.search(this.keyword);
   }
+
+
 }

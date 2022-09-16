@@ -2,9 +2,9 @@ import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@ang
 import { SwiperComponent } from "swiper/angular";
 
 // import Swiper core and required modules
-import SwiperCore, { Pagination } from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 // install Swiper modules
-SwiperCore.use([Pagination]);
+SwiperCore.use([Navigation, Pagination]);
 
 @Component({
   selector: 'app-searcher',
