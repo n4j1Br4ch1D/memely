@@ -82,7 +82,11 @@
     <ng-template swiperSlide><button type="button" (click)="emit('vue');" class="btn btn-light">Vue</button></ng-template>
     <ng-template swiperSlide><button type="button" (click)="emit('svelte');" class="btn btn-light">Svelte</button></ng-template>
 </swiper>
-<div class="swiper-button-next swiper-custom-nav rounded-circle"></div>
-<div class="swiper-button-prev swiper-custom-nav rounded-circle"></div>
+<div class="swiper-button-next swiper-custom-nav text-white">
+  <fa-icon [icon]="['fas', 'circle-arrow-right']" class="fs-1"></fa-icon>
+</div>
+<div class="swiper-button-prev swiper-custom-nav text-white">
+  <fa-icon [icon]="['fas', 'circle-arrow-left']" class="fs-1"></fa-icon>
+</div>
   </div>
 </div>

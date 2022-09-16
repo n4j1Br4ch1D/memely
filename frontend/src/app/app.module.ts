@@ -5,8 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 
-// import { faBell as farBell } from '@fortawesome/free-regular-svg-icons';
-// import { faBell as fasBell } from '@fortawesome/free-solid-svg-icons';
+import { faCircleArrowRight as fasCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faCircleArrowLeft as fasCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { faFacebook as fabFacebook} from '@fortawesome/free-brands-svg-icons';
 import { faTwitter as fabTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -67,7 +67,8 @@ import { MemeComponent } from './site/meme/meme.component';
 export class AppModule { 
   
   constructor(library: FaIconLibrary) {
-    library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord);
+    library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord,
+      fasCircleArrowRight, fasCircleArrowLeft);
 
   }
 }
