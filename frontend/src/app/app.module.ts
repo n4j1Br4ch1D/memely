@@ -4,9 +4,18 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
-// 
-import { faBell as farBell } from '@fortawesome/free-regular-svg-icons';
-import { faBell as fasBell } from '@fortawesome/free-solid-svg-icons';
+
+// import { faBell as farBell } from '@fortawesome/free-regular-svg-icons';
+// import { faBell as fasBell } from '@fortawesome/free-solid-svg-icons';
+
+import { faFacebook as fabFacebook} from '@fortawesome/free-brands-svg-icons';
+import { faTwitter as fabTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram as fabInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin as fabLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube as fabYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord as fabDiscord } from '@fortawesome/free-brands-svg-icons';
+
 import { AppRoutingModule } from './app-routing.module';
 import { SwiperModule } from 'swiper/angular';
 
@@ -58,6 +67,7 @@ import { MemeComponent } from './site/meme/meme.component';
 export class AppModule { 
   
   constructor(library: FaIconLibrary) {
-    library.addIcons(farBell, fasBell);
+    library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord);
+
   }
 }
