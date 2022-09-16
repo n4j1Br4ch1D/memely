@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './site/home/home.component';
 import { AboutComponent } from './site/about/about.component';
 import { PagenotfoundComponent } from './errors/pagenotfound/pagenotfound.component';
-import { ProfileComponent } from './profile/profile/profile.component';
 import { ContactComponent } from './site/contact/contact.component';
 import { DocumentationComponent } from './documentation/documentation.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
 const routes: Routes = [
   // Site
   {
@@ -51,7 +51,7 @@ const routes: Routes = [
   // Profile
   {
     path: 'profile',
-    component: MainLayoutComponent,
+    component: ProfileLayoutComponent,
     children: [
       // {
       //   path: '',

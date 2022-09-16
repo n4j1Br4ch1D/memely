@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+/* @import "swiper/swiper.min.css"; */
+@import "swiper/swiper-bundle.min.css";
+
+.custom-swiper-wrapper {
+  transform: translate(0, 0);
+}
+.swiper-custom-nav {
+  position: fixed;
+}
+.swiper-slide { width: auto!important;margin: 10px; }
 
 .height {
   height: 100vh;

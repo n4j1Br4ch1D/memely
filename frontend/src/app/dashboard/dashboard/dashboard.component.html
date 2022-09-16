@@ -1,0 +1,114 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  rel="stylesheet"
+/>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+></script>
+<div class="container-fluid h-100 snippet-body">
+  <div class="px-0 bg-light">
+    <div class="d-flex">
+      <div class="d-flex align-items-cente bg-primary font" id="navbar">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-items"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="true"
+          aria-label="Toggle navigation"
+        >
+          <span class="fas fa-bars"></span>
+        </button>
+        <a class="text-decoration-none fs14 ps-2 font" href="#"> Memely; </a>
+      </div>
+      <div id="navbar2" class="d-flex justify-content-end pe-4">
+        <div class="btn-group me-2">
+          <a routerLink="profile" class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://avatars.githubusercontent.com/u/38995898?v=4" style="height:28px;object-fit: contain;" class="img-fluid rounded-circle" alt="">
+            NajibRachid
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="#">My Memes</a></li>
+            <li><a class="dropdown-item" href="#">My Favorits</a></li>
+            <li><a class="dropdown-item" href="#">My Reactions</a></li>
+            <li><a class="dropdown-item" href="#">Notifications</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign-Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="d-md-flex">
+      <ul
+        id="navbar-items"
+        class="blue-400 rounded-3 rounded-bottom shadow-lg opacity-1 p-0"
+        style="background-color: #0d6dfdcc !important"
+      >
+        <li>
+          <a routerLink="/dashboard" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">
+          <span class="fas fa-th-list"></span>
+          <span class="ps-3 name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+            <a routerLink="profiles" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">
+          <span class="fas fa-chart-line"></span>
+          <span class="ps-3 name">Profiles</span>
+        </a>
+        </li>
+        <li>
+            <a routerLink="memes" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">
+          <span class="fas fa-clipboard-check"></span>
+          <span class="ps-3 name">Memes</span>
+        </a>
+        </li>
+        <li>
+            <a routerLink="tags" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">
+          <span class="fas fa-suitcase-rolling"></span>
+          <span class="ps-3 name">Tags</span>
+        </a>
+        </li>
+        <li>
+            <a routerLink="reactions" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">
+          <span class="fas fa-comment-alt"></span>
+          <span class="ps-3 name">Reactions</span>
+        </a>
+        </li>
+        <li>
+            <a routerLink="contacts" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page">
+          <span class="fas fa-comment-alt"></span>
+          <span class="ps-3 name">Contacts</span>
+        </a>
+        </li>
+        <li>
+          <a routerLink="settings" class="nav-link text-primary" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page">
+        <span class="fas fa-comment-alt"></span>
+        <span class="ps-3 name">settings</span>
+      </a>
+      </li>
+      </ul>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<p class="text-center">Copyright 2022</p>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+></script>

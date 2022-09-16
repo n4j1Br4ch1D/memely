@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MemesComponent } from './memes/memes.component';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { ReactionsComponent } from './reactions/reactions.component';
+import { SettingsComponent } from './settings/settings.component';
+import { TagsComponent } from './tags/tags.component';
 
 const routes: Routes = [
   {
@@ -8,22 +14,19 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent }, //stats
+      { path: 'profiles', component: ProfilesComponent },
+      { path: 'memes', component: MemesComponent },
+      { path: 'tags', component: TagsComponent },
+      { path: 'reactions', component: ReactionsComponent },
+      { path: 'contacts', component: ContactsComponent },
+      { path: 'settings', component: SettingsComponent },
 
-      //users
+
       //user
-
-      //memes
       //meme
-
-      //Tags
       //tag
-
-      //Reactions
       //reaction
 
-      //settings
-
-      //Contacts
     ],
   },
 ];
