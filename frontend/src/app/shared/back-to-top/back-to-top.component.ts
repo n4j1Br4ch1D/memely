@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from
 @Component({
   selector: 'app-back-to-top',
   templateUrl: './back-to-top.component.html',
-  styleUrls: ['./back-to-top.component.css'],
+  styleUrls: ['./back-to-top.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })

@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SwiperModule } from 'swiper/angular';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
+// 
+import { faBell as farBell } from '@fortawesome/free-regular-svg-icons';
+import { faBell as fasBell } from '@fortawesome/free-solid-svg-icons';
+import { AppRoutingModule } from './app-routing.module';
+import { SwiperModule } from 'swiper/angular';
+
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { SearcherComponent } from './site/searcher/searcher.component';
 import { ViewerComponent } from './site/viewer/viewer.component';
@@ -19,6 +25,7 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
 import { BackToTopComponent } from './shared/back-to-top/back-to-top.component';
 import { MemeComponent } from './site/meme/meme.component';
+
 
 @NgModule({
   declarations: [
@@ -37,22 +44,20 @@ import { MemeComponent } from './site/meme/meme.component';
     DashboardLayoutComponent,
     ProfileLayoutComponent,
     BackToTopComponent,
-    MemeComponent,
-  ],
+    MemeComponent,  ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    NgbModule,
     FontAwesomeModule,
+    AppRoutingModule,
     SwiperModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  // declarations: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
-
-
-
-
-
-
+export class AppModule { 
+  
+  constructor(library: FaIconLibrary) {
+    library.addIcons(farBell, fasBell);
+  }
+}

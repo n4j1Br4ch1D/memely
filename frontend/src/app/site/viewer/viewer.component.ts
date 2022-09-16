@@ -12,7 +12,7 @@ import { fromFetch } from 'rxjs/fetch';
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
-  styleUrls: ['./viewer.component.css'],
+  styleUrls: ['./viewer.component.scss'],
 })
 export class ViewerComponent implements OnInit {
   constructor(private route: ActivatedRoute) {

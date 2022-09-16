@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-reactions',
   templateUrl: './reactions.component.html',
-  styleUrls: ['./reactions.component.css']
+  styleUrls: ['./reactions.component.scss']
 })
 export class ReactionsComponent implements OnInit {
 
