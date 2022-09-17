@@ -8,6 +8,16 @@ import { faBars as fasBars } from '@fortawesome/free-solid-svg-icons';
 import { faCirclePlus as fasCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faCircleArrowRight as fasCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faCircleArrowLeft as fasCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faRightFromBracket as fasRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faGears as fasGears } from '@fortawesome/free-solid-svg-icons';
+import { faBell as fasBell } from '@fortawesome/free-solid-svg-icons';
+import { faMessage as fasMessage } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark as fasBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faImagePortrait as fasImagePortrait } from '@fortawesome/free-solid-svg-icons';
+import { faIdCardClip as fasIdCardClip } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass as fasMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft as fasArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp as fasThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 import { faFacebook as fabFacebook} from '@fortawesome/free-brands-svg-icons';
 import { faTwitter as fabTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -69,7 +79,10 @@ export class AppModule {
   
   constructor(library: FaIconLibrary) {
     library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord,
-      fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft);
+      fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft,
+      fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImagePortrait, fasIdCardClip,
+      fasMagnifyingGlass, fasArrowLeft, fasThumbsUp
+      );
 
   }
 }

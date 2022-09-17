@@ -8,21 +8,16 @@
           class="form-control"
           placeholder="Looking For Funny Programming Memes?"
         />
-     
-        <div>
           <button (click)="emit(keyword.value);" class="btn text-white bg-primary bg-gradient">
-            <i class="fa-solid fa-magnifying-glass me-1"></i>jh
+            <fa-icon [icon]="['fas', 'magnifying-glass']" class="me-1"></fa-icon>
+            Search
           </button>
-          <button (click)="emit(keyword.value);" class="btn text-white bg-primary bg-gradient">
-            <i class="fa-solid fa-magnifying-glass me-1"></i> Search
-          </button>
-        </div>
  
       </div>
     </div>
   </div>
   
-  <div id="terms" class="d-flex gap-3 justify-content-center mt-3 w-90 col-10 m-auto custom-swiper-wrapper">
+  <div id="terms" class="d-flex gap-3 justify-content-center mt-3 col-md-10 m-auto custom-swiper-wrapper">
     <swiper
     
     [slidesPerView]="10"
