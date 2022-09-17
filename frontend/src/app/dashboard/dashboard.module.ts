@@ -8,6 +8,7 @@ import { TagsComponent } from './tags/tags.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ReactionsComponent } from './reactions/reactions.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     TagsComponent,
     SettingsComponent,
     ReactionsComponent,
-    ContactsComponent
+    ContactsComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,
