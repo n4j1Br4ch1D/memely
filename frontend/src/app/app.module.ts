@@ -32,6 +32,12 @@ import { faLinkedin as fabLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
 import { faYoutube as fabYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faDiscord as fabDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faYandexInternational as fabYandexInternational } from '@fortawesome/free-brands-svg-icons';
+import { faCloudflare as fabCloudflare } from '@fortawesome/free-brands-svg-icons';
+import { faSearchengin as fabSearchengin } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle as fabGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faChartSimple as fasChartSimple } from '@fortawesome/free-solid-svg-icons';
+import { faRectangleAd as fasRectangleAd } from '@fortawesome/free-solid-svg-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SwiperModule } from 'swiper/angular';
@@ -89,7 +95,8 @@ export class AppModule {
     library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord,
       fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft,
       fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImages, fasIdCardClip,
-      fasMagnifyingGlass, fasArrowLeft, fasThumbsUp, fasBarsStaggered, fasEnvelope, fasHashtag, fasUsers, fasGauge
+      fasMagnifyingGlass, fasArrowLeft, fasThumbsUp, fasBarsStaggered, fasEnvelope, fasHashtag, fasUsers, fasGauge,
+      fabYandexInternational, fabCloudflare, fabSearchengin, fabGoogle, fasChartSimple, fasRectangleAd
       );
 
   }
