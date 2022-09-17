@@ -1,10 +1,9 @@
 <div class="d-flex" id="wrapper">
-  <div class="bg-primary bg-gradient  border-right" id="sidebar-wrapper" 
+  
+  <div class="bg-primary bg-gradient  border-right d-flex flex-column flex-shrink-0 " id="sidebar-wrapper" 
    [ngClass]="status ? 'hide' : 'show'">
-    <div class="d-none sidebar-heading">
-    </div>
 
-    <div class="list-group list-group-flush mt-2">
+    <div class="list-group list-group-flush mt-2  mb-auto">
       <ul class="nav nav-pills flex-column mb-auto mx-2">
         <li class="nav-item">
           <a class="nav-link active" routerLink="/dashboard" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
@@ -56,6 +55,21 @@
         </li>
       </ul>
 
+    </div>
+
+    <div class="btn-group me-2 mb-2 bg-white" role="group" aria-label="First group">
+      <a class="btn btn-outline-secondary">
+        <fa-icon [icon]="['fas', 'house']" size="1x"></fa-icon>
+      </a>
+      <a class="btn btn-outline-secondary">
+        <fa-icon [icon]="['fas', 'info']" size="1x"></fa-icon>
+      </a>
+      <a class="btn btn-outline-secondary">
+        <fa-icon [icon]="['fas', 'envelope']" size="1x"></fa-icon>
+      </a>
+      <a class="btn btn-outline-secondary">
+        <fa-icon [icon]="['fas', 'book']" size="1x"></fa-icon>
+      </a>
     </div>
   </div>
 

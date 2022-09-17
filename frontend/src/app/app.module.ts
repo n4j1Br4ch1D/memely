@@ -23,7 +23,9 @@ import { faEnvelope as fasEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faHashtag as fasHashtag } from '@fortawesome/free-solid-svg-icons';
 import { faUsers as fasUsers } from '@fortawesome/free-solid-svg-icons';
 import { faGauge as fasGauge } from '@fortawesome/free-solid-svg-icons';
-
+import { faHouse as fasHouse } from '@fortawesome/free-solid-svg-icons';
+import { faBook as fasBook } from '@fortawesome/free-solid-svg-icons';
+import { faInfo as fasInfo } from '@fortawesome/free-solid-svg-icons';
 
 import { faFacebook as fabFacebook} from '@fortawesome/free-brands-svg-icons';
 import { faTwitter as fabTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -38,6 +40,7 @@ import { faSearchengin as fabSearchengin } from '@fortawesome/free-brands-svg-ic
 import { faGoogle as fabGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faChartSimple as fasChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { faRectangleAd as fasRectangleAd } from '@fortawesome/free-solid-svg-icons';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { SwiperModule } from 'swiper/angular';
@@ -95,6 +98,7 @@ export class AppModule {
     library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord,
       fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft,
       fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImages, fasIdCardClip,
+      fasHouse, fasBook, fasInfo, 
       fasMagnifyingGlass, fasArrowLeft, fasThumbsUp, fasBarsStaggered, fasEnvelope, fasHashtag, fasUsers, fasGauge,
       fabYandexInternational, fabCloudflare, fabSearchengin, fabGoogle, fasChartSimple, fasRectangleAd
       );
