@@ -4,7 +4,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
-
+import { faBars as fasBars } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus as fasCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faCircleArrowRight as fasCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faCircleArrowLeft as fasCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -68,7 +69,7 @@ export class AppModule {
   
   constructor(library: FaIconLibrary) {
     library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord,
-      fasCircleArrowRight, fasCircleArrowLeft);
+      fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft);
 
   }
 }
