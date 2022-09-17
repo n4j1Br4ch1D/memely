@@ -61,6 +61,7 @@ import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.c
 import { BackToTopComponent } from './shared/back-to-top/back-to-top.component';
 import { MemeComponent } from './site/meme/meme.component';
 import { ProfileDropdownComponent } from './shared/profile-dropdown/profile-dropdown.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { ProfileDropdownComponent } from './shared/profile-dropdown/profile-drop
     NgbModule,
     FontAwesomeModule,
     AppRoutingModule,
-    SwiperModule
+    SwiperModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
