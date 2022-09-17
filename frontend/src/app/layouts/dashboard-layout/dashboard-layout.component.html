@@ -1,1 +1,90 @@
-<router-outlet></router-outlet>
+<div class="d-flex" id="wrapper">
+  <div class="bg-primary bg-gradient  border-right" id="sidebar-wrapper" 
+   [ngClass]="status ? 'hide' : 'show'">
+    <div class="d-none sidebar-heading">
+    </div>
+
+    <div class="list-group list-group-flush mt-2">
+      <ul class="nav nav-pills flex-column mb-auto mx-2">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/dashboard" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+            <fa-icon [icon]="['fas', 'gauge']"  class="bi me-2" size="1x"></fa-icon>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/profiles" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+            <fa-icon [icon]="['fas', 'users']"  class="bi me-2" size="1x"></fa-icon>
+            Profiles
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/memes" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+            <fa-icon [icon]="['fas', 'images']"  class="bi me-2" size="1x"></fa-icon>
+            Memes
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+            <fa-icon [icon]="['fas', 'hashtag']"  class="bi me-2" size="1x"></fa-icon>
+            Tags
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+            <fa-icon [icon]="['fas', 'message']"  class="bi me-2" size="1x"></fa-icon>
+            Reactions
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+            <fa-icon [icon]="['fas', 'envelope']"  class="bi me-2" size="1x"></fa-icon>
+            Contacts
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+            <fa-icon [icon]="['fas', 'bell']"  class="bi me-2" size="1x"></fa-icon>
+            Notifications
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active text-white" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+            <fa-icon [icon]="['fas', 'gears']"  class="bi me-2" size="1x"></fa-icon>
+            Settings
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div id="page-content-wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-1">
+     
+      <div class="container-fluid">
+        <div>
+          <button class="btn btn-outline-primary" (click)="clickEvent()">
+            <fa-icon [icon]="['fas', 'bars-staggered']" size="1x"></fa-icon>
+          </button>
+          <a class="text-decoration-none fs-3 ps-2 font" href="#"> Memely; </a>  
+  
+        </div>
+
+
+        <div >
+          <app-profile-dropdown></app-profile-dropdown>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<div class="bg-light text-center py-2">
+  <p class="text-black">© 2022 Memely, <a class="text-white" target="_blank" href="https://anmoon.ma?ref=memely">ANMOON</a></p>
+</div>

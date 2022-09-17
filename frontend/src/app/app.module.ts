@@ -13,11 +13,17 @@ import { faGears as fasGears } from '@fortawesome/free-solid-svg-icons';
 import { faBell as fasBell } from '@fortawesome/free-solid-svg-icons';
 import { faMessage as fasMessage } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as fasBookmark } from '@fortawesome/free-solid-svg-icons';
-import { faImagePortrait as fasImagePortrait } from '@fortawesome/free-solid-svg-icons';
+import { faImages as fasImages } from '@fortawesome/free-solid-svg-icons';
 import { faIdCardClip as fasIdCardClip } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass as fasMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft as fasArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp as fasThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faBarsStaggered as fasBarsStaggered } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope as fasEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faHashtag as fasHashtag } from '@fortawesome/free-solid-svg-icons';
+import { faUsers as fasUsers } from '@fortawesome/free-solid-svg-icons';
+import { faGauge as fasGauge } from '@fortawesome/free-solid-svg-icons';
+
 
 import { faFacebook as fabFacebook} from '@fortawesome/free-brands-svg-icons';
 import { faTwitter as fabTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -45,6 +51,7 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
 import { BackToTopComponent } from './shared/back-to-top/back-to-top.component';
 import { MemeComponent } from './site/meme/meme.component';
+import { ProfileDropdownComponent } from './shared/profile-dropdown/profile-dropdown.component';
 
 
 @NgModule({
@@ -64,7 +71,8 @@ import { MemeComponent } from './site/meme/meme.component';
     DashboardLayoutComponent,
     ProfileLayoutComponent,
     BackToTopComponent,
-    MemeComponent,  ],
+    MemeComponent,
+    ProfileDropdownComponent,  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     NgbModule,
@@ -80,8 +88,8 @@ export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord,
       fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft,
-      fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImagePortrait, fasIdCardClip,
-      fasMagnifyingGlass, fasArrowLeft, fasThumbsUp
+      fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImages, fasIdCardClip,
+      fasMagnifyingGlass, fasArrowLeft, fasThumbsUp, fasBarsStaggered, fasEnvelope, fasHashtag, fasUsers, fasGauge
       );
 
   }
