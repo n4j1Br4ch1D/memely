@@ -18,6 +18,7 @@ interface State {
   page: number;
   pageSize: number;
   searchTerm: string;
+  filterRole: string;
   sortColumn: SortColumn;
   sortDirection: SortDirection;
 }
@@ -35,12 +36,18 @@ function sort(profiles: Profile[], column: SortColumn, direction: string): Profi
   }
 }
 
-function matches(Profile: Profile, term: string, pipe: PipeTransform) {
-  return Profile.name.toLowerCase().includes(term.toLowerCase())
-    || Profile.username.toLowerCase().includes(term.toLowerCase())
-    || Profile.email.toLowerCase().includes(term.toLowerCase());
-    // || pipe.transform(Profile.id).includes(term);
-    // || pipe.transform(Profile.population).includes(term);
+function matches(Profile: Profile, term: string, role: string, pipe: PipeTransform) {
+    if(role==""){
+      return Profile.name.toLowerCase().includes(term.toLowerCase())
+      || Profile.username.toLowerCase().includes(term.toLowerCase())
+      || Profile.email.toLowerCase().includes(term.toLowerCase())
+      || Profile.username===role;
+      // || pipe.transform(Profile.id).includes(term);
+      // || pipe.transform(Profile.population).includes(term);  
+    }else{
+     return  Profile.username===role;
+    }
+
 }
 
 @Injectable({providedIn: 'root'})
@@ -54,6 +61,7 @@ export class ProfileService {
     page: 1,
     pageSize: 5,
     searchTerm: '',
+    filterRole: '',
     sortColumn: '',
     sortDirection: ''
   };
@@ -93,10 +101,15 @@ export class ProfileService {
   get page() { return this._state.page; }
   get pageSize() { return this._state.pageSize; }
   get searchTerm() { return this._state.searchTerm; }
+  get filterRole() { return this._state.filterRole; }
+
+
+  
 
   set page(page: number) { this._set({page}); }
   set pageSize(pageSize: number) { this._set({pageSize}); }
   set searchTerm(searchTerm: string) { this._set({searchTerm}); }
+  set filterRole(filterRole: string) { this._set({filterRole}); }
   set sortColumn(sortColumn: SortColumn) { this._set({sortColumn}); }
   set sortDirection(sortDirection: SortDirection) { this._set({sortDirection}); }
 
@@ -107,13 +120,16 @@ export class ProfileService {
 
   private _search(): Observable<SearchResult> {    
 
-    const {sortColumn, sortDirection, pageSize, page, searchTerm} = this._state;
+    const {sortColumn, sortDirection, pageSize, page, searchTerm, filterRole} = this._state;
 
     // 1. sort
     let profiles = sort(this.profiles, sortColumn, sortDirection);
 
     // 2. filter
-    profiles = profiles.filter(Profile => matches(Profile, searchTerm, this.pipe));
+    console.log("term", searchTerm);
+    console.log("role", filterRole);
+
+    profiles = profiles.filter(Profile => matches(Profile, searchTerm, filterRole, this.pipe));
     const total = profiles.length;
 
     // 3. paginate
