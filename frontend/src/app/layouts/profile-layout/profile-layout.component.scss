@@ -1,26 +1,3 @@
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: blue; 
-  }
-  
-  body {
-    background-color: #ffebee;
-  }
   .card {
     /* width: 400px; */
     border: none;
@@ -52,39 +29,19 @@
     font-weight: 500;
     font-size: 16px;
   }
-  .list-icons {
-    display: inline-flex;
-    color: #c5cae9;
+  .website {
+    background: #89CFF0;
   }
-  .list-icons li {
-    list-style: none;
-    padding: 12px;
-    border-radius: 10px;
-    width: 49px;
-    margin-right: 10px;
+  .linkedin {
+    background: #0A66C2;
   }
-  .list-icons li i {
-    font-size: 17px;
-    color: #fff;
-  }
-  @media (max-width: 700px) {
-    .list-icons {
-      display: block;
-    }
-  }
-  .facebook {
-    background: #3b5998;
+  .twitter {
+    background: #1D9BF0;
   }
   .instagram {
-    background: #3f729b;
+    background: #C13584;
   }
-  .youtube {
-    background: #ff0000;
-  }
-  .whatsapp {
-    background: #4dc247;
-  }
-  .pinterest {
-    background: #cb2027;
+  .github {
+    background: #000000;
   }
   
