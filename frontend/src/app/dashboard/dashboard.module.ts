@@ -9,6 +9,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { ReactionsComponent } from './reactions/reactions.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { NgbdSortableHeader } from './profiles/sortable.directive';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,11 +22,14 @@ import { NotificationsComponent } from './notifications/notifications.component'
     SettingsComponent,
     ReactionsComponent,
     ContactsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    NgbdSortableHeader
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    NgbModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

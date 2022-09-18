@@ -1,192 +1,73 @@
-<div id="topnavbar">
-    <div class="topnav mb-3">
-      <div class="d-flex px-1">
-        <div class="d-flex align-items-center mb-3 px-md-3 px-2">
-          <span class="text-uppercase fs13 fw-bolder pe-3"
-            >search<span class="ps-1">by</span></span
-          >
-          <form class="example d-flex align-items-center">
-            <input
-              type="text"
-              placeholder="Type in Company Name Or Mid id"
-              name="search"
-            />
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
-      </div>
-    </div>
+<form>
+  <div class="d-flex justify-content-between">
+     <div class="d-flex gap-2 align-items-baseline">
+      <button type="button" class="btn btn-outline-primary">
+         New
+      </button>
+      <div class="input-group">
+        <input id="table-complete-search" type="text" placeholder="Full text search:" class="form-control" name="searchTerm" [(ngModel)]="service.searchTerm">
+        <div class="input-group-text bg-white">
+          <span *ngIf="service.loading$ | async">#</span>
+          <span *ngElse>@</span>
 
-    <div class="table-responsive px-2">
-      <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th scope="col">COMPANY<span>ID</span></th>
-            <th scope="col">COMPANY</th>
-            <th scope="col">MID</th>
-            <th scope="col">BANK<span class="ps-1">NAME</span></th>
-            <th scope="col">CUR</th>
-            <th class="text-center" scope="col">3DS</th>
-            <th class="text-center" scope="col">ACTIVE</th>
-            <th class="text-center" scope="col">ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="bg-blight">235</span></td>
-            <td>
-              <span class="bg-bdark"
-                >ABC<span class="ps-1">LOANS</span></span
-              >
-            </td>
-            <td><span class="bg-blight">1343</span></td>
-            <td>
-              <span class="bg-bdark">Faster<span>Trading</span></span>
-            </td>
-            <td><span class="bg-bdark">GBP</span></td>
-            <td class="text-center px-0">
-              <span class="fas fa-check"></span>
-            </td>
-            <td class="text-center"><span class="fas fa-check"></span></td>
-            <td class="text-center">
-              <span class="fas fa-ellipsis-h"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="bg-blight">236</span></td>
-            <td>
-              <span class="bg-bdark"
-                >BCE<span class="ps-1">LOANS</span></span
-              >
-            </td>
-            <td><span class="bg-blight">1298</span></td>
-            <td>
-              <span class="bg-bdark">Secure<span>Trading</span></span>
-            </td>
-            <td><span class="bg-bdark">GBP</span></td>
-            <td class="text-center px-0">
-              <span class="fas fa-check"></span>
-            </td>
-            <td class="text-center"><span class="fas fa-check"></span></td>
-            <td class="text-center">
-              <span class="fas fa-ellipsis-h"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="bg-blight">237</span></td>
-            <td>
-              <span class="bg-bdark"
-                >CDE<span class="ps-1">LOANS</span></span
-              >
-            </td>
-            <td><span class="bg-blight">1313</span></td>
-            <td>
-              <span class="bg-bdark">Secure<span>Trading</span></span>
-            </td>
-            <td><span class="bg-bdark">GBP</span></td>
-            <td class="text-center px-0">
-              <span class="fas fa-times"></span>
-            </td>
-            <td class="text-center"><span class="fas fa-check"></span></td>
-            <td class="text-center">
-              <span class="fas fa-ellipsis-h"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="bg-blight">235</span></td>
-            <td>
-              <span class="bg-bdark"
-                >DEF<span class="ps-1">LOANS</span></span
-              >
-            </td>
-            <td><span class="bg-blight">1323</span></td>
-            <td>
-              <span class="bg-bdark">Secure<span>Trading</span></span>
-            </td>
-            <td><span class="bg-bdark">GBP</span></td>
-            <td class="text-center px-0">
-              <span class="fas fa-times"></span>
-            </td>
-            <td class="text-center"><span class="fas fa-check"></span></td>
-            <td class="text-center">
-              <span class="fas fa-ellipsis-h"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="bg-blight">235</span></td>
-            <td>
-              <span class="bg-bdark"
-                >FEG<span class="ps-1">LOANS</span></span
-              >
-            </td>
-            <td><span class="bg-blight">1443</span></td>
-            <td>
-              <span class="bg-bdark">Secure<span>Trading</span></span>
-            </td>
-            <td><span class="bg-bdark">GBP</span></td>
-            <td class="text-center px-0">
-              <span class="fas fa-times"></span>
-            </td>
-            <td class="text-center"><span class="fas fa-check"></span></td>
-            <td class="text-center">
-              <span class="fas fa-ellipsis-h"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="bg-blight">237</span></td>
-            <td>
-              <span class="bg-bdark"
-                >GFR<span class="ps-1">LOANS</span></span
-              >
-            </td>
-            <td><span class="bg-blight">1943</span></td>
-            <td>
-              <span class="bg-bdark">Faster<span>Trading</span></span>
-            </td>
-            <td><span class="bg-bdark">GBP</span></td>
-            <td class="text-center px-0">
-              <span class="fas fa-times"></span>
-            </td>
-            <td class="text-center"><span class="fas fa-check"></span></td>
-            <td class="text-center">
-              <span class="fas fa-ellipsis-h"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="bg-blight">235</span></td>
-            <td>
-              <span class="bg-bdark"
-                >ABC<span class="ps-1">LOANS</span></span
-              >
-            </td>
-            <td><span class="bg-blight">1343</span></td>
-            <td>
-              <span class="bg-bdark">Faster<span>Trading</span></span>
-            </td>
-            <td><span class="bg-bdark">GBP</span></td>
-            <td class="text-center px-0">
-              <span class="fas fa-times"></span>
-            </td>
-            <td class="text-center"><span class="fas fa-check"></span></td>
-            <td class="text-center">
-              <span class="fas fa-ellipsis-h"></span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div
-      class="d-flex align-items-center justify-content-between px-3 mt-3"
-    >
-      <div class="bg-bdark fs13">
-        <span>Page</span>
-        <input class="input-10 text-center" type="text" value="1" />
-        <span><span class="px-1">of</span>1</span>
+        </div>
+
       </div>
-      <div class="d-flex justify-content-end bg-bdark fs13">
-        <span class="pe-1">Show</span>
-        <input class="input-10" type="number" value="25" />
-        <span class="ps-2"><span class="pe-2">/</span>Page</span>
-      </div>
+     </div>
+     <div class="mb-3 d-flex gap-2">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Role</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Status</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
     </div>
   </div>
+
+
+  <div class="border  border-2 rounded rounded-3 p-1 ">
+    <table class="table table-striped  rounded rounded-3 overflow-hidden p-1">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
+        <th scope="col" sortable="area" (sort)="onSort($event)">Area</th>
+        <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
+        <th scope="col">Actions</th> 
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let country of countries$ | async">
+        <th scope="row">{{ country.id }}</th>
+        <td>
+          <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="me-2" style="width: 20px">
+          <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+        <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
+        <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight></td>
+        <td>View, Edit, Delete</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="d-flex justify-content-between align-items-baseline p-2">
+    <ngb-pagination
+      [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+    </ngb-pagination>
+
+    <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+      <option [ngValue]="2">2 items per page</option>
+      <option [ngValue]="4">4 items per page</option>
+      <option [ngValue]="6">6 items per page</option>
+    </select>
+  </div>
+
+</form>
