@@ -33,7 +33,7 @@
 
 
   <div class="border  border-2 rounded rounded-3 p-1 ">
-    <table class="table table-striped  rounded rounded-3 overflow-hidden p-1">
+    <table class="table table-responsive table-striped rounded rounded-3 overflow-hidden p-1">
       <thead>
       <tr>
         <th scope="col">#</th>
@@ -49,20 +49,20 @@
           <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
           email
         </th>
-        <th scope="col">Actions</th> 
+        <th scope="col" class="text-center">Actions</th> 
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let profile of profiles$ | async">
         <th scope="row">{{ profile.id }}</th>
         <td>
-          <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + profile.username" class="me-2" style="width: 20px"> -->
+          <img [src]="'https://avatars.githubusercontent.com/u/38995898?v=4'" class="me-2 rounded-circle" style="width: 24px">
           <ngb-highlight [result]="profile.username" [term]="service.searchTerm"></ngb-highlight>
         </td>
         <td><ngb-highlight [result]="profile.name" [term]="service.searchTerm"></ngb-highlight></td>
         <td><ngb-highlight [result]="profile.email" [term]="service.searchTerm"></ngb-highlight></td>
         <td class="d-flex gap-1">
-          <button class="btn btn-outline-primary">
+          <button class="btn btn-outline-primary ms-auto">
             <fa-icon [icon]="['far', 'eye']" size="1x"></fa-icon>
           </button>
           <button class="btn btn-outline-info">

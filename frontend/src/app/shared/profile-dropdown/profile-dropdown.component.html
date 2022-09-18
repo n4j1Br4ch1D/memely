@@ -8,6 +8,12 @@
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <li ngbDropdownItem>
+          <a class="dropdown-item" routerLink="/dashboard">
+            <fa-icon [icon]="['fas', 'gauge']" ></fa-icon>
+            Dashboard
+          </a>
+        </li>
+        <li ngbDropdownItem>
           <a class="dropdown-item" routerLink="/profile/NajibRachid">
             <fa-icon [icon]="['fas', 'id-card-clip']" ></fa-icon>
             My Profile
@@ -55,7 +61,7 @@
       </div>
     </div>
   
-    <a href="#" role="button" class="btn p-0 ms-2 text-primary">
+    <a routerLink="/profile/memes/new" role="button" class="btn p-0 ms-2 text-primary">
       <fa-icon [icon]="['fas', 'circle-plus']" class="fs-1"></fa-icon>
     </a>
   

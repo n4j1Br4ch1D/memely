@@ -7,6 +7,7 @@ import { MyMemesComponent } from './my-memes/my-memes.component';
 import { MyNotificationsComponent } from './my-notifications/my-notifications.component';
 import { MyReactionsComponent } from './my-reactions/my-reactions.component';
 import { MySettingsComponent } from './my-settings/my-settings.component';
+import { NewMemeComponent } from './new-meme/new-meme.component';
 
 const routes: Routes = [
   {
@@ -14,17 +15,15 @@ const routes: Routes = [
     // component: ProfileComponent,
     children: [
       { path: 'profile/:username', component: MyMemesComponent },
-      { path: 'memes', component: MyMemesComponent },
+      { path: 'memes', component: MyMemesComponent},
       { path: 'favorites', component: MyFavoritesComponent },
       { path: 'reactions', component: MyReactionsComponent },
       { path: 'Followings', component: MyFollowingsComponent },
       { path: 'followers', component: MyFollowersComponent },
       { path: 'notifications', component: MyNotificationsComponent },
       { path: 'settings', component: MySettingsComponent },
+      { path: 'memes/new', component: NewMemeComponent}
 
-
-
-      
 
     ],
   },
