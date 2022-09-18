@@ -10,6 +10,8 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
 import { MemeComponent } from './site/meme/meme.component';
+import { UseTermsComponent } from './site/use-terms/use-terms.component';
+import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.component';
 const routes: Routes = [
   // Site
   {
@@ -21,6 +23,8 @@ const routes: Routes = [
       { path: 'meme', component: MemeComponent, title: 'Meme - Memely' },
       { path: 'about', component: AboutComponent, title: 'About - Memely' },
       { path: 'contact', component: ContactComponent, title: 'Contact - Memely' },
+      { path: 'use-terms', component: UseTermsComponent, title: 'Use Terms - Memely' },
+      { path: 'privacy-policy', component: PrivacyPolicyComponent, title: 'Privacy Policy - Memely' },
     ],
   },
 

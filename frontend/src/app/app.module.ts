@@ -62,6 +62,8 @@ import { BackToTopComponent } from './shared/back-to-top/back-to-top.component';
 import { MemeComponent } from './site/meme/meme.component';
 import { ProfileDropdownComponent } from './shared/profile-dropdown/profile-dropdown.component';
 import { NgChartsModule } from 'ng2-charts';
+import { UseTermsComponent } from './site/use-terms/use-terms.component';
+import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.component';
 
 
 @NgModule({
@@ -82,7 +84,9 @@ import { NgChartsModule } from 'ng2-charts';
     ProfileLayoutComponent,
     BackToTopComponent,
     MemeComponent,
-    ProfileDropdownComponent,  ],
+    ProfileDropdownComponent,
+    UseTermsComponent,
+    PrivacyPolicyComponent,  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     NgbModule,
