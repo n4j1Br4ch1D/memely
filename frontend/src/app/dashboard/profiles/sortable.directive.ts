@@ -1,7 +1,7 @@
 import {Directive, EventEmitter, Input, Output} from '@angular/core';
-import {Country} from './country';
+import {Profile} from './profile';
 
-export type SortColumn = keyof Country | '';
+export type SortColumn = keyof Profile | '';
 export type SortDirection = 'asc' | 'desc' | '';
 const rotate: {[key: string]: SortDirection} = { 'asc': 'desc', 'desc': '', '': 'asc' };
 
@@ -11,8 +11,6 @@ export interface SortEvent {
 }
 
 @Directive({
-  // selector: '[appSortable]'
-
   selector: 'th[sortable]',
   host: {
     '[class.asc]': 'direction === "asc"',
@@ -21,9 +19,6 @@ export interface SortEvent {
   }
 })
 
-
-
-// export class SortableDirective {
 export class NgbdSortableHeader {
   constructor() { }
 

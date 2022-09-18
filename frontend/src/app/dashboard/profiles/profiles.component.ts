@@ -2,8 +2,8 @@ import {DecimalPipe} from '@angular/common';
 import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {Observable} from 'rxjs';
 
-import {Country} from './country';
-import {CountryService} from './country.service';
+import {Profile} from './profile';
+import {ProfileService} from './profiles.service';
 import {NgbdSortableHeader, SortEvent} from './sortable.directive';
 
 
@@ -14,24 +14,23 @@ import {NgbdSortableHeader, SortEvent} from './sortable.directive';
     selector: 'app-profiles',
     templateUrl: './profiles.component.html',
     styleUrls: ['./profiles.component.scss'],
-    providers: [CountryService, DecimalPipe]
+    providers: [ProfileService, DecimalPipe]
     
   })
 
   export class ProfilesComponent implements OnInit {
-    countries$: Observable<Country[]>;
+  profiles$: Observable<Profile[]>;
   total$: Observable<number>;
 
   @ViewChildren(NgbdSortableHeader)
     headers!: QueryList<NgbdSortableHeader>;
 
-  constructor(public service: CountryService) {
-    this.countries$ = service.countries$;
+  constructor(public service: ProfileService) {
+    this.profiles$ = service.profiles$;
     this.total$ = service.total$;
   }
 
   ngOnInit(): void {
-    this.service.getCountries();
   }
 
   onSort({column, direction}: SortEvent) {

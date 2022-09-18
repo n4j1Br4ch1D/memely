@@ -39,30 +39,30 @@
       <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col" sortable="name" (sort)="onSort($event)">           
+        <th scope="col" sortable="username" (sort)="onSort($event)">           
           <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
-          Country
+          username
         </th>
-        <th scope="col" sortable="area" (sort)="onSort($event)">
+        <th scope="col" sortable="name" (sort)="onSort($event)">
           <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
-          Area
+          name
         </th>
-        <th scope="col" sortable="population" (sort)="onSort($event)">
+        <th scope="col" sortable="email" (sort)="onSort($event)">
           <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
-          Population
+          email
         </th>
         <th scope="col">Actions</th> 
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let country of countries$ | async">
-        <th scope="row">{{ country.id }}</th>
+      <tr *ngFor="let profile of profiles$ | async">
+        <th scope="row">{{ profile.id }}</th>
         <td>
-          <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="me-2" style="width: 20px">
-          <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+          <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + profile.username" class="me-2" style="width: 20px"> -->
+          <ngb-highlight [result]="profile.username" [term]="service.searchTerm"></ngb-highlight>
         </td>
-        <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
-        <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight></td>
+        <td><ngb-highlight [result]="profile.name" [term]="service.searchTerm"></ngb-highlight></td>
+        <td><ngb-highlight [result]="profile.email" [term]="service.searchTerm"></ngb-highlight></td>
         <td class="d-flex gap-1">
           <button class="btn btn-outline-primary">
             <fa-icon [icon]="['far', 'eye']" size="1x"></fa-icon>
@@ -86,9 +86,11 @@
     </ngb-pagination>
 
     <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-      <option [ngValue]="2">2 items per page</option>
-      <option [ngValue]="4">4 items per page</option>
-      <option [ngValue]="6">6 items per page</option>
+      <option [ngValue]="1">1 items per page</option>
+      <option [ngValue]="5">5 items per page</option>
+      <option [ngValue]="10">10 items per page</option>
+      <option [ngValue]="25">25 items per page</option>
+      <option [ngValue]="50">50 items per page</option>
     </select>
   </div>
 

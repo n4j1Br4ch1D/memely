@@ -3,14 +3,14 @@ import {Injectable, PipeTransform} from '@angular/core';
 
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 
-import {Country} from './country';
+import {Profile} from './profile';
 import {DecimalPipe} from '@angular/common';
 import {debounceTime, delay, switchMap, tap} from 'rxjs/operators';
 import {SortColumn, SortDirection} from './sortable.directive';
 import { HttpClient } from '@angular/common/http';
 
 interface SearchResult {
-  countries: Country[];
+  profiles: Profile[];
   total: number;
 }
 
@@ -24,40 +24,43 @@ interface State {
 
 const compare = (v1: string | number, v2: string | number) => v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
 
-function sort(countries: Country[], column: SortColumn, direction: string): Country[] {
+function sort(profiles: Profile[], column: SortColumn, direction: string): Profile[] {
   if (direction === '' || column === '') {
-    return countries;
+    return profiles;
   } else {
-    return [...countries].sort((a, b) => {
+    return [...profiles].sort((a, b) => {
       const res = compare(a[column], b[column]);
       return direction === 'asc' ? res : -res;
     });
   }
 }
 
-function matches(country: Country, term: string, pipe: PipeTransform) {
-  return country.name.toLowerCase().includes(term.toLowerCase())
-    || pipe.transform(country.area).includes(term)
-    || pipe.transform(country.population).includes(term);
+function matches(Profile: Profile, term: string, pipe: PipeTransform) {
+  return Profile.name.toLowerCase().includes(term.toLowerCase())
+    || Profile.username.toLowerCase().includes(term.toLowerCase())
+    || Profile.email.toLowerCase().includes(term.toLowerCase());
+    // || pipe.transform(Profile.id).includes(term);
+    // || pipe.transform(Profile.population).includes(term);
 }
 
 @Injectable({providedIn: 'root'})
-export class CountryService {
+export class ProfileService {
   private _loading$ = new BehaviorSubject<boolean>(true);
   private _search$ = new Subject<void>();
-  private _countries$ = new BehaviorSubject<Country[]>([]);
+  private _profiles$ = new BehaviorSubject<Profile[]>([]);
   private _total$ = new BehaviorSubject<number>(0);
 
   private _state: State = {
     page: 1,
-    pageSize: 4,
+    pageSize: 5,
     searchTerm: '',
     sortColumn: '',
     sortDirection: ''
   };
-  countries: Country[] = [];
+  profiles: Profile[] = [];
 
   constructor(private http: HttpClient, private pipe: DecimalPipe) {
+    this.getProfiles();
     this._search$.pipe(
       tap(() => this._loading$.next(true)),
       debounceTime(200),
@@ -65,25 +68,26 @@ export class CountryService {
       delay(200),
       tap(() => this._loading$.next(false))
     ).subscribe(result => {
-      this._countries$.next(result.countries);
+      this._profiles$.next(result.profiles);
       this._total$.next(result.total);
     });
 
     this._search$.next();
+    
   }
 
 
-  getCountries() : void {
-    this.http.get<Country[]>('http://localhost:4200/assets/data/countries.json')
-      .subscribe((data: Country[]) => {
-        this.countries = data;
+  getProfiles() : void {
+    this.http.get<Profile[]>('./assets/data/profiles.json')
+      .subscribe((data: Profile[]) => {        
+        this.profiles = data;
       });      
   }
 
   
 
 
-  get countries$() { return this._countries$.asObservable(); }
+  get profiles$() { return this._profiles$.asObservable(); }
   get total$() { return this._total$.asObservable(); }
   get loading$() { return this._loading$.asObservable(); }
   get page() { return this._state.page; }
@@ -106,14 +110,14 @@ export class CountryService {
     const {sortColumn, sortDirection, pageSize, page, searchTerm} = this._state;
 
     // 1. sort
-    let countries = sort(this.countries, sortColumn, sortDirection);
+    let profiles = sort(this.profiles, sortColumn, sortDirection);
 
     // 2. filter
-    countries = countries.filter(country => matches(country, searchTerm, this.pipe));
-    const total = countries.length;
+    profiles = profiles.filter(Profile => matches(Profile, searchTerm, this.pipe));
+    const total = profiles.length;
 
     // 3. paginate
-    countries = countries.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
-    return of({countries, total});
+    profiles = profiles.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
+    return of({profiles, total});
   }
 }
