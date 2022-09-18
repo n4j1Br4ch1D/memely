@@ -8,7 +8,7 @@ import { DocumentationComponent } from './documentation/documentation.component'
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
+import { ProfileLayoutComponent } from './layouts/profile-layout/profile-layout.component';
 import { MemeComponent } from './site/meme/meme.component';
 import { UseTermsComponent } from './site/use-terms/use-terms.component';
 import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.component';

@@ -14,17 +14,15 @@ const routes: Routes = [
     path: '',
     // component: ProfileComponent,
     children: [
-      { path: 'profile/:username', component: MyMemesComponent },
+      { path: '', component: MyMemesComponent},
       { path: 'memes', component: MyMemesComponent},
       { path: 'favorites', component: MyFavoritesComponent },
       { path: 'reactions', component: MyReactionsComponent },
-      { path: 'Followings', component: MyFollowingsComponent },
+      { path: 'followings', component: MyFollowingsComponent },
       { path: 'followers', component: MyFollowersComponent },
       { path: 'notifications', component: MyNotificationsComponent },
       { path: 'settings', component: MySettingsComponent },
-      { path: 'memes/new', component: NewMemeComponent}
-
-
+      { path: 'memes/new', component: NewMemeComponent},
     ],
   },
 ];

@@ -57,7 +57,7 @@ import { ContactComponent } from './site/contact/contact.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
-import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
+import { ProfileLayoutComponent } from './layouts/profile-layout/profile-layout.component';
 import { BackToTopComponent } from './shared/back-to-top/back-to-top.component';
 import { MemeComponent } from './site/meme/meme.component';
 import { ProfileDropdownComponent } from './shared/profile-dropdown/profile-dropdown.component';
