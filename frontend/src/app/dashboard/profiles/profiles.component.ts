@@ -31,6 +31,7 @@ import {NgbdSortableHeader, SortEvent} from './sortable.directive';
   }
 
   ngOnInit(): void {
+    this.service.getCountries();
   }
 
   onSort({column, direction}: SortEvent) {

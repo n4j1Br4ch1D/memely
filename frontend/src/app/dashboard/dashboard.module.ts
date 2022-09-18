@@ -20,6 +20,7 @@ import { faTrashAlt as farTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faSpinner as fasSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faSort as fasSort } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass as fasMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { faMagnifyingGlass as fasMagnifyingGlass } from '@fortawesome/free-solid
     DashboardRoutingModule,
     NgbModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ]
 })
 export class DashboardModule { 

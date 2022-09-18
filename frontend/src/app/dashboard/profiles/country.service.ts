@@ -4,10 +4,10 @@ import {Injectable, PipeTransform} from '@angular/core';
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 
 import {Country} from './country';
-import {COUNTRIES} from './countries';
 import {DecimalPipe} from '@angular/common';
 import {debounceTime, delay, switchMap, tap} from 'rxjs/operators';
 import {SortColumn, SortDirection} from './sortable.directive';
+import { HttpClient } from '@angular/common/http';
 
 interface SearchResult {
   countries: Country[];
@@ -55,8 +55,9 @@ export class CountryService {
     sortColumn: '',
     sortDirection: ''
   };
+  countries: Country[] = [];
 
-  constructor(private pipe: DecimalPipe) {
+  constructor(private http: HttpClient, private pipe: DecimalPipe) {
     this._search$.pipe(
       tap(() => this._loading$.next(true)),
       debounceTime(200),
@@ -70,6 +71,17 @@ export class CountryService {
 
     this._search$.next();
   }
+
+
+  getCountries() : void {
+    this.http.get<Country[]>('http://localhost:4200/assets/data/countries.json')
+      .subscribe((data: Country[]) => {
+        this.countries = data;
+      });      
+  }
+
+  
+
 
   get countries$() { return this._countries$.asObservable(); }
   get total$() { return this._total$.asObservable(); }
@@ -89,11 +101,12 @@ export class CountryService {
     this._search$.next();
   }
 
-  private _search(): Observable<SearchResult> {
+  private _search(): Observable<SearchResult> {    
+
     const {sortColumn, sortDirection, pageSize, page, searchTerm} = this._state;
 
     // 1. sort
-    let countries = sort(COUNTRIES, sortColumn, sortDirection);
+    let countries = sort(this.countries, sortColumn, sortDirection);
 
     // 2. filter
     countries = countries.filter(country => matches(country, searchTerm, this.pipe));
