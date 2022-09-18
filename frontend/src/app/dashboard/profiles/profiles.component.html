@@ -1,17 +1,20 @@
 <form>
   <div class="d-flex justify-content-between">
      <div class="d-flex gap-2 align-items-baseline">
-      <button type="button" class="btn btn-outline-primary">
-         New
+      <button type="button" class="btn btn-outline-primary d-flex">
+        <fa-icon [icon]="['fas', 'square-plus']" size="1x" class="me-1"></fa-icon>
+        New
       </button>
       <div class="input-group">
         <input id="table-complete-search" type="text" placeholder="Full text search:" class="form-control" name="searchTerm" [(ngModel)]="service.searchTerm">
         <div class="input-group-text bg-white">
-          <span *ngIf="service.loading$ | async">#</span>
-          <span *ngElse>@</span>
-
+          <span *ngIf="service.loading$ | async ">
+            <fa-icon [icon]="['fas', 'spinner']" size="1x" class="text-primary"></fa-icon>
+          </span>
+          <span *ngIf="!(service.loading$ | async )">
+            <fa-icon [icon]="['fas', 'magnifying-glass']" size="1x"></fa-icon>
+          </span>
         </div>
-
       </div>
      </div>
      <div class="mb-3 d-flex gap-2">
@@ -36,9 +39,18 @@
       <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
-        <th scope="col" sortable="area" (sort)="onSort($event)">Area</th>
-        <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
+        <th scope="col" sortable="name" (sort)="onSort($event)">           
+          <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
+          Country
+        </th>
+        <th scope="col" sortable="area" (sort)="onSort($event)">
+          <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
+          Area
+        </th>
+        <th scope="col" sortable="population" (sort)="onSort($event)">
+          <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
+          Population
+        </th>
         <th scope="col">Actions</th> 
       </tr>
       </thead>
@@ -51,7 +63,17 @@
         </td>
         <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
         <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight></td>
-        <td>View, Edit, Delete</td>
+        <td class="d-flex gap-1">
+          <button class="btn btn-outline-primary">
+            <fa-icon [icon]="['far', 'eye']" size="1x"></fa-icon>
+          </button>
+          <button class="btn btn-outline-info">
+            <fa-icon [icon]="['far', 'pen-to-square']" size="1x"></fa-icon>
+          </button>
+          <button class="btn btn-outline-danger">
+            <fa-icon [icon]="['far', 'trash-alt']" size="1x"></fa-icon>
+          </button>
+        </td>
       </tr>
       </tbody>
     </table>
