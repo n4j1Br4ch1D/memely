@@ -32,6 +32,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@nguniversal/express-engine": "^14.2.0",
+    "@ngx-loading-bar/core": "^6.0.2",
+    "@ngx-loading-bar/router": "^6.0.2",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
     "chart.js": "^3.6.0",

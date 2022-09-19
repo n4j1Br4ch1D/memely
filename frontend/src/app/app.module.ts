@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import { faBars as fasBars } from '@fortawesome/free-solid-svg-icons';
@@ -99,7 +103,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SwiperModule,
     NgChartsModule,
     NgxMasonryModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LoadingBarRouterModule,
+    LoadingBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
