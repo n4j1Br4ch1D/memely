@@ -65,6 +65,7 @@ import { ProfileDropdownComponent } from './shared/profile-dropdown/profile-drop
 import { NgChartsModule } from 'ng2-charts';
 import { UseTermsComponent } from './site/use-terms/use-terms.component';
 import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.component';
+import { ScrollSpyDirective } from './documentation/scroll-spy.directive';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.com
     MemeComponent,
     ProfileDropdownComponent,
     UseTermsComponent,
-    PrivacyPolicyComponent,  ],
+    PrivacyPolicyComponent,
+    ScrollSpyDirective,  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     NgbModule,

@@ -11,21 +11,14 @@ export class DocumentationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll($event: any) {
-      console.log("scrolling...");
+  currentSection = 'get-started';
+
+  onSectionChange(sectionId: string) {
+    this.currentSection = sectionId;
   }
 
-  myColor = 'red';
-
-  onScroll(element: { scrollTop: number; }) {
-   console.log("scrolling...");
-   console.log(element.scrollTop)
- 
-   if (element.scrollTop > 100) {
-     this.myColor = 'blue';
-   }
-   
+  scrollTo(section: string) {    
+    document?.querySelector('#' + section)?.scrollIntoView()
+    this.currentSection = section;
   }
-
 }
