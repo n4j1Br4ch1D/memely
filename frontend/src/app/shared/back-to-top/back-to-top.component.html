@@ -1,4 +1,6 @@
-<button mat-mini-fab color="primary" (click)="onScrollToTop()">
-    <div class="scroll-icon">totop</div>
+<div class="scroll-to-top fixed-bottom m-3 text-end" [ngClass]="{'show-scrollTop': windowScrolled}">
+  <button type="button" class="btn btn-outline-secondary" data-toggle="button" aria-pressed="true" (click)="scrollToTop()">
+    <fa-icon [icon]="['fas', 'arrow-up-long']" size="1x"></fa-icon>
   </button>
-  
+</div>
+

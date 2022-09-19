@@ -41,7 +41,7 @@ import { faGoogle as fabGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faChartSimple as fasChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { faRectangleAd as fasRectangleAd } from '@fortawesome/free-solid-svg-icons';
 import { faGlobe as fasGlobe } from '@fortawesome/free-solid-svg-icons';
-
+import { faArrowUpLong as fasArrowUpLong } from '@fortawesome/free-solid-svg-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SwiperModule } from 'swiper/angular';
@@ -110,7 +110,7 @@ export class AppModule {
     library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord,
       fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft,
       fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImages, fasIdCardClip,
-      fasHouse, fasBook, fasInfo, fasGlobe,
+      fasHouse, fasBook, fasInfo, fasGlobe, fasArrowUpLong,
       fasMagnifyingGlass, fasArrowLeft, fasThumbsUp, fasBarsStaggered, fasEnvelope, fasHashtag, fasUsers, fasGauge,
       fabYandexInternational, fabCloudflare, fabSearchengin, fabGoogle, fasChartSimple, fasRectangleAd
       );
