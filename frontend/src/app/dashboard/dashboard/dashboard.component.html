@@ -262,6 +262,61 @@
   </div>
 </div>
 
+<div class="row mt-5">
+    <div class="col-4">
+      <div class="card bg-primary mb-4" >
+        <div class="d-flex align-items-end row">
+          <div class="col-sm-7">
+            <div class="card-body">
+              <h5 class="card-title text-white">Congratulations Najib! 🎉</h5>
+              <p class="mb-4">You have <span class="fw-bold">2</span> New Pull Request today.
+                Keep On the Good Work.</p>
+              <a href="javascript:;" class="btn btn-sm btn-outline-light">View Badges</a>
+            </div>
+          </div>
+          <div class="col-sm-5 text-center text-sm-left">
+            <div class="card-body pb-0 px-0 px-md-4">
+              <img  class="img-fluid" src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template-free/assets/img/illustrations/man-with-laptop-light.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <canvas baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [type]="barChartType">
+          </canvas>
+        </div>
+        <button class="btn btn-primary mt-4"  (click)="randomize()">Update</button>  
+      </div>
+   </div>
+   <div class="col-4">
+    <div class="card">
+      <div>
+        <canvas baseChart
+        [data]="polarAreaChartData"
+        [legend]="polarAreaLegend"
+        [type]="polarAreaChartType">
+      </canvas>
+      </div>
+    </div>
+ </div>
+ <div class="col-4">
+  <div class="card">
+    <div>
+      <canvas baseChart
+        [data]="radarChartData"
+        [options]="radarChartOptions"
+        [type]="radarChartType">
+      </canvas>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="d-none">
   profiles Number (today)(active/ not active)
   <hr />
