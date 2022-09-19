@@ -1,68 +1,90 @@
-
 <div class="flex">
-
+  <div *ngIf="signedIn; then profile; else signIn"></div>
+  <ng-template #profile>
     <div ngbDropdown class="d-inline-block">
-      <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-        <img routerLink="/profile" src="https://avatars.githubusercontent.com/u/38995898?v=4" style="height:28px;object-fit: contain;" class="img-fluid rounded-circle me-1" alt="">
-        <span routerLink="/profile" class="d-none d-md-inline-block">NajibRachid</span>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="dropdownBasic1"
+        ngbDropdownToggle
+      >
+        <img
+          routerLink="/profile"
+          src="https://avatars.githubusercontent.com/u/38995898?v=4"
+          style="height: 28px; object-fit: contain"
+          class="img-fluid rounded-circle me-1"
+          alt=""
+        />
+        <span routerLink="/profile" class="d-none d-md-inline-block"
+          >NajibRachid</span
+        >
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <li ngbDropdownItem>
           <a class="dropdown-item" routerLink="/dashboard">
-            <fa-icon [icon]="['fas', 'gauge']" ></fa-icon>
+            <fa-icon [icon]="['fas', 'gauge']"></fa-icon>
             Dashboard
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="dropdown-item" routerLink="/profile">
-            <fa-icon [icon]="['fas', 'id-card-clip']" ></fa-icon>
+            <fa-icon [icon]="['fas', 'id-card-clip']"></fa-icon>
             My Profile
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="dropdown-item" routerLink="/profile/memes">
-            <fa-icon [icon]="['fas', 'images']" ></fa-icon>
+            <fa-icon [icon]="['fas', 'images']"></fa-icon>
             My Memes
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="dropdown-item" routerLink="/profile/favorites">
-            <fa-icon [icon]="['fas', 'bookmark']" ></fa-icon>
+            <fa-icon [icon]="['fas', 'bookmark']"></fa-icon>
             My Favorites
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="dropdown-item" routerLink="/profile/reactions">
-            <fa-icon [icon]="['fas', 'message']" ></fa-icon>
+            <fa-icon [icon]="['fas', 'message']"></fa-icon>
             My Reactions
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="dropdown-item" routerLink="/profile/notifications">
-            <fa-icon [icon]="['fas', 'bell']" ></fa-icon>
+            <fa-icon [icon]="['fas', 'bell']"></fa-icon>
             Notifications
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="dropdown-item" routerLink="/profile/settings">
-            <fa-icon [icon]="['fas', 'gears']" ></fa-icon>
+            <fa-icon [icon]="['fas', 'gears']"></fa-icon>
             Settings
           </a>
         </li>
         <li ngbDropdownItem>
-          <hr class="dropdown-divider">
+          <hr class="dropdown-divider" />
         </li>
         <li ngbDropdownItem>
           <a class="dropdown-item text-danger" href="#">
-            <fa-icon [icon]="['fas', 'right-from-bracket']" ></fa-icon>
+            <fa-icon [icon]="['fas', 'right-from-bracket']"></fa-icon>
             Sign-Out
           </a>
         </li>
       </div>
     </div>
-  
-    <a routerLink="/profile/memes/new" role="button" class="btn p-0 ms-2 text-primary">
-      <fa-icon [icon]="['fas', 'circle-plus']" class="fs-1"></fa-icon>
-    </a>
-  
-  </div>
+  </ng-template>
+  <ng-template #signIn>
+    <div class="btn-group">
+      <a routerLink="/auth/sign-in" class="btn btn-primary" aria-current="page">Sign-in</a>
+      <a routerLink="/auth/sign-up" class="btn btn-outline-primary" aria-current="page">Sign-Up</a>
+    </div>
+  </ng-template>
+  <a
+    routerLink="/profile/memes/new"
+    role="button"
+    class="btn p-0 ms-2 text-primary"
+  >
+    <fa-icon [icon]="['fas', 'circle-plus']" class="fs-1"></fa-icon>
+  </a>
+</div>

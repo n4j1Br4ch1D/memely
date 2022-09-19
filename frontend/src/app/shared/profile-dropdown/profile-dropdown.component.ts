@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileDropdownComponent implements OnInit {
 
+  signedIn:boolean= false;
   constructor() { }
 
   ngOnInit(): void {
