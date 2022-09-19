@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { fromFetch } from 'rxjs/fetch';
+import { NgxMasonryOptions } from 'ngx-masonry';
+
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
@@ -51,5 +53,8 @@ export class ViewerComponent implements OnInit {
     this.search(this.keyword);
   }
 
-
+  public masonryOptions: NgxMasonryOptions = {
+    gutter: 0,
+    
+  };
 }
