@@ -1,13 +1,45 @@
 import {DecimalPipe} from '@angular/common';
-import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Component, OnInit, Type, QueryList, ViewChildren, Input} from '@angular/core';
 import {Observable} from 'rxjs';
 
 import {Profile} from './profile';
 import {ProfileService} from './profiles.service';
 import {NgbdSortableHeader, SortEvent} from './sortable.directive';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+@Component({
+  selector: 'ngbd-modal-confirm-autofocus',
+  template: `
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Profile deletion</h4>
+    <button type="button" class="btn-close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Are you sure you want to delete <span class="text-primary">{{ profile.name }}</span> profile?</strong></p>
+    <p>All information associated to this user profile will be permanently deleted.
+    <span class="text-danger">This operation can not be undone.</span>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" ngbAutofocus class="btn btn-danger" (click)="modal.close('Ok click')">I Confirm</button>
+  </div>
+  `
+})
+export class NgbdModalConfirmAutofocus implements OnInit {
 
+  @Input() profile!: Profile;
 
+  constructor(public modal: NgbActiveModal) {}
+
+  ngOnInit() {    
+  }
+
+}
+
+const MODALS: {[name: string]: Type<any>} = {
+  autofocus: NgbdModalConfirmAutofocus
+};
 
 
   @Component({
@@ -25,12 +57,21 @@ import {NgbdSortableHeader, SortEvent} from './sortable.directive';
   @ViewChildren(NgbdSortableHeader)
     headers!: QueryList<NgbdSortableHeader>;
 
-  constructor(public service: ProfileService) {
+  constructor(public service: ProfileService, private _modalService: NgbModal) {
     this.profiles$ = service.profiles$;
     this.total$ = service.total$;
   }
 
   ngOnInit(): void {
+  }
+  
+  open(name: string, profile:Profile) { 
+
+const modalRef =  this._modalService.open(MODALS[name]);
+
+modalRef.componentInstance.profile = profile;
+
+  
   }
 
   onSort({column, direction}: SortEvent) {
