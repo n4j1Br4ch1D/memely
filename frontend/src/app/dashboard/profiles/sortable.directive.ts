@@ -1,5 +1,5 @@
 import {Directive, EventEmitter, Input, Output} from '@angular/core';
-import {Profile} from './profile';
+import {Profile} from '../../_models/profile';
 
 export type SortColumn = keyof Profile | '';
 export type SortDirection = 'asc' | 'desc' | '';

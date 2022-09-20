@@ -12,6 +12,8 @@ import { ProfileLayoutComponent } from './layouts/profile-layout/profile-layout.
 import { MemeComponent } from './site/meme/meme.component';
 import { UseTermsComponent } from './site/use-terms/use-terms.component';
 import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { Role } from './_enums/role';
 const routes: Routes = [
   // Site
   {
@@ -41,6 +43,9 @@ const routes: Routes = [
   {
     path: 'auth',
     component: MainLayoutComponent,
+    canActivate: [
+      AuthGuard
+    ],
     children: [
       {
         path: '',
@@ -58,6 +63,11 @@ const routes: Routes = [
     // Dashboard
     {
       path: 'dashboard',
+      runGuardsAndResolvers:'always',
+      canActivate: [
+        AuthGuard
+      ],
+      data: {role: Role.ADMIN},
       component: DashboardLayoutComponent,
       children: [
         {

@@ -20,7 +20,7 @@
         >
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <li ngbDropdownItem>
+        <li *ngIf="isAdmin" ngbDropdownItem>
           <a class="dropdown-item" routerLink="/dashboard">
             <fa-icon [icon]="['fas', 'gauge']"></fa-icon>
             Dashboard

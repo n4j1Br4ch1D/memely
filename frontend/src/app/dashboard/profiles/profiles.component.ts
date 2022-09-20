@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Profile } from './profile';
+import { Profile } from '../../_models/profile';
 import { ProfileService } from './profiles.service';
 import { NgbdSortableHeader, SortEvent } from './sortable.directive';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
