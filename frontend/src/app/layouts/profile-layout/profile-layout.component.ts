@@ -15,6 +15,19 @@ export class ProfileLayoutComponent implements OnInit {
      private router: Router) { }
   private profileUsername!: string;
   currentProfile!:Profile;
+  logedInUser:Profile = {
+    id: 1,
+    name: 'Najib Rachid',
+    username: 'najib-rachid',
+    email: 'najib@anmoon.ma'
+  }
+
+  get isProfile():boolean{
+  if (this.currentProfile.id==this.logedInUser.id) {
+    return true;
+  }
+   return false;
+  }
   getProfile(id: string): void {
     this.profileService.get(id)  //username
       .subscribe({

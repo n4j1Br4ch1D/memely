@@ -76,7 +76,7 @@
                 routerLinkActive="active text-white"
                 [routerLinkActiveOptions]="{ exact: true }"
                 ariaCurrentWhenActive="page"
-                >My Memes</a
+                ><span *ngIf="isProfile">My</span> Memes</a
               >
             </li>
             <li class="nav-item">

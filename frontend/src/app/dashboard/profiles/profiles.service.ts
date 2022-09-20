@@ -8,7 +8,6 @@ import {DecimalPipe} from '@angular/common';
 import {debounceTime, delay, switchMap, tap} from 'rxjs/operators';
 import {SortColumn, SortDirection} from './sortable.directive';
 import { HttpClient } from '@angular/common/http';
-
 interface SearchResult {
   profiles: Profile[];
   total: number;
@@ -85,6 +84,9 @@ export class ProfileService {
   }
 
 
+  apiUrl = 'https://jsonplaceholder.typicode.com/users/1';
+
+
   getProfiles() : void {
     this.http.get<Profile[]>('./assets/data/profiles.json')
       .subscribe((data: Profile[]) => {        
@@ -92,7 +94,33 @@ export class ProfileService {
       });      
   }
 
-  
+  // getAll(): Observable<Profile[]> {
+  //   return this.http.get<Profile[]>(baseUrl);
+  // }
+
+  get(id: any): Observable<Profile> {
+    return this.http.get<Profile>(`${this.apiUrl}/${id}`);
+  }
+
+  // create(data: any): Observable<any> {
+  //   return this.http.post(baseUrl, data);
+  // }
+
+  // update(id: any, data: any): Observable<any> {
+  //   return this.http.put(`${baseUrl}/${id}`, data);
+  // }
+
+  // delete(id: any): Observable<any> {
+  //   return this.http.delete(`${baseUrl}/${id}`);
+  // }
+
+  // deleteAll(): Observable<any> {
+  //   return this.http.delete(baseUrl);
+  // }
+
+  // findByTitle(title: any): Observable<Profile[]> {
+  //   return this.http.get<Profile[]>(`${baseUrl}?title=${title}`);
+  // }
 
 
   get profiles$() { return this._profiles$.asObservable(); }
@@ -102,9 +130,6 @@ export class ProfileService {
   get pageSize() { return this._state.pageSize; }
   get searchTerm() { return this._state.searchTerm; }
   get filterRole() { return this._state.filterRole; }
-
-
-  
 
   set page(page: number) { this._set({page}); }
   set pageSize(pageSize: number) { this._set({pageSize}); }
