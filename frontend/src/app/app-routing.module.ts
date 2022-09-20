@@ -33,7 +33,7 @@ const routes: Routes = [
     path: 'documentation',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: DocumentationComponent }, ////$page
+      { path: '', component: DocumentationComponent }
     ],
   },
 
@@ -44,7 +44,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '',
+        redirectTo: '/auth',
         pathMatch: 'full',
       },
       {
@@ -55,38 +55,38 @@ const routes: Routes = [
     ],
   },
 
+    // Dashboard
+    {
+      path: 'dashboard',
+      component: DashboardLayoutComponent,
+      children: [
+        {
+          path: '',
+          redirectTo: '/dashboard',
+          pathMatch: 'full',
+        },
+        {
+          path: '',
+          loadChildren: () =>
+            import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+        },
+      ],
+    },
+
   // Profile
   {
-    path: 'profile',
+    path: ':username',
     component: ProfileLayoutComponent,
     children: [
       // {
       //   path: '',
-      //   redirectTo: '',
+      //   redirectTo: '/',
       //   pathMatch: 'full'
       // },
       {
         path: '',
         loadChildren: () =>
           import('./profile/profile.module').then((m) => m.ProfileModule),
-      },
-    ],
-  },
-
-  // Dashboard
-  {
-    path: 'dashboard',
-    component: DashboardLayoutComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full',
-      },
-      {
-        path: '',
-        loadChildren: () =>
-          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
     ],
   },

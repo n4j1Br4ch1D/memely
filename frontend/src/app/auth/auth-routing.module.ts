@@ -11,6 +11,7 @@ const routes: Routes = [
     path: '',
     // component: SignInComponent,
     children: [
+      { path: '', component: SignInComponent },
       { path: 'sign-in', component: SignInComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'forgot-password', component: ForgotPasswordComponent },

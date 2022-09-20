@@ -72,6 +72,7 @@ import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.com
 import { ScrollSpyDirective } from './documentation/scroll-spy.directive';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxMasonryModule,
     BrowserAnimationsModule,
     LoadingBarRouterModule,
-    LoadingBarModule
+    LoadingBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
