@@ -14,6 +14,7 @@ import { UseTermsComponent } from './site/use-terms/use-terms.component';
 import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { Role } from './_enums/role';
+import { ProfileResolver } from './_resolvers/profile.resolver';
 const routes: Routes = [
   // Site
   {
@@ -86,6 +87,10 @@ const routes: Routes = [
   // Profile
   {
     path: ':username',
+    
+    resolve: {
+      profile: ProfileResolver
+    },
     component: ProfileLayoutComponent,
     children: [
       // {

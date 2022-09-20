@@ -11,10 +11,8 @@ import { ProfileService } from 'src/app/profile/profile.service';
 export class ProfileLayoutComponent implements OnInit {
 
   constructor(private profileService: ProfileService,
-     private route: ActivatedRoute, 
-     private router: Router) { }
-  private profileUsername!: string;
-  currentProfile!:Profile;
+     private route: ActivatedRoute) { }
+   currentProfile:any;
   logedInUser:Profile = {
     id: 1,
     name: 'Najib Rachid',
@@ -28,24 +26,9 @@ export class ProfileLayoutComponent implements OnInit {
   }
    return false;
   }
-  getProfile(id: string): void {
-    this.profileService.get(id)  //username
-      .subscribe({
-        next: (data) => {
-          this.currentProfile = data;
-        },
-        error: (e) =>
-         this.router.navigateByUrl(`/${this.profileUsername}/404`, {skipLocationChange: true})
-      });
-  }
 
   ngOnInit(): void {
-    this.route.params
-      .subscribe(params => {
-        this.profileUsername = params['username'];        
-      }
-    );
-    this.getProfile(this.profileUsername);
+    this.currentProfile = this.route.snapshot.data['profile'];
   }
 
 }
