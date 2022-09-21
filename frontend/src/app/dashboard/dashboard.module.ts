@@ -24,6 +24,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoriesComponent } from './stories/stories.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { CommentsComponent } from './comments/comments.component';
+import { AdsComponent } from './ads/ads.component';
+import { MentionsComponent } from './mentions/mentions.component';
+import { ChatsComponent } from './chats/chats.component';
+import { ReportsComponent } from './reports/reports.component';
+import { PagesComponent } from './pages/pages.component';
+import { MenusComponent } from './menus/menus.component';
 
 
 @NgModule({
@@ -38,7 +44,13 @@ import { CommentsComponent } from './comments/comments.component';
     NgbdSortableHeader,
     StoriesComponent,
     FavoritesComponent,
-    CommentsComponent
+    CommentsComponent,
+    AdsComponent,
+    MentionsComponent,
+    ChatsComponent,
+    ReportsComponent,
+    PagesComponent,
+    MenusComponent
   ],
   imports: [
     CommonModule,

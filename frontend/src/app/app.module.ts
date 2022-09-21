@@ -27,6 +27,12 @@ import { faEnvelope as fasEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faHashtag as fasHashtag } from '@fortawesome/free-solid-svg-icons';
 import { faUsers as fasUsers } from '@fortawesome/free-solid-svg-icons';
 import { faCircleDot as fasCircleDot } from '@fortawesome/free-solid-svg-icons';
+import { faAt as fasAt } from '@fortawesome/free-solid-svg-icons';
+import { faCommenting as fasCommenting } from '@fortawesome/free-solid-svg-icons';
+import { faAd as fasAd } from '@fortawesome/free-solid-svg-icons';
+import { faFlag as fasFlag } from '@fortawesome/free-solid-svg-icons';
+import { faFile as fasFile } from '@fortawesome/free-solid-svg-icons';
+import { faListAlt as fasListAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { faGauge as fasGauge } from '@fortawesome/free-solid-svg-icons';
 import { faHouse as fasHouse } from '@fortawesome/free-solid-svg-icons';
@@ -121,6 +127,7 @@ export class AppModule {
       fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft,
       fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImages, fasIdCardClip,
       fasHouse, fasBook, fasInfo, fasGlobe, fasArrowUpLong, fasCircleDot,
+      fasAt, fasCommenting, fasAd, fasFlag, fasFile, fasListAlt,
       fasMagnifyingGlass, fasArrowLeft, fasThumbsUp, fasBarsStaggered, fasEnvelope, fasHashtag, fasUsers, fasGauge,
       fabYandexInternational, fabCloudflare, fabSearchengin, fabGoogle, fasChartSimple, fasRectangleAd
       );
