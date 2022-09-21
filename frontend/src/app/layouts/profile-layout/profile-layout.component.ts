@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profile } from 'src/app/_models/profile';
 import { ProfileService } from 'src/app/profile/profile.service';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-profile-layout',
@@ -10,24 +11,23 @@ import { ProfileService } from 'src/app/profile/profile.service';
 })
 export class ProfileLayoutComponent implements OnInit {
 
-  constructor(private profileService: ProfileService,
+  constructor(
+    private authService: AuthService,
+    private profileService: ProfileService,
      private route: ActivatedRoute) { }
-   currentProfile:any;
-  logedInUser:Profile = {
-    id: 1,
-    name: 'Najib Rachid',
-    username: 'najib-rachid',
-    email: 'najib@anmoon.ma'
-  }
+  
+  currentProfile:any;
+  signedInUser!:Profile;
 
   get isProfile():boolean{
-  if (this.currentProfile.id==this.logedInUser.id) {
+  if (this.currentProfile.id==this.signedInUser?.id) {
     return true;
   }
    return false;
   }
 
   ngOnInit(): void {
+    this.signedInUser = this.authService.getSignedInUser();
     this.currentProfile = this.route.snapshot.data['profile'];
   }
 
