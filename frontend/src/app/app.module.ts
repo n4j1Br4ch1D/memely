@@ -26,6 +26,8 @@ import { faBarsStaggered as fasBarsStaggered } from '@fortawesome/free-solid-svg
 import { faEnvelope as fasEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faHashtag as fasHashtag } from '@fortawesome/free-solid-svg-icons';
 import { faUsers as fasUsers } from '@fortawesome/free-solid-svg-icons';
+import { faCircleDot as fasCircleDot } from '@fortawesome/free-solid-svg-icons';
+
 import { faGauge as fasGauge } from '@fortawesome/free-solid-svg-icons';
 import { faHouse as fasHouse } from '@fortawesome/free-solid-svg-icons';
 import { faBook as fasBook } from '@fortawesome/free-solid-svg-icons';
@@ -118,7 +120,7 @@ export class AppModule {
     library.addIcons(fabFacebook, fabTwitter, fabInstagram, fabLinkedin, fabGithub, fabYoutube, fabDiscord,
       fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft,
       fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImages, fasIdCardClip,
-      fasHouse, fasBook, fasInfo, fasGlobe, fasArrowUpLong,
+      fasHouse, fasBook, fasInfo, fasGlobe, fasArrowUpLong, fasCircleDot,
       fasMagnifyingGlass, fasArrowLeft, fasThumbsUp, fasBarsStaggered, fasEnvelope, fasHashtag, fasUsers, fasGauge,
       fabYandexInternational, fabCloudflare, fabSearchengin, fabGoogle, fasChartSimple, fasRectangleAd
       );

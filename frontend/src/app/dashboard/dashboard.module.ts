@@ -21,6 +21,9 @@ import { faSpinner as fasSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faSort as fasSort } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass as fasMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { HttpClientModule } from '@angular/common/http';
+import { StoriesComponent } from './stories/stories.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactionsComponent,
     ContactsComponent,
     NotificationsComponent,
-    NgbdSortableHeader
+    NgbdSortableHeader,
+    StoriesComponent,
+    FavoritesComponent,
+    CommentsComponent
   ],
   imports: [
     CommonModule,
