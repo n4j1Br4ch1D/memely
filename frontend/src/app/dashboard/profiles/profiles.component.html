@@ -122,9 +122,16 @@
             ></ngb-highlight>
           </td>
           <td class="d-flex gap-1">
-            <button class="btn btn-outline-primary ms-auto">
+            <button class="btn btn-outline-primary ms-auto"             [ngbPopover]="popContent" [popoverTitle]="popTitle" placement="start"
+            [ngbPopover]="popContent" [popoverTitle]="popTitle" placement="start"
+            >
               <fa-icon [icon]="['far', 'eye']" size="1x"></fa-icon>
             </button>
+
+            <ng-template #popContent>Hello, <b>yes</b>!</ng-template>
+            <ng-template #popTitle>Fancy <b>content!!</b></ng-template>
+        
+
             <button
               (click)="collapse.toggle(true); form('autofocus', profile)"
               class="btn btn-outline-info"
