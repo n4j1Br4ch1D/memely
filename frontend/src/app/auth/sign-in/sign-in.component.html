@@ -7,14 +7,41 @@
           <p>Welcome Back, Enjoy!</p>
         </div>
         <div class="card-body p-4 p-sm-5">
-           <form>
+           <form
+           *ngIf="!isSignedIn"
+           name="form"
+           (ngSubmit)="f.form.valid && onSubmit()"
+           #f="ngForm"
+           novalidate>
+
+           <div *ngIf="f.submitted && isSignFailed" class="alert alert-danger" role="alert">
+            Login failed: {{ errorMessage }}
+          </div>
+  
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input name="username" [(ngModel)]="form.username"
+              required
+              #username="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && username.errors }" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
               <label for="floatingInput">Email address</label>
             </div>
+        <div *ngIf="username.errors && f.submitted" class="invalid-feedback d-block">
+          Username is required!
+        </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <input name="password" [(ngModel)]="form.password"
+              required
+              minlength="6"
+              #password="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && password.errors }" type="password" class="form-control" id="floatingPassword" placeholder="Password">
               <label for="floatingPassword">Password</label>
+            </div>
+
+            <div *ngIf="password.errors && f.submitted" class="invalid-feedback d-block">
+              <div *ngIf="password.errors['required']">Password is required</div>
+              <div *ngIf="password.errors['minlength']">
+                Password must be at least 6 characters
+              </div>
             </div>
 
             <div class="form-check mb-3">

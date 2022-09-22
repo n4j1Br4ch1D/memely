@@ -16,7 +16,7 @@
           alt=""
         />
         <span routerLink="/profile" class="d-none d-md-inline-block"
-          >{{signedInUser.name}}</span
+          >{{signedInUser.userName}}</span
         >
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -66,10 +66,10 @@
           <hr class="dropdown-divider" />
         </li>
         <li ngbDropdownItem>
-          <a class="dropdown-item text-danger" href="#">
+          <button class="dropdown-item text-danger" (click)="signOut()">
             <fa-icon [icon]="['fas', 'right-from-bracket']"></fa-icon>
             Sign-Out
-          </a>
+          </button>
         </li>
       </div>
     </div>

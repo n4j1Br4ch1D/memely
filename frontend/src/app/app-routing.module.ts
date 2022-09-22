@@ -15,6 +15,7 @@ import { PrivacyPolicyComponent } from './site/privacy-policy/privacy-policy.com
 import { AuthGuard } from './_guards/auth.guard';
 import { Role } from './_enums/role';
 import { ProfileResolver } from './_resolvers/profile.resolver';
+import { GuestGuard } from './_guards/guest.guard';
 const routes: Routes = [
   // Site
   {
@@ -45,7 +46,7 @@ const routes: Routes = [
     path: 'auth',
     component: MainLayoutComponent,
     canActivate: [
-      AuthGuard
+      GuestGuard
     ],
     children: [
       {
