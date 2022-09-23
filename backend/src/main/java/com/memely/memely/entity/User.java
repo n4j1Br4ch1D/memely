@@ -22,9 +22,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.memely.memely.enums.Role;
 
@@ -41,6 +43,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 //@Builder
+//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="id", scope = User.class)
 public class User extends BaseEntity{
   
 
@@ -48,6 +51,7 @@ public class User extends BaseEntity{
     private String username;
     @Column(name="full_name")
     private String fullName;
+    private String avatar;
     @Column(name="description")
     private String description;
 	private String email;
@@ -64,56 +68,70 @@ public class User extends BaseEntity{
     private SocialLinks socialLinks;
     
     
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id", nullable = false, columnDefinition = "integer")
-	private Collection<Meme> memes;
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinColumn(name = "user_id", nullable = false, columnDefinition = "integer")
+	
+//    @OneToMany(mappedBy="user")
+//	private Collection<Meme> memes;
 
     
+    @JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@JoinTable(name = "reactions", joinColumns = { @JoinColumn(name = "user_id") }, 
 	inverseJoinColumns = { @JoinColumn(name = "meme_id") })
     private Collection<Meme> reactions;
 	
+    @JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "favorites", joinColumns = { @JoinColumn(name = "user_id") }, 
-	inverseJoinColumns = { @JoinColumn(name = "favorit_id") })
+	inverseJoinColumns = { @JoinColumn(name = "meme_id") })
     private Collection<Meme> favorites;
 	
-    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @OneToMany(mappedBy = "meme")
 	private Collection<Comment> comments;
     
-    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @OneToMany(mappedBy = "meme")
 	private Collection<Mention> mentions;
     
+    @JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@JoinTable(name = "followers", joinColumns = { @JoinColumn(name = "follower_id") }, 
 	inverseJoinColumns = { @JoinColumn(name = "followed_id") })
     private Collection<User> followers;
-	
+    
+    @JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@JoinTable(name = "followers", joinColumns = { @JoinColumn(name = "followed_id") }, 
 	inverseJoinColumns = { @JoinColumn(name = "follower_id") })
     private Collection<User> followings;
 	
+    @JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = true, columnDefinition = "integer")
 	private Collection<Notification> notifications;
 	
+    @JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "sender_id", nullable = true, columnDefinition = "integer")
 	private Collection<Message> messagesSent;
 	
+    @JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "reciver_id", nullable = true, columnDefinition = "integer")
 	private Collection<Message> messagesRecived;
 	
+    @JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = true, columnDefinition = "integer")
 	private Collection<Contact> contacts;
 	
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
 	private Collection<Report> reports;
     
+    @JsonIgnore
     @OneToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "token_id", nullable = true, columnDefinition = "integer")
     private Token token;

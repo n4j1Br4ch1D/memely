@@ -22,9 +22,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.memely.memely.enums.Role;
 
@@ -40,6 +42,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 //@Builder
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="id")
+
 public class Meme extends BaseEntity{
   
     @Column(name="title", unique=true)
@@ -50,9 +54,12 @@ public class Meme extends BaseEntity{
     private String img;
     private boolean enabled;
     private boolean story;
+    private Long sharedCount;
+
     
-//    @ManyToOne(mappedBy = "memes")
-//	private Collection<User> user;
+    @ManyToOne
+	private User user;
+ 
     
 	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@JoinTable(name = "meme_tags", joinColumns = { @JoinColumn(name = "meme_id") }, 
@@ -61,19 +68,19 @@ public class Meme extends BaseEntity{
     
     @ManyToMany(mappedBy = "reactions", fetch = FetchType.LAZY)
 	private Collection<User> reactors;
-    
-    @ManyToMany(mappedBy = "favorites", fetch = FetchType.LAZY)
-	private Collection<User> funs;
-    
-    @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
+//    
+//    @ManyToMany(mappedBy = "favorites", fetch = FetchType.LAZY)
+//	private Collection<User> savers;
+//    
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)	
 	private Collection<Comment> comments;
-    
-    @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
+//    
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)	
 	private Collection<Mention> mentions;
-    
-    
-    @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
-	private Collection<Comment> reports;
+//    
+//    
+//    @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
+//	private Collection<Comment> reports;
     
     
     //owner

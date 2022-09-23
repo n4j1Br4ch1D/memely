@@ -1,5 +1,7 @@
 package com.memely.memely.controller;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.memely.memely.config.AppConstants;
 import com.memely.memely.dto.UserDto;
+import com.memely.memely.entity.Meme;
 import com.memely.memely.enums.FilterCond;
 import com.memely.memely.enums.Role;
 import com.memely.memely.response.UserResponse;
@@ -50,6 +53,7 @@ public class UserController {
 			@RequestParam(value = "sortDir", defaultValue = AppConstants.DEFAULT_SORT_DIRECTION, required = false) String sortDir) {
 		return userService.getAll(pageNo, pageSize, sortBy, sortDir, filterCond, role, isMale, enabled);
 	}
+    
 
     @Operation(summary = "Get User", description = "Get User By Id REST API")
 	@GetMapping(value = "/{id}")

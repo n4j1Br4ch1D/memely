@@ -1,12 +1,12 @@
 /*Seed TABLE Users:*/
-INSERT INTO public.users (full_name, username, description, email, password, role, enabled, active)
-VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.ma','$2a$10$OLqXyrDqoKyGkJu.3Tr/lesUfNs05hM.ZFRHzX6e8mnkBgh5.oo4G', 'ROLE_ADMIN',TRUE , FALSE),
-       ('Khadija idlmhor', 'med', 'Web Developer', 'khadija@anmoon.ma','$2a$10$iZstRX1sXhxnJpGfCUI2quSxvld5XDPRbB5Scw7eq27mqntCWA59C', 'ROLE_ADMIN',TRUE, FALSE),
-       ('Abderahim Oudor', 'ayoub', 'Ethical Hacker','ayoub@anmoon.ma','$2a$10$3Rk0JxAID7kSqWYijvtB6eu7DplUsXnIMvcwr04sOGzaK3pRwk726', 'ROLE_CLIENT',TRUE, FALSE),
-       ('Fatiha El habti', 'fatiha', 'Web Designer', 'fatiha@anmoon.ma','$2a$10$uOqFjk3kQ482jDRIRaZmhe20slxLkM4c/b4YMRVfKCPOOU88HAC72' ,'ROLE_CLIENT',TRUE, FALSE),
-       ('Latifa Amouguay', 'latifa', 'Web Developer', 'latifa@anmoon.ma','$2a$10$HvPODtiJ1K9jmDY10iUt9.fVMSzvuTVYP4cPoMqbEV41JrtORpfbm', 'ROLE_CLIENT',TRUE, FALSE),
-       ('Anass ELmkhloufi', 'anas', 'Mobile Developer',  'anas@anmoon.ma','$2a$10$U6FJN3PbkePwVUoRSG7waOt0iBRdme9r1og5jLIdfdU3VjnX0yZry', 'ROLE_CLIENT',TRUE, FALSE),
-       ('Omar Dbaa', 'omar', 'Graphic Designer', 'omar@anmoon.ma','$2a$10$zTkULoo0xe9w6KDdNt185e0HvPCaxr80X/RejhnhthbNKgy8oJhiq', 'ROLE_CLIENT', FALSE, FALSE);
+INSERT INTO public.users (full_name, username, description, email, password, role, enabled, active, avatar)
+VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.ma','$2a$10$OLqXyrDqoKyGkJu.3Tr/lesUfNs05hM.ZFRHzX6e8mnkBgh5.oo4G', 'ROLE_ADMIN',TRUE , FALSE, 'https://avatars.githubusercontent.com/u/38995898?v=4'),
+       ('Khadija idlmhor', 'med', 'Web Developer', 'khadija@anmoon.ma','$2a$10$iZstRX1sXhxnJpGfCUI2quSxvld5XDPRbB5Scw7eq27mqntCWA59C', 'ROLE_ADMIN',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
+       ('Abderahim Oudor', 'ayoub', 'Ethical Hacker','ayoub@anmoon.ma','$2a$10$3Rk0JxAID7kSqWYijvtB6eu7DplUsXnIMvcwr04sOGzaK3pRwk726', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
+       ('Fatiha El habti', 'fatiha', 'Web Designer', 'fatiha@anmoon.ma','$2a$10$uOqFjk3kQ482jDRIRaZmhe20slxLkM4c/b4YMRVfKCPOOU88HAC72' ,'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
+       ('Latifa Amouguay', 'latifa', 'Web Developer', 'latifa@anmoon.ma','$2a$10$HvPODtiJ1K9jmDY10iUt9.fVMSzvuTVYP4cPoMqbEV41JrtORpfbm', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
+       ('Anass ELmkhloufi', 'anas', 'Mobile Developer',  'anas@anmoon.ma','$2a$10$U6FJN3PbkePwVUoRSG7waOt0iBRdme9r1og5jLIdfdU3VjnX0yZry', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
+       ('Omar Dbaa', 'omar', 'Graphic Designer', 'omar@anmoon.ma','$2a$10$zTkULoo0xe9w6KDdNt185e0HvPCaxr80X/RejhnhthbNKgy8oJhiq', 'ROLE_CLIENT', FALSE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4');
        
        
        
@@ -21,8 +21,52 @@ VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.
 
   
   
-  /*Seed TABLE Memes:*/
-INSERT INTO public.memes (title, img, description, enabled, story, user_id)
-VALUES ('funny1', 'funny1.png', 'this one is a funny one', TRUE, TRUE, 1),
-       ('funny2', 'funny1.png', 'this one is a funny one', TRUE, FALSE, 1),
-       ('funny3', 'funny1.png', 'this one is a funny one', TRUE, FALSE, 2);
+/*Seed TABLE Memes:*/
+INSERT INTO public.memes (title, img, description, enabled, story, shared_count, user_id)
+VALUES ('funny1', 'https://assets-global.website-files.com/5f3c19f18169b62a0d0bf387/60d33be8cf4ba7565123c8bc_YPD3ulQQAGQpOcnqIm3QzSTRgzmr1SexpW9ZjMpJ1mAnUxx4iF05XOTu44sk0qQG-8XgBcYmGZGAD-5SAZvJl3TjtmhgWnn-w0C2XKwhBscV78RVvhwZfyp0v_Pa6sNj5zxpOvRW.png', 'this one is a funny one', TRUE, TRUE, 50, 1),
+       ('funny2', 'https://pbs.twimg.com/media/D46dvSSW4AE2Mm9.jpg', 'this one is a funny one', TRUE, FALSE, 66, 1),
+       ('funny3', 'https://devhumor.com/content/uploads/images/March2022/new_bugs.jpg', 'this one is a funny one', TRUE, FALSE, 0, 2);
+       
+  
+/*Seed TABLE Reactions:*/
+INSERT INTO public.reactions (user_id, meme_id)
+VALUES (1, 1),
+       (4, 1),
+       (1, 2),
+       (1, 3);
+
+/*Seed TABLE Favorites:*/
+INSERT INTO public.favorites (user_id, meme_id)
+VALUES (1, 2),
+       (1, 3);
+       
+/*Seed TABLE Comments:*/
+INSERT INTO public.comments (user_id, meme_id, comment)
+VALUES (1, 2,  'nice i like it @med'),
+       (1, 3, 'not bad @med @latifa');
+       
+/*Seed TABLE Mentions:*/
+INSERT INTO public.mentions (meme_id, comment_id, taggeduser_id)
+VALUES (1, null,  2),
+       (1, null, 5),
+       (null, 1, 2),
+       (null, 2, 2),
+       (null, 2, 5);
+
+
+
+       
+/*Seed TABLE Tags:*/
+INSERT INTO public.tags (name)
+VALUES ('html'),
+       ('php');
+
+/*Seed TABLE Meme_tags:*/
+INSERT INTO public.meme_tags (meme_id, tag_id)
+VALUES (1, 1),
+       (1, 2),
+       (2, 1);
+       
+
+
+

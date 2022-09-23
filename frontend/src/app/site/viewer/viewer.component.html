@@ -1,20 +1,23 @@
 <div class="container my-5">
     
-    <p *ngIf="!items.length">No results found</p>
+    <p *ngIf="!memes.length">No results found</p>
 
 
-      <div *ngIf="items.length" class="meme-view text-center text-lg-start">
+      <div *ngIf="memes.length" class="meme-view text-center text-lg-start">
         <ngx-masonry [options]="masonryOptions" class="row">
 
-        <div ngxMasonryItem *ngFor="let item of items" class="col col-sm-6  col-md-4 col-lg-3 mb-4 ">
-          <div class="post-block">
+        <div ngxMasonryItem *ngFor="let meme of memes" class="col col-sm-6  col-md-4 col-lg-3 mb-4 ">
+          <div class="post-block p-2">
               <div class="d-flex justify-content-between">
                   <div class="d-flex mb-3">
                       <div class="me-2">
-                          <a href="#!" class="text-dark"><img src="https://avatars.githubusercontent.com/u/38995898?v=4" alt="User" class="author-img"></a>
+                          <a href="#!" class="text-dark">
+                            <img [src]="meme.user.avatar" alt="User" class="author-img"></a>
                       </div>
                       <div>
-                          <h5 class="mb-0"><a href="#!" class="text-dark">Najib Rachid</a></h5>
+                          <h5 class="mb-0"><a href="#!" class="text-dark fs-7">
+                            {{ meme.user.username }}
+                          </a></h5>
                           <p class="mb-0 text-muted">5m</p>
                       </div>
                   </div>
@@ -29,9 +32,9 @@
                   </div>
               </div>
               <div class="post-block__content mb-2">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione laboriosam non atque, porro cupiditate commodi?
-                     #java #springboot</p>
-                     <img class="bd-placeholder-img card-img-top img-fluid img-thumbnail" width="100%" height="200" [src]="item['media_formats']['gif']['url']" alt="" masonryLazy loading="lazy" width="500px" height="300px"/>
+                <h3 class="fs-5">{{ meme.title}}</h3>
+                  <p>{{ meme.description }}</p>
+                     <img class="bd-placeholder-img card-img-top img-fluid img-thumbnail" width="100%" height="200" [src]="meme.img" alt="" masonryLazy loading="lazy" width="500px" height="300px"/>
 
               </div>
 

@@ -44,6 +44,7 @@ public class Tag extends BaseEntity{
 
     @Column(name="name", unique=true)
     private String name;    
+    @JsonIgnore
     @ManyToMany(mappedBy = "tags")
 	private Collection<Meme> memes;
 

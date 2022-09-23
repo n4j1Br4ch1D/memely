@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,15 +29,22 @@ import lombok.Setter;
 public class Comment extends BaseEntity{
 	private String comment;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "meme_id")
 	private User user;
 
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private Meme meme;
 	
-    @OneToMany(mappedBy = "comment", fetch = FetchType.LAZY)	
-	private Collection<Mention> mentions;
+	@JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)	
+	private Collection<Comment> comments;
 
+//	@JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)	
+	private Collection<Mention> mentions;
+	
 }

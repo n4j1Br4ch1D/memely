@@ -1,5 +1,7 @@
 package com.memely.memely.entity;
 
+import java.util.Collection;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,8 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,14 +26,15 @@ import lombok.Setter;
 @Table(name = "mentions")
 public class Mention extends BaseEntity{
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "meme_id", nullable = true)
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL, optional = true)
+	@JoinColumn(columnDefinition="integer", name="meme_id", nullable =true)
 	private Meme meme;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "comment_id", nullable = true)
+	@JsonIgnore
+	@ManyToOne(optional = true)
+	@JoinColumn(columnDefinition="integer", name="comment_id", nullable =true)
 	private Comment comment;
-	
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "taggeduser_id")

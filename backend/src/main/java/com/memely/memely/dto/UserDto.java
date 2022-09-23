@@ -2,12 +2,19 @@ package com.memely.memely.dto;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -16,7 +23,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.memely.memely.entity.Comment;
+import com.memely.memely.entity.Contact;
+import com.memely.memely.entity.Meme;
+import com.memely.memely.entity.Mention;
+import com.memely.memely.entity.Message;
+import com.memely.memely.entity.Notification;
+import com.memely.memely.entity.Report;
 import com.memely.memely.entity.SocialLinks;
+import com.memely.memely.entity.Token;
+import com.memely.memely.entity.User;
 import com.memely.memely.enums.Role;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,6 +51,7 @@ public class UserDto {
 		@NotNull
 	    private String fullName;
 		@NotNull
+	    private String avatar;
 	    private String description;
 		@NotEmpty
 		@Column(unique=true)
@@ -48,8 +65,32 @@ public class UserDto {
 	    private boolean enabled;
 	    private boolean active;
 	    private SocialLinks socialLinks;
-
-//	    private Collection<Permission> permissions;
+//
+//		private Collection<Meme> memes;
+//
+//	    private Collection<Meme> reactions;
+//
+//	    private Collection<Meme> favorites;
+//		
+//		private Collection<Comment> comments;
+//	    
+//		private Collection<Mention> mentions;
+//	    
+//	    private Collection<User> followers;
+//
+//	    private Collection<User> followings;
+//		
+//		private Collection<Notification> notifications;	
+//
+//		private Collection<Message> messagesSent;
+//
+//		private Collection<Message> messagesRecived;
+//
+//		private Collection<Contact> contacts;
+//		
+//		private Collection<Report> reports;
+//
+//	    private Token token;
 	    
 		public void setPassword(String password) {
 			this.password = new BCryptPasswordEncoder().encode(password);
