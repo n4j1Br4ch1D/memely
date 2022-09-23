@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.memely.memely.entity.SocialLinks;
 import com.memely.memely.enums.Role;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -46,6 +47,7 @@ public class UserDto {
 		@NotNull
 	    private boolean enabled;
 	    private boolean active;
+	    private SocialLinks socialLinks;
 
 //	    private Collection<Permission> permissions;
 	    

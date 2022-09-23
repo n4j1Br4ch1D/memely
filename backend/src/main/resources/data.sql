@@ -18,3 +18,11 @@ VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.
   UPDATE public.users SET website = 'anmoon.ma', linkedin = 'najib-rachid', twitter = 'najib-rachid', instagram= 'najib-rachid', github='n4j1Br4ch1D' WHERE id = 5;
   UPDATE public.users SET website = 'anmoon.ma', linkedin = 'najib-rachid', twitter = 'najib-rachid', instagram= 'najib-rachid', github='n4j1Br4ch1D' WHERE id = 6;
   UPDATE public.users SET website = 'anmoon.ma', linkedin = 'najib-rachid', twitter = 'najib-rachid', instagram= 'najib-rachid', github='n4j1Br4ch1D' WHERE id = 7;
+
+  
+  
+  /*Seed TABLE Memes:*/
+INSERT INTO public.memes (title, img, description, enabled, story, user_id)
+VALUES ('funny1', 'funny1.png', 'this one is a funny one', TRUE, TRUE, 1),
+       ('funny2', 'funny1.png', 'this one is a funny one', TRUE, FALSE, 1),
+       ('funny3', 'funny1.png', 'this one is a funny one', TRUE, FALSE, 2);

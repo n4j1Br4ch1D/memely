@@ -17,6 +17,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -39,12 +40,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 //@Builder
-public class User {
+public class User extends BaseEntity{
   
-	@Id
-	@Column(name = "id", columnDefinition = "serial")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+
     @Column(name="username", unique=true)
     private String username;
     @Column(name="full_name")
@@ -63,12 +61,55 @@ public class User {
     private boolean active;
     private boolean enabled;
     private SocialLinks socialLinks;
+    
+    
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id", nullable = false, columnDefinition = "integer")
+	private Collection<Meme> memes;
 
     
-//    @JsonManagedReference
-//	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-//	@JoinTable(name = "user_permissions", joinColumns = { @JoinColumn(name = "user_id") }, 
-//	inverseJoinColumns = { @JoinColumn(name = "permission_id") })
-//    private Collection<Permission> permissions;
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+	@JoinTable(name = "reactions", joinColumns = { @JoinColumn(name = "user_id") }, 
+	inverseJoinColumns = { @JoinColumn(name = "meme_id") })
+    private Collection<Meme> reactions;
 	
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinTable(name = "favorites", joinColumns = { @JoinColumn(name = "user_id") }, 
+	inverseJoinColumns = { @JoinColumn(name = "favorit_id") })
+    private Collection<Meme> favorites;
+	
+    @OneToMany(mappedBy = "user")
+	private Collection<Comment> comments;
+    
+    @OneToMany(mappedBy = "user")
+	private Collection<Mention> mentions;
+    
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+	@JoinTable(name = "followers", joinColumns = { @JoinColumn(name = "follower_id") }, 
+	inverseJoinColumns = { @JoinColumn(name = "followed_id") })
+    private Collection<User> followers;
+	
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+	@JoinTable(name = "followers", joinColumns = { @JoinColumn(name = "followed_id") }, 
+	inverseJoinColumns = { @JoinColumn(name = "follower_id") })
+    private Collection<User> followings;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id", nullable = true, columnDefinition = "integer")
+	private Collection<Notification> notifications;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "sender_id", nullable = true, columnDefinition = "integer")
+	private Collection<Message> messagesSent;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "reciver_id", nullable = true, columnDefinition = "integer")
+	private Collection<Message> messagesRecived;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id", nullable = true, columnDefinition = "integer")
+	private Collection<Contact> contacts;
+	
+    @OneToMany(mappedBy = "user")
+	private Collection<Report> reports;
 }
