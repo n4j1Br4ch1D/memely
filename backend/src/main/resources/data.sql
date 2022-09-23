@@ -1,12 +1,12 @@
 /*Seed TABLE Users:*/
-INSERT INTO public.users (full_name, username, description, email, password, role, enabled, active, avatar)
-VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.ma','$2a$10$OLqXyrDqoKyGkJu.3Tr/lesUfNs05hM.ZFRHzX6e8mnkBgh5.oo4G', 'ROLE_ADMIN',TRUE , FALSE, 'https://avatars.githubusercontent.com/u/38995898?v=4'),
-       ('Khadija idlmhor', 'med', 'Web Developer', 'khadija@anmoon.ma','$2a$10$iZstRX1sXhxnJpGfCUI2quSxvld5XDPRbB5Scw7eq27mqntCWA59C', 'ROLE_ADMIN',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
-       ('Abderahim Oudor', 'ayoub', 'Ethical Hacker','ayoub@anmoon.ma','$2a$10$3Rk0JxAID7kSqWYijvtB6eu7DplUsXnIMvcwr04sOGzaK3pRwk726', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
-       ('Fatiha El habti', 'fatiha', 'Web Designer', 'fatiha@anmoon.ma','$2a$10$uOqFjk3kQ482jDRIRaZmhe20slxLkM4c/b4YMRVfKCPOOU88HAC72' ,'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
-       ('Latifa Amouguay', 'latifa', 'Web Developer', 'latifa@anmoon.ma','$2a$10$HvPODtiJ1K9jmDY10iUt9.fVMSzvuTVYP4cPoMqbEV41JrtORpfbm', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
-       ('Anass ELmkhloufi', 'anas', 'Mobile Developer',  'anas@anmoon.ma','$2a$10$U6FJN3PbkePwVUoRSG7waOt0iBRdme9r1og5jLIdfdU3VjnX0yZry', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4'),
-       ('Omar Dbaa', 'omar', 'Graphic Designer', 'omar@anmoon.ma','$2a$10$zTkULoo0xe9w6KDdNt185e0HvPCaxr80X/RejhnhthbNKgy8oJhiq', 'ROLE_CLIENT', FALSE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4');
+INSERT INTO public.users (full_name, username, description, email, password, role, enabled, active, avatar, followers_count)
+VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.ma','$2a$10$OLqXyrDqoKyGkJu.3Tr/lesUfNs05hM.ZFRHzX6e8mnkBgh5.oo4G', 'ROLE_ADMIN',TRUE , FALSE, 'https://avatars.githubusercontent.com/u/38995898?v=4', 4),
+       ('Khadija idlmhor', 'med', 'Web Developer', 'khadija@anmoon.ma','$2a$10$iZstRX1sXhxnJpGfCUI2quSxvld5XDPRbB5Scw7eq27mqntCWA59C', 'ROLE_ADMIN',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 3),
+       ('Abderahim Oudor', 'ayoub', 'Ethical Hacker','ayoub@anmoon.ma','$2a$10$3Rk0JxAID7kSqWYijvtB6eu7DplUsXnIMvcwr04sOGzaK3pRwk726', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 2),
+       ('Fatiha El habti', 'fatiha', 'Web Designer', 'fatiha@anmoon.ma','$2a$10$uOqFjk3kQ482jDRIRaZmhe20slxLkM4c/b4YMRVfKCPOOU88HAC72' ,'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 1),
+       ('Latifa Amouguay', 'latifa', 'Web Developer', 'latifa@anmoon.ma','$2a$10$HvPODtiJ1K9jmDY10iUt9.fVMSzvuTVYP4cPoMqbEV41JrtORpfbm', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 0),
+       ('Anass ELmkhloufi', 'anas', 'Mobile Developer',  'anas@anmoon.ma','$2a$10$U6FJN3PbkePwVUoRSG7waOt0iBRdme9r1og5jLIdfdU3VjnX0yZry', 'ROLE_CLIENT',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 0),
+       ('Omar Dbaa', 'omar', 'Graphic Designer', 'omar@anmoon.ma','$2a$10$zTkULoo0xe9w6KDdNt185e0HvPCaxr80X/RejhnhthbNKgy8oJhiq', 'ROLE_CLIENT', FALSE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 0);
        
        
        

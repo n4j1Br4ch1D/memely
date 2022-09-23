@@ -64,8 +64,9 @@ public class UserDto {
 		@NotNull
 	    private boolean enabled;
 	    private boolean active;
+	    private Long followersCount;
 	    private SocialLinks socialLinks;
-//
+
 //		private Collection<Meme> memes;
 //
 //	    private Collection<Meme> reactions;
