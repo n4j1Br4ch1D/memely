@@ -18,6 +18,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -112,4 +113,8 @@ public class User extends BaseEntity{
 	
     @OneToMany(mappedBy = "user")
 	private Collection<Report> reports;
+    
+    @OneToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "token_id", nullable = true, columnDefinition = "integer")
+    private Token token;
 }
