@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MemeMaker } from 'src/app/_interfaces/meme-maker';
 
 @Component({
   selector: 'app-new-meme',
@@ -6,10 +8,80 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-meme.component.scss']
 })
 export class NewMemeComponent implements OnInit {
+  @Input() status!: boolean;
+  title = '';
+  description = '';
+  tags = '';
 
-  constructor() { }
+  active = 1;
+
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
 
+  topText: string = "This is top text";
+  bottomText: string = "This is bottom text";
+  imageName: string = "Surprised Pikachu";
+  colorName: string = "black";
+
+  /*Note: In the event that new memes are to be added,
+  the meme names and corresponding file-names need to be in the same order in both arrays.*/ 
+  
+  //stores names of all the memes
+  imageNameList: string[] = ["Surprised Pikachu", "Crying Pepe", "Denerys"];
+  //stores file-names of all memes
+  imageFileNameList: string[] = ["surprised_pikachu.png", "crying_pepe.jpg", "denerys.png"];
+
+
+  changeImage(){
+      var valueOfSearch: string = "";
+      for(var i = 0; i < this.imageNameList.length; i++){
+          if(this.imageNameList[i] === this.imageName){
+              valueOfSearch = this.imageFileNameList[i];
+          }
+      }
+      //console.log(valueOfSearch);
+      //console.log(this.imageName);
+      var whole: string = "assets/" + valueOfSearch;
+      return whole;
+  }
+
+
+  ////
+  images :any = [];
+
+  drawOnCanvas({ imageUrl, textOnTop, textOnBottom }: MemeMaker) {
+    try {
+      const image = new Image();
+      image.src = imageUrl;
+      image.setAttribute("crossOrigin", "anonymous");
+      image.onload = loadEvent => {
+        const imageElement = (loadEvent as any).path[0] as HTMLImageElement;
+        const { width, height } = imageElement;
+        const canvas = document.createElement("canvas");
+        const context : any = canvas.getContext("2d");
+        canvas.width = width;
+        canvas.height = height;
+        context.drawImage(imageElement, 0, 0);
+        context.font = `${width / 6}px Calibri`;
+        context.textAlign = "center";
+        context.fillStyle = "white";
+        context.fillText(textOnTop.toUpperCase(), width / 2.3, 300);
+        context.fillText(textOnBottom.toLowerCase(), width / 2.3, height - 100);
+        const dataURL:any = canvas.toDataURL();
+        this.images.push(dataURL);
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  // open(content: any) {
+  //   this.modalService.open("content", { size: 'lg', ariaLabelledBy: 'modal-basic-title'});
+  // }
+
 }
+
+

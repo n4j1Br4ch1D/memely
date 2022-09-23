@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
@@ -83,6 +83,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './_interceptors/auth.interceptor';
 import { FormsModule } from '@angular/forms';
+import { NewMemeComponent } from './profile/new-meme/new-meme.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -105,7 +107,9 @@ import { FormsModule } from '@angular/forms';
     ProfileDropdownComponent,
     UseTermsComponent,
     PrivacyPolicyComponent,
-    ScrollSpyDirective,  ],
+    ScrollSpyDirective,
+    NewMemeComponent
+   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     NgbModule,
@@ -118,9 +122,13 @@ import { FormsModule } from '@angular/forms';
     LoadingBarRouterModule,
     LoadingBarModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
-  providers: [], //authInterceptorProviders
+  entryComponents: [
+    AboutComponent,
+],
+  providers: [    NgbActiveModal  ], //authInterceptorProviders
   bootstrap: [AppComponent]
 })
 export class AppModule { 

@@ -127,6 +127,32 @@
   </div>
 </div>
 <div class="container">
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <button class="btn btn-primary" (click)="openNewMemeModal()">
+        <fa-icon [icon]="['fas', 'circle-plus']"></fa-icon>
+        Add New
+      </button>
+    </div>
+    <div class="d-flex gap-2">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Tag</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      <div class="">
+          <div class="input-group">
+              <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
+              <span class="input-group-append">
+                  <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5" type="button">
+                    <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
+                  </button>
+              </span>
+          </div>
+      </div>
+  </div>
+  </div>
   <router-outlet></router-outlet>
 </div>
 <app-footer></app-footer>

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NewMemeComponent } from 'src/app/profile/new-meme/new-meme.component';
 import { AuthService } from 'src/app/_services/auth.service';
 import { StorageService } from 'src/app/_services/storage.service';
 
@@ -13,6 +15,7 @@ export class ProfileDropdownComponent implements OnInit {
   signedIn!: boolean;
   isAdmin!: boolean;
   constructor(
+    private modalService: NgbModal,
     private router: Router,
     private storageService: StorageService,
     private authService: AuthService
@@ -35,5 +38,13 @@ export class ProfileDropdownComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+  openNewMemeModal() {
+    const modalRef = this.modalService.open(
+        NewMemeComponent,
+        {size: 'lg', 
+         ariaLabelledBy: 'modal-basic-title'}
+    );
+     modalRef.componentInstance.status = true;
   }
 }

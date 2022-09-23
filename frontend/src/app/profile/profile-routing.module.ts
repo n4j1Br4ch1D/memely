@@ -22,7 +22,6 @@ const routes: Routes = [
       { path: 'followers', component: MyFollowersComponent },
       { path: 'notifications', component: MyNotificationsComponent },
       { path: 'settings', component: MySettingsComponent },
-      { path: 'memes/new', component: NewMemeComponent},
     ],
   },
 ];
