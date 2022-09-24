@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.memely.memely.dto.CommentDto;
 import com.memely.memely.entity.Comment;
+import com.memely.memely.entity.Notification;
 import com.memely.memely.entity.User;
 import com.memely.memely.enums.FilterCond;
 import com.memely.memely.enums.Role;
@@ -58,6 +59,11 @@ public class CommentService {
 	public CommentDto getOne(long id) {
 		Comment comment = commentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Comment", "id", id));
 		return mapToDTO(comment);
+	}
+	
+	public List<Comment> getbyUserId(long userId) {
+		List<Comment> comments = commentRepository.findAllByUserId(userId);
+		return comments;
 	}
 
 	public CommentDto create(CommentDto commentDto) {

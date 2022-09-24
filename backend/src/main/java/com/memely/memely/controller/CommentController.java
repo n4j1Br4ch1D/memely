@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import com.memely.memely.config.AppConstants;
 import com.memely.memely.dto.CommentDto;
 import com.memely.memely.entity.Comment;
+import com.memely.memely.entity.Notification;
 import com.memely.memely.enums.FilterCond;
 import com.memely.memely.enums.Role;
 import com.memely.memely.response.CommentResponse;
@@ -60,6 +61,12 @@ public class CommentController {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<CommentDto> getOne(@PathVariable(name = "id") long id) {
 		return ResponseEntity.ok(commentService.getOne(id));
+	}
+    
+    @Operation(summary = "Get Comments of a User", description = "Get Comments of a User By Id REST API")
+	@GetMapping(value = "user/{userId}")
+	public ResponseEntity<List<Comment>> getOneByUserId(@PathVariable(name = "userId") long userId) {
+		return ResponseEntity.ok(commentService.getbyUserId(userId));
 	}
 
     @Operation(summary = "Create Comment", description = "Create New Comment REST API")

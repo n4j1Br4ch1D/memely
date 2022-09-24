@@ -62,7 +62,7 @@ public class NotificationController {
 		return ResponseEntity.ok(notificationService.getOne(id));
 	}
     
-    @Operation(summary = "Get Notification of a User", description = "Get Notification of a User By Id REST API")
+    @Operation(summary = "Get Notifications of a User", description = "Get Notifications of a User By Id REST API")
 	@GetMapping(value = "user/{userId}")
 	public ResponseEntity<List<Notification>> getOneByUserId(@PathVariable(name = "userId") long userId) {
 		return ResponseEntity.ok(notificationService.getbyUserId(userId));

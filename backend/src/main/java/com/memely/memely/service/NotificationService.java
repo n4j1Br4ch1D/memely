@@ -65,7 +65,6 @@ public class NotificationService {
 		return notifications;
 	}
 	
-
 	public NotificationDto create(NotificationDto notificationDto) {
 		Notification notification = mapToEntity(notificationDto);
 		Notification newNotification = notificationRepository.save(notification);
