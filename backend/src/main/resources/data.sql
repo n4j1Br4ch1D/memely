@@ -38,7 +38,9 @@ VALUES (1, 1),
 /*Seed TABLE Favorites:*/
 INSERT INTO public.favorites (user_id, meme_id)
 VALUES (1, 2),
-       (1, 3);
+       (1, 3),
+       (2, 3);
+
        
 /*Seed TABLE Comments:*/
 INSERT INTO public.comments (user_id, meme_id, comment)

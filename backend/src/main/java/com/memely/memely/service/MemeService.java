@@ -60,6 +60,16 @@ public class MemeService {
            return memes;
 	}
 	
+	public List<Meme> getAllFavorites() {
+	      List<Meme> memes = memeRepository.getAllFavorites();
+         return memes;
+	}
+	
+	
+	public List<Meme> getUserFavorites(Long id) {
+	      List<Meme> memes = memeRepository.getUserFavorites(id);
+       return memes;
+	}
 	
 	
 	public List<Meme> getStories() {

@@ -20,6 +20,7 @@ import com.memely.memely.enums.FilterCond;
 import com.memely.memely.enums.Role;
 import com.memely.memely.response.MemeResponse;
 import com.memely.memely.service.MemeService;
+import com.memely.memely.service.UserService;
 import com.memely.memely.utils.EnumConverter;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -37,7 +38,7 @@ public class MemeController {
 	@Autowired
 	private MemeService memeService;
 
-	public MemeController(MemeService memeService) {
+	public MemeController(MemeService memeService, UserService userService) {
 		this.memeService = memeService;
 	}
 	
@@ -74,6 +75,18 @@ public class MemeController {
 	public List<Meme> getStories() {
 		return memeService.getStories();
 	}
+	
+	@GetMapping(value="favorites") //Next Version add pagination & filtering
+	public List<Meme> getAllFavorites() {
+		return memeService.getAllFavorites();
+	}
+	
+	@GetMapping(value="{id}/favorites") //Next Version add pagination & filtering
+	public List<Meme> getUserFavorites(@PathVariable(name = "id") Long id) {
+//		return userService.getOne(id).getFavorites();
+		return memeService.getUserFavorites(id);
+	}
+	
 
     @Operation(summary = "Get Meme", description = "Get Meme By Id REST API")
 	@GetMapping(value = "/{id}")

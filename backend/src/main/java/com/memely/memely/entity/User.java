@@ -87,7 +87,7 @@ public class User extends BaseEntity{
     private Collection<Meme> reactions;
 	
     @JsonIgnore
-	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@JoinTable(name = "favorites", joinColumns = { @JoinColumn(name = "user_id") }, 
 	inverseJoinColumns = { @JoinColumn(name = "meme_id") })
     private Collection<Meme> favorites;
