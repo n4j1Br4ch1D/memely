@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.memely.memely.entity.Meme;
+import com.memely.memely.entity.Report;
 import com.memely.memely.entity.User;
 import com.memely.memely.enums.Role;
 
@@ -38,4 +39,11 @@ public interface MemeRepository extends JpaRepository<Meme, Long> {
 	
     @Query(value="SELECT m.* FROM memes as m INNER JOIN reactions ON reactions.meme_id = m.id where reactions.user_id = ?1", nativeQuery = true)
     List<Meme> getUserReactions(Long id);
+    
+    
+    @Query(value="SELECT DISTINCT ON (r.meme_id) * FROM reports AS r LEFT JOIN memes AS m ON r.meme_id = m.id LEFT JOIN users AS u ON r.user_id = u.id;", nativeQuery = true)
+	List<Meme> getAllReports();
+    
+    @Query(value="SELECT * FROM reports AS r LEFT JOIN memes AS m ON r.meme_id = m.id LEFT JOIN users AS u ON r.user_id = u.id WHERE r.user_id= ?1 ;", nativeQuery = true)
+    List<Meme> getUserReports(Long UserId);
 }

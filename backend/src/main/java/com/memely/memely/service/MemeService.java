@@ -83,6 +83,17 @@ public class MemeService {
      return memes;
 	}
 	
+	public List<Meme> getAllReports() {
+	 List<Meme> memes = memeRepository.getAllReports();
+     return memes;
+	}
+	
+	public List<Meme> getUserReports(Long userId) {
+	      List<Meme> memes = memeRepository.getUserReports(userId);
+          return memes;
+	}
+	
+	
 	
 	public List<Meme> getStories() {
 	      List<Meme> memes = memeRepository.findAllByStory(true);

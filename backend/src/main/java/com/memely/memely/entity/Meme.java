@@ -59,7 +59,6 @@ public class Meme extends BaseEntity{
     
     @ManyToOne
 	private User user;
- 
     
 	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@JoinTable(name = "meme_tags", joinColumns = { @JoinColumn(name = "meme_id") }, 
@@ -68,36 +67,18 @@ public class Meme extends BaseEntity{
     
     @ManyToMany(mappedBy = "reactions", fetch = FetchType.LAZY)
 	private Collection<User> reactors;
-//    
-//    @ManyToMany(mappedBy = "favorites", fetch = FetchType.LAZY)
-//	private Collection<User> savers;
-//    
+   
     @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
 	private Collection<Comment> comments;
-//    
+   
     @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
 	private Collection<Mention> mentions;
-//    
-//    
-//    @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
-//	private Collection<Comment> reports;
+  
+    @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
+	private Collection<Report> reports;
     
     @ManyToMany(mappedBy = "favorites", fetch = FetchType.LAZY)
 	private Collection<User> savers;
-    
-    
-    //owner
-    //tags
-    //comments
-    //reactions
-    //mentions
-
-
-    
-//    @JsonManagedReference
-//	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-//	@JoinTable(name = "user_permissions", joinColumns = { @JoinColumn(name = "user_id") }, 
-//	inverseJoinColumns = { @JoinColumn(name = "permission_id") })
-//    private Collection<Permission> permissions;
+ 
 	
 }

@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
@@ -44,6 +45,9 @@ import lombok.Setter;
 @Setter
 public class ReportDto {
 	private Long id;
-   
+	private String reason;
+	
+	private User user;
 
+	private Meme meme;
 }

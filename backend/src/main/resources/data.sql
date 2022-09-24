@@ -84,6 +84,10 @@ VALUES (1, 'mention',  'Med has mentioned you!', true),
        (1, 'ad', 'check ou our new ad', false),
        (2, 'ad', 'check ou our new ad', false);
        
-
+/*Seed TABLE Reports:*/
+INSERT INTO public.reports (user_id, meme_id, reason)
+VALUES (1, 1, 'theft!'),
+       (1, 2, 'illegal'),
+       (2, 1, 'abuse');
 
 

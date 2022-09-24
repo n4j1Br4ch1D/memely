@@ -26,10 +26,10 @@ public class Report extends BaseEntity{
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "meme_id")
-	private User user;
+	private Meme meme;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
-	private Meme meme;
+	private User user;
 
 }

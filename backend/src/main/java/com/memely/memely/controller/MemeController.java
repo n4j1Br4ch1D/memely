@@ -98,6 +98,15 @@ public class MemeController {
 		return memeService.getUserReactions(id);
 	}
 	
+	@GetMapping(value="reports") //Next Version add pagination & filtering
+	public List<Meme> getAllReports() {
+		return memeService.getAllReports();
+	}
+	
+	@GetMapping(value="{userId}/reports") //Next Version add pagination & filtering
+	public List<Meme> getUserReports(@PathVariable(name = "userId") Long userId) {
+		return memeService.getUserReports(userId);
+	}
 
     @Operation(summary = "Get Meme", description = "Get Meme By Id REST API")
 	@GetMapping(value = "/{id}")

@@ -61,5 +61,7 @@ public class MemeDto {
     
 	private Collection<Mention> mentions;
     
+	private Collection<Mention> reports;
+
 
 }
