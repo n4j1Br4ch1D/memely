@@ -54,6 +54,18 @@ public class UserService {
 		return userResponse;
 	}
 
+	public List<UserDto> getUserFollowers(long id) {
+		List<User> followers = userRepository.getUserFollowers(id);
+		List<UserDto> users = followers.stream().map(user -> mapToDTO(user)).collect(Collectors.toList());
+		return users;
+	}
+	
+	public List<UserDto> getUserFollowing(long id) {
+		List<User> following= userRepository.getUserFollowings(id);
+		List<UserDto> users = following.stream().map(user -> mapToDTO(user)).collect(Collectors.toList());
+		return users;
+	}
+	
 	public UserDto getOne(long id) {
 		User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
 		return mapToDTO(user);

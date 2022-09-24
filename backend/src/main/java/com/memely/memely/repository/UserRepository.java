@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
+import com.memely.memely.entity.Comment;
 import com.memely.memely.entity.User;
 import com.memely.memely.enums.Role;
 
@@ -20,6 +21,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Boolean existsByUsername(String username);
     Boolean existsByEmail(String email);
     List<User> findAllByRole(Role role, Pageable pageable);
+    
+    
+    @Query(value="SELECT * FROM users as u JOIN followers ON followers.follower_id = u.id WHERE followers.followed_id = ?1 ;", nativeQuery = true)
+    List<User> getUserFollowers(Long UserId);
+    
+  
+    @Query(value="SELECT * FROM users as u JOIN followers ON followers.followed_id = u.id WHERE followers.follower_id = ?1 ;", nativeQuery = true)
+    List<User> getUserFollowings(Long UserId);
+    
 //	Page<User> findByRoleContainingIgnoreCaseAndIsMaleAndEnabled(String role, Boolean isMale, Boolean enabled, Pageable pageable);
 //	Page<User> findByRoleContainingIgnoreCaseOrIsMaleOrEnabled(String role, Boolean isMale, Boolean enabled, Pageable pageable);
 }

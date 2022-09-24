@@ -1,6 +1,7 @@
 package com.memely.memely.controller;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -54,7 +55,19 @@ public class UserController {
 		return userService.getAll(pageNo, pageSize, sortBy, sortDir, filterCond, role, isMale, enabled);
 	}
     
-
+    
+    @Operation(summary = "Get User", description = "Get User By Id REST API")
+	@GetMapping(value = "/{id}/followers")
+	public List<UserDto> getUserFollwers(@PathVariable(name = "id") long id) {
+		return userService.getUserFollowers(id);
+	}
+    
+    @Operation(summary = "Get User", description = "Get User By Id REST API")
+	@GetMapping(value = "/{id}/following")
+	public List<UserDto> getUserFollwing(@PathVariable(name = "id") long id) {
+		return userService.getUserFollowing(id);
+	}
+    
     @Operation(summary = "Get User", description = "Get User By Id REST API")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<UserDto> getOne(@PathVariable(name = "id") long id) {

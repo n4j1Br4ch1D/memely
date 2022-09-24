@@ -28,6 +28,14 @@ VALUES ('funny1', 'https://assets-global.website-files.com/5f3c19f18169b62a0d0bf
        ('funny3', 'https://devhumor.com/content/uploads/images/March2022/new_bugs.jpg', 'this one is a funny one', TRUE, FALSE, 0, 2);
        
   
+       
+/*Seed TABLE followers:*/
+INSERT INTO public.followers (follower_id, followed_id)
+VALUES (1, 2),
+       (1, 3),
+       (2, 1),
+       (2, 3);
+
 /*Seed TABLE Reactions:*/
 INSERT INTO public.reactions (user_id, meme_id)
 VALUES (1, 1),
