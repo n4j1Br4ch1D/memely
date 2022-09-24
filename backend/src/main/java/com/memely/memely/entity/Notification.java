@@ -44,5 +44,6 @@ public class Notification extends BaseEntity{
   
     private String type;    
     private String content;  
+    private Boolean seen;
 
 }

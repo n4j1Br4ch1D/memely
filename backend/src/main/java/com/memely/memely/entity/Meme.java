@@ -72,10 +72,10 @@ public class Meme extends BaseEntity{
 //    @ManyToMany(mappedBy = "favorites", fetch = FetchType.LAZY)
 //	private Collection<User> savers;
 //    
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)	
+    @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
 	private Collection<Comment> comments;
 //    
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)	
+    @OneToMany(mappedBy = "meme", fetch = FetchType.LAZY)	
 	private Collection<Mention> mentions;
 //    
 //    

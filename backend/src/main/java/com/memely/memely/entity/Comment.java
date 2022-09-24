@@ -31,20 +31,17 @@ public class Comment extends BaseEntity{
 	
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "meme_id")
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "meme_id")
 	private Meme meme;
 	
-	@JsonIgnore
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)	
-	private Collection<Comment> comments;
 
 //	@JsonIgnore
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)	
+    @OneToMany(mappedBy = "comment", fetch = FetchType.LAZY)	
 	private Collection<Mention> mentions;
 	
 }
