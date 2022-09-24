@@ -32,4 +32,10 @@ public interface MemeRepository extends JpaRepository<Meme, Long> {
 	
     @Query(value="SELECT m.* FROM memes as m INNER JOIN favorites ON favorites.meme_id = m.id where favorites.user_id = ?1 ;", nativeQuery = true)
     List<Meme> getUserFavorites(Long id);
+    
+    @Query(value="SELECT DISTINCT m.* FROM memes as m INNER JOIN reactions ON reactions.meme_id = m.id", nativeQuery = true)
+    List<Meme> getAllReactions();
+	
+    @Query(value="SELECT m.* FROM memes as m INNER JOIN reactions ON reactions.meme_id = m.id where reactions.user_id = ?1", nativeQuery = true)
+    List<Meme> getUserReactions(Long id);
 }

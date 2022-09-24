@@ -72,6 +72,18 @@ public class MemeService {
 	}
 	
 	
+	public List<Meme> getAllReactions() {
+	      List<Meme> memes = memeRepository.getAllReactions();
+       return memes;
+	}
+	
+	
+	public List<Meme> getUserReactions(Long id) {
+	      List<Meme> memes = memeRepository.getUserReactions(id);
+     return memes;
+	}
+	
+	
 	public List<Meme> getStories() {
 	      List<Meme> memes = memeRepository.findAllByStory(true);
          return memes;
