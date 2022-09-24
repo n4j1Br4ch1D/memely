@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.memely.memely.entity.Comment;
+import com.memely.memely.entity.Mention;
 import com.memely.memely.entity.Notification;
 
 
