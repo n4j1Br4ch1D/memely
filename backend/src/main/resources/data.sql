@@ -90,4 +90,10 @@ VALUES (1, 1, 'theft!'),
        (1, 2, 'illegal'),
        (2, 1, 'abuse');
 
+/*Seed TABLE Contacts:*/
+INSERT INTO public.contacts (name, email, message, seen, user_id)
+VALUES ('mr admin', 'admin@anmoon.ma',  'Hi i like ur site', false, null),
+       ('user 1', 'user1@anmoon.ma',  'Hi i like ur site', true, 1),
+       ('user 2', 'user2@anmoon.ma',  'Hi i like ur site', true, 2),
+       ('user 3', 'user1@anmoon.ma',  'Hi i like ur site', true, 1);
 

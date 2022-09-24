@@ -44,6 +44,7 @@ public class Contact extends BaseEntity{
   
     private String name;  
     private String email;   
+    private Boolean seen;   
     private String message;    
 
 
