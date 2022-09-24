@@ -45,5 +45,7 @@ import lombok.Setter;
 public class NotificationDto {
 	private Long id;
    
-
+    private String type;    
+    private String content;  
+    private Boolean seen;
 }

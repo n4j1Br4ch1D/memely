@@ -92,7 +92,7 @@ public class MemeController {
 		return memeService.getAllReactions();
 	}
 	
-	@GetMapping(value="{id}/reacted") //Next Version add pagination & filtering
+	@GetMapping(value="{id}/reactions") //Next Version add pagination & filtering
 	public List<Meme> getUserReactions(@PathVariable(name = "id") Long id) {
 //		return userService.getOne(id).getFavorites();
 		return memeService.getUserReactions(id);

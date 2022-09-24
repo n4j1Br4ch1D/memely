@@ -69,6 +69,13 @@ VALUES (1, 1),
        (1, 2),
        (2, 1);
        
+       
+/*Seed TABLE Notifications:*/
+INSERT INTO public.notifications (user_id, type , content, seen)
+VALUES (1, 'mention',  'Med has mentioned you!', true),
+       (1, 'ad', 'check ou our new ad', false),
+       (2, 'ad', 'check ou our new ad', false);
+       
 
 
 
