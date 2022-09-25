@@ -102,6 +102,16 @@
             </li>
             <li class="nav-item">
               <a
+                routerLink="comments"
+                class="nav-link text-primary"
+                routerLinkActive="active text-white"
+                [routerLinkActiveOptions]="{ exact: true }"
+                ariaCurrentWhenActive="page"
+                >My Comments</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
                 routerLink="followings"
                 class="nav-link text-primary"
                 routerLinkActive="active text-white"

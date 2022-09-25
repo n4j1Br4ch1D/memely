@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MyCommentsComponent } from './my-comments/my-comments.component';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { MyFollowersComponent } from './my-followers/my-followers.component';
 import { MyFollowingsComponent } from './my-followings/my-followings.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'memes', component: MyMemesComponent},
       { path: 'favorites', component: MyFavoritesComponent },
       { path: 'reactions', component: MyReactionsComponent },
+      { path: 'comments', component: MyCommentsComponent },
       { path: 'followings', component: MyFollowingsComponent },
       { path: 'followers', component: MyFollowersComponent },
       { path: 'notifications', component: MyNotificationsComponent },

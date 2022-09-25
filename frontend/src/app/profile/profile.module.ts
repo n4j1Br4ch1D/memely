@@ -11,6 +11,7 @@ import { MySettingsComponent } from './my-settings/my-settings.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MyCommentsComponent } from './my-comments/my-comments.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MyFollowingsComponent,
     MyFollowersComponent,
     MyNotificationsComponent,
-    MySettingsComponent
+    MySettingsComponent,
+    MyCommentsComponent
   ],
   imports: [
     CommonModule,
