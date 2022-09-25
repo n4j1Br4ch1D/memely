@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ContactService } from 'src/app/_services/contact.service';
 
 @Component({
   selector: 'app-my-contacts',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-contacts.component.scss']
 })
 export class MyContactsComponent implements OnInit {
-
-  constructor() { }
-
+  currentProfileId: any;
+  contacts:any = [];
+  constructor(private contactService:ContactService,  private route: ActivatedRoute) { }
   ngOnInit(): void {
+    this.currentProfileId = this.route.snapshot.data['profile']['id'];
+    this.contactService.getUserContacts(this.currentProfileId).subscribe(data=>{
+      this.contacts = data;
+    })
   }
-
 }

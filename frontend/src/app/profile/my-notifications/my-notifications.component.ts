@@ -13,7 +13,7 @@ export class MyNotificationsComponent implements OnInit {
   constructor(private notificationService:NotificationService,  private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.currentProfileId = this.route.snapshot.data['profile']['id'];
-    this.notificationService.getuserNotifications(this.currentProfileId).subscribe(data=>{
+    this.notificationService.getUserNotifications(this.currentProfileId).subscribe(data=>{
       this.notifications = data;
     })
   }

@@ -10,7 +10,7 @@ export class NotificationService {
   constructor(private http: HttpClient) { }
   ResPath = environment.apiUrl+'notifications';
 
-  getuserNotifications(userId: Number): Observable<Object> {
+  getUserNotifications(userId: Number): Observable<Object> {
     return this.http.get<Object>(`${this.ResPath}/user/${userId}`);
   }
 }
