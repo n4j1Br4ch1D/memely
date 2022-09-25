@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from 'src/app/_services/notification.service';
 
 @Component({
   selector: 'app-my-notifications',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-notifications.component.scss']
 })
 export class MyNotificationsComponent implements OnInit {
-
-  constructor() { }
-
+  currentProfileId: any;
+  notifications:any = [];
+  constructor(private notificationService:NotificationService,  private route: ActivatedRoute) { }
   ngOnInit(): void {
+    this.currentProfileId = this.route.snapshot.data['profile']['id'];
+    this.notificationService.getuserNotifications(this.currentProfileId).subscribe(data=>{
+      this.notifications = data;
+    })
   }
-
 }
