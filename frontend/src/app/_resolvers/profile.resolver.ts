@@ -15,7 +15,7 @@ import { catchError } from 'rxjs/operators';
 export class ProfileResolver implements Resolve<Profile> {
   constructor(private router: Router, public profileService: ProfileService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Profile> {
-    return this.profileService.get(route.paramMap.get('username')).pipe(catchError(() => {
+    return this.profileService.getOneByUsername(route.paramMap.get('username')).pipe(catchError(() => {
       this.router.navigateByUrl(`/${route.paramMap.get('username')}/404`, {skipLocationChange: true})
       return EMPTY;
     }));
