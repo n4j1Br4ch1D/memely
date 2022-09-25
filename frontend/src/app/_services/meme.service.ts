@@ -27,4 +27,8 @@ export class MemeService {
     return this.http.get<Object>(`${this.ResPath}/${userId}/reactions`);
   }
 
+  getUserFavorites(userId: Number): Observable<Object> {
+    return this.http.get<Object>(`${this.ResPath}/${userId}/favorites`);
+  }
+
 }
