@@ -112,6 +112,16 @@
             </li>
             <li class="nav-item">
               <a
+                routerLink="mentions"
+                class="nav-link text-primary"
+                routerLinkActive="active text-white"
+                [routerLinkActiveOptions]="{ exact: true }"
+                ariaCurrentWhenActive="page"
+                >My Mentions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
                 routerLink="followings"
                 class="nav-link text-primary"
                 routerLinkActive="active text-white"

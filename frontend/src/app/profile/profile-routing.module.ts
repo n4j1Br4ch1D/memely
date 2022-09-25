@@ -5,6 +5,7 @@ import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { MyFollowersComponent } from './my-followers/my-followers.component';
 import { MyFollowingsComponent } from './my-followings/my-followings.component';
 import { MyMemesComponent } from './my-memes/my-memes.component';
+import { MyMentionsComponent } from './my-mentions/my-mentions.component';
 import { MyNotificationsComponent } from './my-notifications/my-notifications.component';
 import { MyReactionsComponent } from './my-reactions/my-reactions.component';
 import { MySettingsComponent } from './my-settings/my-settings.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'favorites', component: MyFavoritesComponent },
       { path: 'reactions', component: MyReactionsComponent },
       { path: 'comments', component: MyCommentsComponent },
+      { path: 'mentions', component: MyMentionsComponent },
       { path: 'followings', component: MyFollowingsComponent },
       { path: 'followers', component: MyFollowersComponent },
       { path: 'notifications', component: MyNotificationsComponent },

@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MyCommentsComponent } from './my-comments/my-comments.component';
+import { MyMentionsComponent } from './my-mentions/my-mentions.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MyCommentsComponent } from './my-comments/my-comments.component';
     MyFollowersComponent,
     MyNotificationsComponent,
     MySettingsComponent,
-    MyCommentsComponent
+    MyCommentsComponent,
+    MyMentionsComponent
   ],
   imports: [
     CommonModule,

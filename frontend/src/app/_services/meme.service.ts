@@ -38,8 +38,4 @@ export class MemeService {
   getuserStories(userId: Number): Observable<Object> {
     return this.http.get<Object>(`${this.ResPath}/${userId}/stories`);
   }
-
-  getuserMentions(userId: Number): Observable<Object> {
-    return this.http.get<Object>(`${this.ResPath}/${userId}/mentions`);
-  }
 }
