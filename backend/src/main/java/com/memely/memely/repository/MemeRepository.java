@@ -46,4 +46,7 @@ public interface MemeRepository extends JpaRepository<Meme, Long> {
     
     @Query(value="SELECT * FROM reports AS r LEFT JOIN memes AS m ON r.meme_id = m.id LEFT JOIN users AS u ON r.user_id = u.id WHERE r.user_id= ?1 ;", nativeQuery = true)
     List<Meme> getUserReports(Long UserId);
+
+    @Query(value="SELECT * FROM memes where memes.user_id = ?1 AND memes.story = true;", nativeQuery = true)
+	List<Meme> getUserStories(Long userId);
 }

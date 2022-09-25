@@ -76,15 +76,20 @@ public class MemeController {
 		return memeService.getStories();
 	}
 	
+	@GetMapping(value="{userId}/stories") //Next Version add pagination & filtering
+	public List<Meme> getUserStories(@PathVariable(name = "userId") Long userId) {
+		return memeService.getUserStories(userId);
+	}
+	
 	@GetMapping(value="favorites") //Next Version add pagination & filtering
 	public List<Meme> getAllFavorites() {
 		return memeService.getAllFavorites();
 	}
 	
-	@GetMapping(value="{id}/favorites") //Next Version add pagination & filtering
-	public List<Meme> getUserFavorites(@PathVariable(name = "id") Long id) {
+	@GetMapping(value="{userId}/favorites") //Next Version add pagination & filtering
+	public List<Meme> getUserFavorites(@PathVariable(name = "userId") Long userId) {
 //		return userService.getOne(id).getFavorites();
-		return memeService.getUserFavorites(id);
+		return memeService.getUserFavorites(userId);
 	}
 	
 	@GetMapping(value="reactions") //Next Version add pagination & filtering

@@ -66,8 +66,8 @@ public class MemeService {
 	}
 	
 	
-	public List<Meme> getUserFavorites(Long id) {
-	      List<Meme> memes = memeRepository.getUserFavorites(id);
+	public List<Meme> getUserFavorites(Long userId) {
+	      List<Meme> memes = memeRepository.getUserFavorites(userId);
        return memes;
 	}
 	
@@ -94,10 +94,14 @@ public class MemeService {
 	}
 	
 	
-	
 	public List<Meme> getStories() {
 	      List<Meme> memes = memeRepository.findAllByStory(true);
          return memes;
+	}
+	
+	public List<Meme> getUserStories(Long userId) {
+	      List<Meme> memes = memeRepository.getUserStories(userId);
+          return memes;
 	}
 	
 	public List<Meme> getMemesByTag(String tag) {
