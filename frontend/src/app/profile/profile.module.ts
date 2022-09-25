@@ -13,6 +13,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MyCommentsComponent } from './my-comments/my-comments.component';
 import { MyMentionsComponent } from './my-mentions/my-mentions.component';
+import { MyReportsComponent } from './my-reports/my-reports.component';
+import { MyContactsComponent } from './my-contacts/my-contacts.component';
+import { MyMessagesComponent } from './my-messages/my-messages.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { MyMentionsComponent } from './my-mentions/my-mentions.component';
     MyNotificationsComponent,
     MySettingsComponent,
     MyCommentsComponent,
-    MyMentionsComponent
+    MyMentionsComponent,
+    MyReportsComponent,
+    MyContactsComponent,
+    MyMessagesComponent
   ],
   imports: [
     CommonModule,
