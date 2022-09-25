@@ -96,4 +96,20 @@ VALUES ('mr admin', 'admin@anmoon.ma',  'Hi i like ur site', false, null),
        ('user 1', 'user1@anmoon.ma',  'Hi i like ur site', true, 1),
        ('user 2', 'user2@anmoon.ma',  'Hi i like ur site', true, 2),
        ('user 3', 'user1@anmoon.ma',  'Hi i like ur site', true, 1);
+       
+ /*Seed TABLE Messages:*/
+INSERT INTO public.messages (content, sender_id, reciver_id)
+VALUES ('slm', 2, 1),
+       ('ahlan', 1, 2),
+       ('cv', 2, 1),
+       ('slm 3likom', 2, 3),
+       ('ach kadir', 2, 3),
+       ('walo ra galss', 1, 3),
+       ('ah okay!', 2, 3),
+       ('wash!', 2, 4),
+       ('hani!', 4, 2);
+
+
+       
+
 

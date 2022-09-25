@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
@@ -43,14 +42,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MessageDto {
+public class TagDto {
 	private Long id;
-   
-    private String content; 
-    
-    
-	private User sender;
-	  
-	private User reciver;
-
+    private String name;    
+//	private Collection<Meme> memes; 
 }

@@ -42,6 +42,12 @@ import lombok.Setter;
 //@Builder
 public class Message extends BaseEntity{
   
-    private String content;  
+    private String content; 
+    @ManyToOne	
+	private User sender;
+  
+    @ManyToOne	
+	private User reciver;
+   
 
 }

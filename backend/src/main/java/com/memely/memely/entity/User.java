@@ -47,10 +47,24 @@ import lombok.Setter;
 @NoArgsConstructor
 //@Builder
 //@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="id", scope = User.class)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User extends BaseEntity{
   
 
-    @Column(name="username", unique=true)
+    public User(Object[] objects) {
+		super();
+	    setId((Long) Long.parseLong(String.valueOf(objects[0])));
+	    setUsername((String) objects[17]); //
+		setFullName((String) objects[9]);
+		setAvatar((String) objects[4]);
+		setDescription((String) objects[5]);
+		setEmail((String) objects[6]);
+		setRole((String) objects[11]);
+		setActive((Boolean) objects[3]);
+		setEnabled((Boolean) objects[7]);
+    }
+
+	@Column(name="username", unique=true)
     private String username;
     @Column(name="full_name")
     private String fullName;
