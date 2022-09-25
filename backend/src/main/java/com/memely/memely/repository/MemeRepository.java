@@ -21,6 +21,9 @@ public interface MemeRepository extends JpaRepository<Meme, Long> {
 	@Query(value="SELECT m.* FROM memes as m LEFT JOIN users ON m.user_id = users.id where users.username = ?1 ;", nativeQuery = true)
     List<Meme> findAllByUserUsername(String username);
 
+	@Query(value="SELECT m.* FROM memes as m LEFT JOIN users ON m.user_id = users.id where users.id = ?1 ;", nativeQuery = true)
+    List<Meme> findAllByUserId(Long userId);
+	
     List<Meme> findAllByStory(Boolean story);
 
     List<Meme> findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String title, String description);

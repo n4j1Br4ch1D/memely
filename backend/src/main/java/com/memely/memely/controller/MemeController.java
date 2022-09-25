@@ -61,10 +61,16 @@ public class MemeController {
 		return memeService.searchMemes(keywords);
 	}
 	
+	@GetMapping(value="user/{userId}") //Next Version add pagination & filtering
+	public List<Meme> getMemes(@PathVariable(name = "userId") Long userId) {
+		return memeService.getMemesByUserId(userId);
+	}
+	
 	@GetMapping(value="username/{username}") //Next Version add pagination & filtering
 	public List<Meme> getMemes(@PathVariable(name = "username") String username) {
 		return memeService.getMemesByUsername(username);
 	}
+	
 	
 	@GetMapping(value="tag/{tag}") //Next Version add pagination & filtering
 	public List<Meme> getMemesbyTag(@PathVariable(name = "tag") String tag) {
