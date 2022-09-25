@@ -32,6 +32,7 @@ export class ProfileLayoutComponent implements OnInit {
   ngOnInit(): void {
     this.signedInUser = this.storageService.getUser();
     this.currentProfile = this.route.snapshot.data['profile'];
+    this.profileService.setCurrentProfile(this.currentProfile);
     console.log("currentProfile", this.currentProfile);
     
     

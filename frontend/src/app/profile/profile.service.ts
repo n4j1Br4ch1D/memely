@@ -9,6 +9,17 @@ import { Profile } from '../_models/profile';
 })
 export class ProfileService {
   constructor(private http: HttpClient) { }
+  
+  currentProfile:any = {};
+
+  public setCurrentProfile(profile: any): void {
+     this.currentProfile = profile;
+  }
+
+  public getCurrentProfile(): any {
+    return this.currentProfile;
+  }
+
   ResPath = environment.apiUrl+'users';
 
   getAll(): Observable<Object> {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Role } from '../_enums/role';
 import { Profile } from '../_models/profile';
@@ -29,11 +29,4 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
-
-  canDesactivate(){
-
-  }
-
-
- 
 }

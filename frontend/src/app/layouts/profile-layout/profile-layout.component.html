@@ -103,11 +103,17 @@
               <div *ngIf="isProfile">
                 <a
                   routerLink="notifications"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  ariaCurrentWhenActive="page"
                   class="btn btn-outline-primary me-2"
                 >
                   <fa-icon [icon]="['fas', 'bell']"></fa-icon>
                 </a>
-                <a routerLink="settings" class="btn btn-outline-primary">
+                <a routerLink="settings" class="btn btn-outline-primary"          
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                ariaCurrentWhenActive="page">
                   <fa-icon [icon]="['fas', 'gears']"></fa-icon>
                 </a>
               </div>
