@@ -9,14 +9,14 @@
         ngbDropdownToggle
       >
         <img
-          routerLink="/profile"
-          src="https://avatars.githubusercontent.com/u/38995898?v=4"
+          [routerLink]="'/'+signedInUser.username"
+          [src]="signedInUser.avatar"
           style="height: 28px; object-fit: contain"
           class="img-fluid rounded-circle me-1"
           alt=""
         />
-        <span routerLink="/profile" class="d-none d-md-inline-block"
-          >{{signedInUser.userName}}</span
+        <span [routerLink]="signedInUser.username" class="d-none d-md-inline-block"
+          >{{signedInUser.username}}</span
         >
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">

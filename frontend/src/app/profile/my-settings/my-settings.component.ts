@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/_services/auth.service';
+import { StorageService } from 'src/app/_services/storage.service';
 
 @Component({
   selector: 'app-my-settings',
@@ -10,13 +10,13 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class MySettingsComponent implements OnInit {
   authUser: any;
   constructor(
-    private authService: AuthService,
+    private storageService: StorageService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
 
-    this.authUser = this.authService.getSignedInUser();
+    this.authUser = this.storageService.getUser();
     
   }
 }

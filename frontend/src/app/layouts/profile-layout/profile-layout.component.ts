@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profile } from 'src/app/_models/profile';
 import { ProfileService } from 'src/app/profile/profile.service';
-import { AuthService } from 'src/app/_services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NewMemeComponent } from 'src/app/profile/new-meme/new-meme.component';
+import { StorageService } from 'src/app/_services/storage.service';
 
 @Component({
   selector: 'app-profile-layout',
@@ -15,7 +15,7 @@ export class ProfileLayoutComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private authService: AuthService,
+    private storageService: StorageService,
     private profileService: ProfileService,
      private route: ActivatedRoute) { }
   
@@ -30,7 +30,7 @@ export class ProfileLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.signedInUser = this.authService.getSignedInUser();
+    this.signedInUser = this.storageService.getUser();
     this.currentProfile = this.route.snapshot.data['profile'];
     console.log("currentProfile", this.currentProfile);
     

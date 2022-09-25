@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/_services/auth.service';
 import { ChatService } from 'src/app/_services/chat.service';
+import { StorageService } from 'src/app/_services/storage.service';
 
 @Component({
   selector: 'app-my-messages',
@@ -14,13 +14,13 @@ export class MyMessagesComponent implements OnInit {
   messages: any = [];
   friends: any = [];
   constructor(
-    private authService: AuthService,
+    private storageService: StorageService,
     private chatService: ChatService,
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
 
-    this.userId = this.authService.getSignedInUser()['id'];
+    this.userId = this.storageService.getUser()['id'];
     this.friendId = 2;
     this.chatService
       .getUserMessages(this.userId, this.friendId)

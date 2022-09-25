@@ -5,17 +5,22 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class StorageService {
+//  storageUnit = window.sessionStorage;
+ storageUnit = window.localStorage;
+ // session Coockie;
+
+
   clean(): void {
-    window.sessionStorage.clear();
+    this.storageUnit.clear();
   }
 
   public saveUser(user: any): void {
-    window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    this.storageUnit.removeItem(USER_KEY);
+    this.storageUnit.setItem(USER_KEY, JSON.stringify(user));
   }
 
   public getUser(): any {
-    const user = window.sessionStorage.getItem(USER_KEY);
+    const user = this.storageUnit.getItem(USER_KEY);
     if (user) {
       return JSON.parse(user).user;
     }
@@ -24,7 +29,7 @@ export class StorageService {
   }
 
   public isSignedIn(): boolean {
-    const user = window.sessionStorage.getItem(USER_KEY);
+    const user = this.storageUnit.getItem(USER_KEY);
     if (user) {
       return true;
     }
@@ -32,7 +37,7 @@ export class StorageService {
   }
 
   public isAdmin(): boolean {
-    const user:any = window.sessionStorage.getItem(USER_KEY);
+    const user:any = this.storageUnit.getItem(USER_KEY);
     const userParsed =  JSON.parse(user);
     if (userParsed?.user?.role=="ROLE_ADMIN") {
       return true;
