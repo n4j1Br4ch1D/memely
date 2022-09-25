@@ -35,7 +35,11 @@ export class MemeService {
     return this.http.get<Object>(`${this.ResPath}/user/${userId}`);
   }
 
-  getuserStories(userId: Number): Observable<Object> {
+  getUserStories(userId: Number): Observable<Object> {
     return this.http.get<Object>(`${this.ResPath}/${userId}/stories`);
+  }
+
+  getUserReports(userId: Number): Observable<Object> {
+    return this.http.get<Object>(`${this.ResPath}/${userId}/reports`);
   }
 }
