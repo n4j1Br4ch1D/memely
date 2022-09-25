@@ -21,7 +21,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Boolean existsByUsername(String username);
     Boolean existsByEmail(String email);
     List<User> findAllByRole(Role role, Pageable pageable);
-    
+    Optional<User> findByUsername(String username);
+
     
     @Query(value="SELECT * FROM users as u JOIN followers ON followers.follower_id = u.id WHERE followers.followed_id = ?1 ;", nativeQuery = true)
     List<User> getUserFollowers(Long UserId);

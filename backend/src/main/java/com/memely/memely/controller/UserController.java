@@ -68,11 +68,18 @@ public class UserController {
 		return userService.getUserFollowing(id);
 	}
     
-    @Operation(summary = "Get User", description = "Get User By Id REST API")
+    @Operation(summary = "Get User by id", description = "Get User By Id REST API")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<UserDto> getOne(@PathVariable(name = "id") long id) {
 		return ResponseEntity.ok(userService.getOne(id));
 	}
+    
+    @Operation(summary = "Get User By username", description = "Get User By Username REST API")
+	@GetMapping(value = "username/{username}")
+	public ResponseEntity<UserDto> getOneByUsername(@PathVariable(name = "username") String username) {
+		return ResponseEntity.ok(userService.getOneByUsername(username));
+	}
+    
 
     @Operation(summary = "Create User", description = "Create New User REST API")
 	@PostMapping

@@ -24,4 +24,8 @@ public class ResourceNotFoundException extends RuntimeException{
     public ResourceNotFoundException(String string) {
 		// TODO Auto-generated constructor stub
 	}
+
+	public ResourceNotFoundException(String resourceName2, String fieldName2, String username) {
+		// TODO Auto-generated constructor stub
+	}
 }

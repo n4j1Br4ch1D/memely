@@ -71,6 +71,10 @@ public class UserService {
 		return mapToDTO(user);
 	}
 
+	public UserDto getOneByUsername(String username) {
+		User user = userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
+		return mapToDTO(user);
+	}
 	public UserDto create(UserDto userDto) {
 		User user = mapToEntity(userDto);
 		User newUser = userRepository.save(user);
