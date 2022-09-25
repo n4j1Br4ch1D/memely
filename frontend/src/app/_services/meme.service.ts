@@ -22,4 +22,9 @@ export class MemeService {
   search(keyword: String): Observable<Object> {
     return this.http.get<Object>(`${this.ResPath}/search/${keyword}`);
   }
+
+  getUserReactions(userId: Number): Observable<Object> {
+    return this.http.get<Object>(`${this.ResPath}/${userId}/reactions`);
+  }
+
 }
