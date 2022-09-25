@@ -1,1 +1,4 @@
-<p>my-memes works!</p>
+<div *ngFor="let meme of memes" class="">
+    {{ meme.title }} 
+    <div *ngIf="meme.story">{{meme.story}}</div>
+</div>

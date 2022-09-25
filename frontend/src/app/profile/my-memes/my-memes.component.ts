@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MemeService } from 'src/app/_services/meme.service';
 
 @Component({
@@ -7,14 +8,13 @@ import { MemeService } from 'src/app/_services/meme.service';
   styleUrls: ['./my-memes.component.scss']
 })
 export class MyMemesComponent implements OnInit {
-
-  constructor(private memeService: MemeService) { }
-
+  currentProfileId: any;
+  memes:any = [];
+  constructor(private memeService:MemeService,  private route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.memeService.getAll().subscribe(data=>{
-      console.log("my memes", data);
-      
+    this.currentProfileId = this.route.snapshot.data['profile']['id'];
+    this.memeService.getUserMemes(this.currentProfileId).subscribe(data=>{
+      this.memes = data;
     })
   }
-
 }
