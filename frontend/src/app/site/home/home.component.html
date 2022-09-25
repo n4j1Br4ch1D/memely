@@ -1,2 +1,2 @@
-<app-searcher (emitter)="send($event)"></app-searcher>
-<app-viewer [keyword]="keyword"></app-viewer>
+<app-searcher (emitter)="sendKewyword($event)" (emitter)="sendTag($event)"></app-searcher>
+<app-viewer [keyword]="keyword"  [tag]="tag"></app-viewer>

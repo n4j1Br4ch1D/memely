@@ -6,20 +6,12 @@ import { environment } from "../../environments/environment"
 @Injectable({
   providedIn: 'root'
 })
-export class MemeService {
+export class TagService {
 
   constructor(private http: HttpClient) { }
-  ResPath = environment.apiUrl+'memes';
+  ResPath = environment.apiUrl+'tags';
 
   getAll(): Observable<Object> {
     return this.http.get<Object>(`${this.ResPath}`);
-  }
-
-  getAllByTag(tag: String): Observable<Object> {
-    return this.http.get<Object>(`${this.ResPath}/tag/${tag}`);
-  }
-
-  search(keyword: String): Observable<Object> {
-    return this.http.get<Object>(`${this.ResPath}/search/${keyword}`);
   }
 }

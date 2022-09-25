@@ -1,8 +1,9 @@
 <div class="container my-5">
-    
-    <p *ngIf="!memes.length">No results found</p>
-
-
+  
+    <div *ngIf="!memes.length" class="text-center alert p-5">
+       <h4>No Results found!</h4>
+       <p>Try Using diffrent Keywords!</p>
+    </div>
       <div *ngIf="memes.length" class="meme-view text-center text-lg-start">
         <ngx-masonry [options]="masonryOptions" class="row">
 

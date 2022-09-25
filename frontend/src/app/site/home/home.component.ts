@@ -10,9 +10,14 @@ import { fromEvent, map, Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   keyword = "";
-  send(keyword :string){
-    console.log('from sending', keyword);
+  tag = "";
+  sendKewyword(keyword :string){
+    // console.log('from sending', keyword);
     this.keyword = keyword;
+  }
+  sendTag(tag :string){
+    console.log('from sending', tag);
+    this.tag = tag;
   }
   ngOnInit(): void {
   }

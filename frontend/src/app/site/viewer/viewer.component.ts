@@ -30,28 +30,29 @@ export class ViewerComponent implements OnInit {
     // this.route.params.subscribe( params => console.log("params:", params) );
   }
   @Input() keyword: string = '';
+  @Input() tag: string = '';
+
   memes:any =[];
 
-  // fetchMemes(keyword: string): any {
-  //   const apiKey$ = 'AIzaSyA0v010oX8a0ApcRYmAeN-omDVGDitxPT8';
-  //   const pageLimit$ = 40;
-  //   const url$ = `https://tenor.googleapis.com/v2/search?q=${keyword}&key=${apiKey$}&limit=${pageLimit$}`;
-  //   const data$ = fromFetch(url$, {
-  //     selector: (response) => response.json(),
-  //   });
-  //   return data$;
-  // }
-
   search(keyword: string): any {
-    // this.fetchMemes(keyword).subscribe({
-    //   next: (result: any) => {
-    //     this.memes = result.results;
-    //     console.log(result.results);
-    //   },
-    //   complete: () => console.log(keyword),
-    // });
+    this.memeService.search(keyword).subscribe({
+      next: (result: any) => {
+        this.memes = result;
+        console.log(result.results);
+      },
+      complete: () => console.log(keyword),
+    });
   }
-
+  filterTag(tag: string): any {
+    this.memeService.getAllByTag(tag).subscribe({
+      next: (result: any) => {
+        console.log("foooor Tag "+tag, result);
+        this.memes = result;
+        console.log("what", this.memes);
+      },
+      complete: () => console.log("complete", this.memes),
+    });
+  }
   ngOnInit(): void {
     // this.search(this.keyword);
     this.memeService.getAll().subscribe(data=>{
@@ -64,9 +65,9 @@ export class ViewerComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(1);
-    console.log(changes);
     this.search(this.keyword);
+    this.filterTag(this.tag);
+
   }
 
   public masonryOptions: NgxMasonryOptions = {

@@ -8,7 +8,7 @@
           class="form-control"
           placeholder="Looking For Funny Programming Memes?"
         />
-          <button (click)="emit(keyword.value);" class="btn text-white bg-primary bg-gradient">
+          <button (click)="emitKeyword(keyword.value);" class="btn text-white bg-primary bg-gradient">
             <fa-icon [icon]="['fas', 'magnifying-glass']" class="me-1"></fa-icon>
             Search
           </button>
@@ -19,9 +19,8 @@
   
   <div id="terms" class="d-flex gap-3 justify-content-center mt-3 col-md-10 m-auto custom-swiper-wrapper">
     <swiper
-    
     [slidesPerView]="10"
-    [loop]="true"
+    [loop]="false"
     [autoplay]= "{
       delay: 1000
       }"
@@ -31,51 +30,9 @@
       prevEl: '.swiper-button-prev'
     }"
     [spaceBetween]="10"
-
     class="mySwiper mx-5"
-
   >
-    <ng-template swiperSlide><button type="button" (click)="emit('Java');" class="btn btn-light" [ngClass]="{'disabled' : keyword.value==='Java'}">Java</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Javascript');" class="btn btn-light">Javascript</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Python');" class="btn btn-light">Python</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('PHP');" class="btn btn-light">PHP</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('HTML');" class="btn btn-light">HTML</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Sql');" class="btn btn-light">SQL</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('php');" class="btn btn-light">PHP</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('typescript');" class="btn btn-light">Typescript</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('css');" class="btn btn-light">Css</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('angular');" class="btn btn-light">Angular</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('react');" class="btn btn-light">React</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('vue');" class="btn btn-light">Vue</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('svelte');" class="btn btn-light">Svelte</button></ng-template>
-
-    <ng-template swiperSlide><button type="button" (click)="emit('Java');" class="btn btn-light" [ngClass]="{'disabled' : keyword.value==='Java'}">Java</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Javascript');" class="btn btn-light">Javascript</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Python');" class="btn btn-light">Python</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('PHP');" class="btn btn-light">PHP</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('HTML');" class="btn btn-light">HTML</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Sql');" class="btn btn-light">SQL</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('php');" class="btn btn-light">PHP</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('typescript');" class="btn btn-light">Typescript</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('css');" class="btn btn-light">Css</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('angular');" class="btn btn-light">Angular</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('react');" class="btn btn-light">React</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('vue');" class="btn btn-light">Vue</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('svelte');" class="btn btn-light">Svelte</button></ng-template>
-
-    <ng-template swiperSlide><button type="button" (click)="emit('Java');" class="btn btn-light" [ngClass]="{'disabled' : keyword.value==='Java'}">Java</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Javascript');" class="btn btn-light">Javascript</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Python');" class="btn btn-light">Python</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('PHP');" class="btn btn-light">PHP</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('HTML');" class="btn btn-light">HTML</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('Sql');" class="btn btn-light">SQL</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('php');" class="btn btn-light">PHP</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('typescript');" class="btn btn-light">Typescript</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('css');" class="btn btn-light">Css</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('angular');" class="btn btn-light">Angular</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('react');" class="btn btn-light">React</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('vue');" class="btn btn-light">Vue</button></ng-template>
-    <ng-template swiperSlide><button type="button" (click)="emit('svelte');" class="btn btn-light">Svelte</button></ng-template>
+    <ng-template swiperSlide *ngFor="let tag of tags"><button type="button" (click)="emitTag(tag.name);" class="btn btn-light" [ngClass]="{'disabled' : keyword.value==='Java'}">{{tag.name}}</button></ng-template>
 </swiper>
 <div class="swiper-button-next swiper-custom-nav text-white">
   <fa-icon [icon]="['fas', 'circle-arrow-right']" class="fs-1"></fa-icon>
