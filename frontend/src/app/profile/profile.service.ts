@@ -8,7 +8,6 @@ import { Profile } from '../_models/profile';
   providedIn: 'root'
 })
 export class ProfileService {
-
   constructor(private http: HttpClient) { }
   ResPath = environment.apiUrl+'users';
 
@@ -18,8 +17,14 @@ export class ProfileService {
   getOne(id: any): Observable<Profile> {
     return this.http.get<Profile>(`${this.ResPath}/${id}`);
   }
-
   getOneByUsername(username: string | null): Observable<Profile> {
     return this.http.get<Profile>(`${this.ResPath}/username/${username}`);
   }
+  getFollowers(id: any): Observable<Profile> {
+    return this.http.get<Profile>(`${this.ResPath}/${id}/followers`);
+  }
+  getFollowing(id: any): Observable<Profile> {
+    return this.http.get<Profile>(`${this.ResPath}/${id}/following`);
+  }
+  
 }

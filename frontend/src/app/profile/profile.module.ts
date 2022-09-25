@@ -10,6 +10,7 @@ import { MyNotificationsComponent } from './my-notifications/my-notifications.co
 import { MySettingsComponent } from './my-settings/my-settings.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     ProfileRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ]
 })
 export class ProfileModule { }

@@ -32,6 +32,9 @@ export class ProfileLayoutComponent implements OnInit {
   ngOnInit(): void {
     this.signedInUser = this.authService.getSignedInUser();
     this.currentProfile = this.route.snapshot.data['profile'];
+    console.log("currentProfile", this.currentProfile);
+    
+    
   }
   openNewMemeModal() {
     const modalRef = this.modalService.open(
