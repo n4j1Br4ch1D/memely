@@ -68,24 +68,24 @@ public class UserRepositoryTest {
 	@Test
 	void findByUserNameOrEmail_success() {
 
-		Optional<User> userByUserName = userRepository.findByUserNameOrEmail("najib", "najib");
+		Optional<User> userByUserName = userRepository.findByUsernameOrEmail("najib", "najib");
 		Assertions.assertTrue(userByUserName.isPresent(), "We should find a user with UserName");
 
-		Optional<User> userByUserName404 = userRepository.findByUserNameOrEmail("joey", "joey");
+		Optional<User> userByUserName404 = userRepository.findByUsernameOrEmail("joey", "joey");
 		Assertions.assertFalse(userByUserName404.isPresent(), "A User with UserName should not be found");
 
-		Optional<User> userByEmail = userRepository.findByUserNameOrEmail("najib@anmoon.ma", "najib@anmoon.ma");
+		Optional<User> userByEmail = userRepository.findByUsernameOrEmail("najib@anmoon.ma", "najib@anmoon.ma");
 		Assertions.assertTrue(userByEmail.isPresent(), "We should find a user with Email");
 
-		Optional<User> userByEmail404 = userRepository.findByUserNameOrEmail("joey@anmoon.ma", "joey@anmoon.ma");
+		Optional<User> userByEmail404 = userRepository.findByUsernameOrEmail("joey@anmoon.ma", "joey@anmoon.ma");
 		Assertions.assertFalse(userByEmail404.isPresent(), "A User with Email should not be found");
 	}
 
 	@Test
 	void existsByUserNameOrEmail_success() {
-		Boolean userNameExist = userRepository.existsByUserName("najib");
+		Boolean userNameExist = userRepository.existsByUsername("najib");
 		Assertions.assertTrue(userNameExist, "UserName Exist");
-		Boolean userNameExistNot = userRepository.existsByUserName("joey");
+		Boolean userNameExistNot = userRepository.existsByUsername("joey");
 		Assertions.assertFalse(userNameExistNot, "UserName Doesnt Exist");
 		Boolean emailExist = userRepository.existsByEmail("latifa@anmoon.ma");
 		Assertions.assertTrue(userNameExist, "Email Exist");
@@ -100,14 +100,14 @@ public class UserRepositoryTest {
 
 		User ua = userAdmin.get();
 		Assertions.assertEquals(1, ua.getId(), "The user ID should be 1");
-		Assertions.assertEquals("najib", ua.getUserName(), "Incorrect admin user username");
+		Assertions.assertEquals("najib", ua.getUsername(), "Incorrect admin user username");
 		Assertions.assertEquals("najib@anmoon.ma", ua.getEmail(), "Incorrect admin user email");
 		Assertions.assertEquals(Role.ROLE_ADMIN, ua.getRole(), "Incorrect admin user role");
 
 		Optional<User> userClient = userRepository.findById(5L);
 		User uc = userClient.get();
 		Assertions.assertEquals(5, uc.getId(), "The user ID should be 1");
-		Assertions.assertEquals("latifa", uc.getUserName(), "Incorrect client user username");
+		Assertions.assertEquals("latifa", uc.getUsername(), "Incorrect client user username");
 		Assertions.assertEquals("latifa@anmoon.ma", uc.getEmail(), "Incorrect client user email");
 		Assertions.assertEquals(Role.ROLE_CLIENT, uc.getRole(), "Incorrect client user role");
 
