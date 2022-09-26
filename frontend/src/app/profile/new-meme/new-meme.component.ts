@@ -12,7 +12,6 @@ export class NewMemeComponent implements OnInit {
   title = '';
   description = '';
   tags = '';
-
   active = 1;
 
   constructor(public activeModal: NgbActiveModal) { }
@@ -20,18 +19,12 @@ export class NewMemeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  topText: string = "This is top text";
-  bottomText: string = "This is bottom text";
+  topText: string = "This is top Text";
+  bottomText: string = "This is bottom Text";
   imageName: string = "Surprised Pikachu";
-  colorName: string = "black";
-
-  /*Note: In the event that new memes are to be added,
-  the meme names and corresponding file-names need to be in the same order in both arrays.*/ 
-  
-  //stores names of all the memes
-  imageNameList: string[] = ["Surprised Pikachu", "Crying Pepe", "Denerys"];
-  //stores file-names of all memes
-  imageFileNameList: string[] = ["surprised_pikachu.png", "crying_pepe.jpg", "denerys.png"];
+  color: string = "#000";
+  imageNameList: string[] = ["Surprised Pikachu"];
+  imageFileNameList: string[] = ["surprised_pikachu.png"];
 
 
   changeImage(){
@@ -41,14 +34,10 @@ export class NewMemeComponent implements OnInit {
               valueOfSearch = this.imageFileNameList[i];
           }
       }
-      //console.log(valueOfSearch);
-      //console.log(this.imageName);
-      var whole: string = "assets/" + valueOfSearch;
+      var whole: string = "assets/img/meme_templates/" + valueOfSearch;
       return whole;
   }
 
-
-  ////
   images :any = [];
 
   drawOnCanvas({ imageUrl, textOnTop, textOnBottom }: MemeMaker) {
@@ -76,11 +65,6 @@ export class NewMemeComponent implements OnInit {
       console.log(error);
     }
   }
-
-
-  // open(content: any) {
-  //   this.modalService.open("content", { size: 'lg', ariaLabelledBy: 'modal-basic-title'});
-  // }
 
 }
 

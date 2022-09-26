@@ -1,157 +1,151 @@
 <div tabindex="-1">
-<div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+<form #form="ngForm" (ngSubmit)="drawOnCanvas(form.value)">
+  <div class="modal-header bg-primary text-white">
+    <h4 class="modal-title" id="modal-basic-title">Add New Meme</h4>
+    <button
+      type="button"
+      class="btn-close text-white"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    ></button>
   </div>
   <div class="modal-body">
-    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-      <li [ngbNavItem]="1">
-        <a ngbNavLink>Upload</a>
-        <ng-template ngbNavContent>
-    
-          <div class = "container">
-            <div class = "row">
-                <div class = "col-md-6">
-                  <form #form="ngForm" (ngSubmit)="drawOnCanvas(form.value)">
-                    <div class="form-group row">
-                      <label
-                        for="imageUrl"
-                        class="col-sm-2 col-form-label">
-                        Image Url
-                      </label>
-                      <div class="col-sm-10">
-                        <input
-                          name="imageUrl"
-                          ngModel
-                          required
-                          type="text"
-                          class="form-control"
-                          id="imageUrl">
-                      </div>
-                      </div>
-                      <div class="form-group row">
-                        <label
-                        for="textOnTop"
-                        class="col-sm-2 col-form-label">
-                        Text on Top
-                      </label>
-                        <div class="col-sm-10">
-                          <input
-                          required
-                          ngModel
-                          type="text"
-                          class="form-control"
-                          name="textOnTop"
-                          id="textOnTop">
-                      </div>
-                        </div>
-                        <div class="form-group row">
-                          <label
-                        for="textOnBottom"
-                        class="col-sm-2 col-form-label">
-                        Text on Bottom
-                      </label>
-                          <div class="col-sm-10">
-                            <input
-                          type="text"
-                          required
-                          ngModel
-                          class="form-control"
-                          name="textOnBottom"
-                          id="textOnBottom">
-                      </div>
-                          </div>
-                          <div class="form-group row">
-                            <div class="col-sm-10">
-                              <button
-                          [disabled]="form.invalid"
-                          type="submit"
-                          class="btn btn-primary">
-                          Add Memes
-                        </button>
-                            </div>
-                          </div>
-                  </form>
-                  <div class = "form-group">
-                    <input class = "form-control" [(ngModel)] = "title" placeholder="Title">
-                  </div>
-                  <div class = "form-group">
-                    <input class = "form-control" [(ngModel)] = "description" placeholder="Description">
-                  </div>
-                    <div class = "form-group">
-                        <label>Top Text: </label>
-                        <input class = "form-control" [(ngModel)] = "topText">
-                    </div>
-                    <div class = "form-group">
-                            <label>Bottom Text: </label>
-                            <input class = "form-control" [(ngModel)] = "bottomText">
-                    </div>
-                    <div class = "form-group">
-                            <label>Image: </label>
-                            <select class="form-control" [(ngModel)] = "imageName">
-                                    <option>Surprised Pikachu</option>
-                                    <option>Crying Pepe</option>
-                                    <option>Denerys</option>
-                                </select>
-                    </div>
-                    <div class = "form-group">
-                            <label>Background Color: </label>
-                            <select class="form-control" [(ngModel)] = "colorName">
-                                    <option>black</option>
-                                    <option>blue</option>
-                                    <option>orange</option>
-                                </select>
-                    </div>
-                    <div class="container col-md-6">
-                      <div class="mb-5">
-                          <label for="Image" class="form-label">Bootstrap 5 image Upload with Preview</label>
-                          <input class="form-control" type="file" id="formFile" onchange="preview()">
-                          <button onclick="clearImage()" class="btn btn-primary mt-3">Click me</button>
-                      </div>
-                      <img id="frame" src="" class="img-fluid" />
-                  </div>
-                </div>
-                <div class = "col-md-6">
-                    <div [class] = "colorName">
-                        <h2 style = "text-align: center; color: white; padding-top: 1em;">{{ topText }}</h2>
-                        <img [src]="changeImage()" class = ".img-responsive" width="200" height = "200" style = "display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                        width: 50%;">
-                        <h2 style = "text-align: center; color: white; padding-bottom: 1em;">{{ bottomText }}</h2>
-                    </div>
-                    <label for="exampleColorInput" class="form-label">Color picker</label>
-    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
-                    <div class="col-md-4" *ngFor="let image of images">
-                      <div class="thumbnail">
-                        <img [src]="image" alt="Lights" style="width:100%" />
-                      </div>
-                    </div>
-                </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            <div class="form-group mb-1">
+              <input
+                class="form-control"
+                [(ngModel)]="title"
+                placeholder="Title"
+              />
+            </div>
+            <div class="form-group mb-1">
+              <textarea
+                class="form-control"
+                [(ngModel)]="description"
+                placeholder="Description"
+              ></textarea>
+            </div>
+            <div class="form-group mb-1">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                onchange="preview()"
+              />
+            </div>
+            <div class="form-group mb-1">
+              <select class="form-control" [(ngModel)]="imageName">
+                <option disabled selected>Choose From Our Gallery:</option>
+                <option>Surprised Pikachu</option>
+                <option>Crying Pepe</option>
+                <option>Denerys</option>
+              </select>
+            </div>
+            <div class="form-group mb-1">
+              <input
+                name="imageUrl"
+                placeholder="Upload Via Url"
+                ngModel
+                required
+                type="text"
+                class="form-control"
+                id="imageUrl"
+              />
+            </div>
+            <div class="form-group mb-1">
+                <input
+                placeholder="text on top"
+                  required
+                  ngModel
+                  type="text"
+                  class="form-control"
+                  name="textOnTop"
+                  id="textOnTop"
+                />
+            </div>
+            <div class="form-group mb-1">
+                <input
+                  placeholder="text on bottom"
+                  type="text"
+                  required
+                  ngModel
+                  class="form-control"
+                  name="textOnBottom"
+                  id="textOnBottom"
+                />
+            </div>
+            <div class="form-group mb-1">
+              <label>Top Text: </label>
+              <input class="form-control" [(ngModel)]="topText" name="topText" />
+            </div>
+            <div class="form-group mb-1">
+              <label>Bottom Text: </label>
+              <input class="form-control" [(ngModel)]="bottomText" name="bottomText" />
+            </div>
+        </div>
+        <div class="col-md-6">
+          <div style="background-color: {{color}}">
+            <h2 style="text-align: center; color: white; padding-top: 1em">
+              {{ topText }}
+            </h2>
+            <img
+              [src]="changeImage()"
+              class="img-responsive rounded"
+              width="200"
+              height="200"
+              style="
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+              "
+            />
+            <h2 style="text-align: center; color: white; padding-bottom: 1em">
+              {{ bottomText }}
+            </h2>
+          </div>
+          <label for="exampleColorInput" class="form-label">Background Color</label>
+          <input
+          [(ngModel)]="color"
+            type="color"
+            class="form-control form-control-color"
+            id="exampleColorInput"
+            value="#563d7c"
+            title="Choose your color"
+          />
+          <div class="col-md-4" *ngFor="let image of images">
+            <div class="thumbnail">
+              <img [src]="image" alt="Lights" style="width: 100%" />
             </div>
           </div>
-        </ng-template>
-      </li>
-      <li [ngbNavItem]="2">
-        <a ngbNavLink>Generate</a>
-        <ng-template ngbNavContent>
-        <p>amus tattooed echo park.</p>
-        </ng-template>
-      </li>
-    </ul>
-    
-    <div [ngbNavOutlet]="nav" class="mt-2"></div>
-    <form>
-      <div class="mb-3">
-        <label for="dateOfBirth">Date of birth</label>
-        <div class="input-group">
-          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-          <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
         </div>
       </div>
-    </form>
+    </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Save</button>
+    <button
+    [disabled]="form.invalid"
+    type="submit"
+    class="btn btn-primary"
+  >
+    Add Memes
+  </button>
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="activeModal.close('Save click')"
+    >
+      Save
+    </button>
+    <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Save click')"
+  >
+    Cancel
+  </button>
   </div>
+</form>
 </div>
