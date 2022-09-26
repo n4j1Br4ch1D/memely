@@ -31,7 +31,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
       <p>
         <strong
           >Are you sure you want to delete
-          <span class="text-primary">{{ profile.name }}</span> profile?</strong
+          <span class="text-primary">{{ profile.fullName }}</span> profile?</strong
         >
       </p>
       <p>

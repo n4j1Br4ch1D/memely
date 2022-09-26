@@ -47,8 +47,8 @@
         aria-label="select role"
       >
         <option value="" selected>Any Role</option>
-        <option value="Samantha">Admin</option>
-        <option value="Maxime_Nienow">Client</option>
+        <option value="ROLE_ADMIN">Admin</option>
+        <option value="ROLE_CLIENT">Client</option>
       </select>
       <select class="form-select" aria-label="select status">
         <option selected>Any Status</option>
@@ -62,7 +62,7 @@
     <div class="mb-3">
       <div class="card border-primary">
         <div class="card-header">
-          <h6>Add New Profile {{ profile?.name }}</h6>
+          <h6>Add New Profile {{ profile?.username }}</h6>
         </div>
         <div class="card-body">
           You can collapse this card by clicking Toggle
@@ -84,9 +84,9 @@
             <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
             username
           </th>
-          <th scope="col" sortable="name" (sort)="onSort($event)">
+          <th scope="col" sortable="fullName" (sort)="onSort($event)">
             <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
-            name
+            full name
           </th>
           <th scope="col" sortable="email" (sort)="onSort($event)">
             <fa-icon [icon]="['fas', 'sort']" size="1x"></fa-icon>
@@ -100,7 +100,7 @@
           <th scope="row">{{ profile.id }}</th>
           <td>
             <img
-              [src]="'https://avatars.githubusercontent.com/u/38995898?v=4'"
+              [src]="profile.avatar"
               class="me-2 rounded-circle"
               style="width: 24px"
             />
@@ -111,7 +111,7 @@
           </td>
           <td>
             <ngb-highlight
-              [result]="profile.name"
+              [result]="profile.fullName"
               [term]="service.searchTerm"
             ></ngb-highlight>
           </td>
