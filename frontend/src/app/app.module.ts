@@ -33,7 +33,9 @@ import { faAd as fasAd } from '@fortawesome/free-solid-svg-icons';
 import { faFlag as fasFlag } from '@fortawesome/free-solid-svg-icons';
 import { faFile as fasFile } from '@fortawesome/free-solid-svg-icons';
 import { faListAlt as fasListAlt } from '@fortawesome/free-solid-svg-icons';
-
+import { faPaperPlane as fasPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsis as fasEllipsis } from '@fortawesome/free-solid-svg-icons';
+import { faShareAlt as fasShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGauge as fasGauge } from '@fortawesome/free-solid-svg-icons';
 import { faHouse as fasHouse } from '@fortawesome/free-solid-svg-icons';
 import { faBook as fasBook } from '@fortawesome/free-solid-svg-icons';
@@ -138,7 +140,7 @@ export class AppModule {
       fasBars, fasCirclePlus, fasCircleArrowRight, fasCircleArrowLeft,
       fasRightFromBracket, fasGears, fasBell, fasMessage, fasBookmark, fasImages, fasIdCardClip,
       fasHouse, fasBook, fasInfo, fasGlobe, fasArrowUpLong, fasCircleDot,
-      fasAt, fasCommenting, fasAd, fasFlag, fasFile, fasListAlt,
+      fasAt, fasCommenting, fasAd, fasFlag, fasFile, fasListAlt, fasEllipsis,fasShareAlt, fasPaperPlane,
       fasMagnifyingGlass, fasArrowLeft, fasThumbsUp, fasBarsStaggered, fasEnvelope, fasHashtag, fasUsers, fasGauge,
       fabYandexInternational, fabCloudflare, fabSearchengin, fabGoogle, fasChartSimple, fasRectangleAd
       );

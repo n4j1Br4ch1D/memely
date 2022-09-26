@@ -1,98 +1,164 @@
 <div class="container my-5">
-  
-    <div *ngIf="!memes.length" class="text-center alert p-5">
-       <h4>No Results found!</h4>
-       <p>Try Using diffrent Keywords!</p>
-    </div>
-      <div *ngIf="memes.length" class="meme-view text-center text-lg-start">
-        <ngx-masonry [options]="masonryOptions" class="row">
-
-        <div ngxMasonryItem *ngFor="let meme of memes" class="col col-sm-6  col-md-4 col-lg-3 mb-4 ">
-          <div class="post-block p-2">
-              <div class="d-flex justify-content-between">
-                  <div class="d-flex mb-3">
-                      <div class="me-2">
-                          <a href="#!" class="text-dark">
-                            <img [src]="meme.user.avatar" alt="User" class="author-img"></a>
-                      </div>
-                      <div>
-                          <h5 class="mb-0"><a href="#!" class="text-dark fs-7">
-                            {{ meme.user.username }}
-                          </a></h5>
-                          <p class="mb-0 text-muted">5m</p>
-                      </div>
-                  </div>
-                  <div class="post-block__user-options">
-                      <a href="#!" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-                          <a class="dropdown-item text-dark" href="#!"><i class="fa fa-pencil me-1"></i>Edit</a>
-                          <a class="dropdown-item text-danger" href="#!"><i class="fa fa-trash me-1"></i>Delete</a>
-                      </div>
-                  </div>
+  <div *ngIf="!memes.length" class="text-center alert p-5">
+    <h4>No Results found!</h4>
+    <p>Try Using diffrent Keywords!</p>
+  </div>
+  <div *ngIf="memes.length" class="meme-view text-center text-lg-start">
+    <ngx-masonry [options]="masonryOptions" class="row">
+      <div
+        ngxMasonryItem
+        *ngFor="let meme of memes"
+        class="col col-sm-6 col-md-4 col-lg-3 mb-4"
+      >
+        <div class="post-block p-2">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex mb-3">
+              <div class="me-2">
+                <a href="#!" class="text-dark">
+                  <img [src]="meme.user.avatar" alt="User" class="author-img"
+                /></a>
               </div>
-              <div class="post-block__content mb-2">
-                <h3 class="fs-5">{{ meme.title}}</h3>
-                  <p>{{ meme.description }}</p>
-                     <img class="bd-placeholder-img card-img-top img-fluid img-thumbnail" width="100%" height="200" [src]="meme.img" alt="" masonryLazy loading="lazy" width="500px" height="300px"/>
-
+              <div>
+                <h3 class="mb-0">
+                  <a [routerLink]="meme.user.username" class="text-dark fs-7">
+                    {{ meme.user.username }}
+                  </a>
+                </h3>
+                <p class="mb-0 text-muted">5m</p>
               </div>
-
-              <div class="mb-3">
-
-                  <div class="cardbox-base">
-                      <ul class="float-end">
-                       <li><a><i class="fa fa-comments"></i></a></li>
-                       <li><a><em class="me-5">12</em></a></li>
-                       <li><a><i class="fa fa-share-alt"></i></a></li>
-                       <li><a><em class="me-3">03</em></a></li>
-                      </ul>
-                      <ul>
-                       <li><a><i class="fa fa-thumbs-up"></i></a></li>
-                       <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/3.jpeg" class="img-fluid rounded-circle" alt="User"></a></li>
-                       <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/1.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
-                       <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/5.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
-                       <li><a href="#"><img src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/2.jpg" class="img-fluid rounded-circle" alt="User"></a></li>
-                       <li><a><span>242 Likes</span></a></li>
-                      </ul>			   
-                     </div>
-              </div>
-              <div class="post-block__comments">
-                  <!-- Comment Input -->
-                  <div class="input-group mb-3">
-                      <input type="text" class="form-control" placeholder="Add your comment">
-                      <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa fa-paper-plane"></i></button>
-                      </div>
+            </div>
+            <div class="post-block__user-options">
+                <div ngbDropdown class="d-inline-block">
+                    <button type="button" class="btn text-primary" id="dropdownBasic1" ngbDropdownToggle>
+                        <fa-icon
+                        [icon]="['fas', 'ellipsis']"
+                        class=""
+                        size="1x"
+                      ></fa-icon>
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <a ngbDropdownItem class="" href="#!"
+                      ><i class="fa fa-pencil me-1"></i>Edit</a
+                    >
+                    <a ngbDropdownItem>Report</a>
+                    <a ngbDropdownItem class="text-danger" href="#!"
+                      ><i class="fa fa-trash me-1"></i>Delete</a
+                    >
+                    </div>
                   </div>
-                  <!-- Comment content -->
-                  <div class="comment-view-box mb-3">
-                      <div class="d-flex mb-2">
-                          <img src="https://kiranworkspace.com/demo/projects/code-snippets/social-media/social-media-post/img/user2.jpg" alt="User img" class="author-img author-img--small me-2">
-                          <div>
-                              <h6 class="mb-1"><a href="#!" class="text-dark">John doe</a> <small class="text-muted">1m</small></h6>
-                              <p class="mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                              <div class="d-flex">
-                                  <a href="#!" class="text-dark me-2"><span><i class="fa fa-heart-o"></i></span></a>
-                                  <a href="#!" class="text-dark me-2"><span>Reply</span></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- More Comments -->
-                  <hr>
-                  <a href="#!" class="text-dark">View More comments <span class="font-weight-bold">(12)</span></a>
-              </div>
+            </div>
           </div>
+          <div class="post-block__content mb-2">
+            <h3 class="fs-5">{{ meme.title }}</h3>
+            <p>{{ meme.description }}</p>
+            <img
+              class="bd-placeholder-img card-img-top img-fluid img-thumbnail"
+              width="100%"
+              height="200"
+              [src]="meme.img"
+              alt=""
+              masonryLazy
+              loading="lazy"
+              width="500px"
+              height="300px"
+            />
+          </div>
+
+          <div class="mb-3">
+            <div class="cardbox-base">
+              <ul>
+                <li>
+                  <a
+                    ><fa-icon
+                      [icon]="['fas', 'thumbs-up']"
+                      class=""
+                      size="1x"
+                    ></fa-icon
+                  ><em class="me-5">{{ meme.reactors.length }}</em></a>
+                </li>
+                <li>
+                  <a
+                    ><fa-icon
+                      [icon]="['fas', 'commenting']"
+                      class=""
+                      size="1x"
+                    ></fa-icon
+                  ><em class="me-5">{{ meme.comments.length }}</em></a>
+                </li>
+                <li>
+                  <a
+                    ><fa-icon
+                      [icon]="['fas', 'share-alt']"
+                      class=""
+                      size="1x"
+                    ></fa-icon
+                  ><em class="me-3">{{ meme.sharedCount }}</em></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="post-block__comments">
+            <!-- Comment Input -->
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Add your comment"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  id="button-addon2"
+                >
+                  <fa-icon [icon]="['fas', 'paper-plane']" class=""></fa-icon>
+                </button>
+              </div>
+            </div>
+            <!-- Comment content -->
+            <div *ngIf="meme.comments[0]">
+              <div class="comment-view-box mb-3">
+                <div class="d-flex mb-2">
+                  <img
+                    [src]="meme.comments[0].user.avatar"
+                    alt="User img"
+                    class="author-img author-img--small me-2"
+                  />
+                  <div>
+                    <h6 class="mb-1">
+                      <a
+                        [routerLink]="meme.comments[0].user.username"
+                        class="text-dark"
+                        >{{ meme.comments[0].user.username }}</a
+                      >
+                      <small class="text-muted">1m</small>
+                    </h6>
+                    <p class="mb-1">{{ meme.comments[0].comment }}</p>
+                    <div class="d-flex">
+                      <a href="#!" class="text-dark me-2"
+                        ><span>
+                          <fa-icon
+                            [icon]="['fas', 'thumbs-up']"
+                            class="bi me-2"
+                            size="1x"
+                          ></fa-icon> </span
+                      ></a>
+                      <a href="#!" class="text-dark me-2"><span>Reply</span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <a href="#!" class="text-dark"
+                >View More comments
+                <span class="font-weight-bold">{{
+                  meme.comments.length
+                }}</span></a
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </ngx-masonry>
-
-      </div>
-     
-
+  </div>
 </div>
- 
-
-

@@ -29,7 +29,7 @@ import lombok.Setter;
 public class Comment extends BaseEntity{
 	private String comment;
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
