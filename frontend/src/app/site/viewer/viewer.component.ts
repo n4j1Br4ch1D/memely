@@ -12,6 +12,7 @@ import { fromFetch } from 'rxjs/fetch';
 import { NgxMasonryOptions } from 'ngx-masonry';
 import { MemeService } from 'src/app/_services/meme.service';
 import { LoadingBarComponent } from '@ngx-loading-bar/core';
+import { environment } from 'src/environments/environment';
 
 type MemeType = {
   id: Number;
@@ -32,8 +33,9 @@ export class ViewerComponent implements OnInit {
   @Input() keyword: string = '';
   @Input() tag: string = '';
 
-  memes:any =[];
 
+  memes:any =[];
+  memeImgPath = environment.imgUrl+'memes/';
   search(keyword: string): any {
     this.memeService.search(keyword).subscribe({
       next: (result: any) => {

@@ -23,11 +23,37 @@ VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.
   
 /*Seed TABLE Memes:*/
 INSERT INTO public.memes (title, img, description, enabled, story, shared_count, user_id)
-VALUES ('funny1', 'https://assets-global.website-files.com/5f3c19f18169b62a0d0bf387/60d33be8cf4ba7565123c8bc_YPD3ulQQAGQpOcnqIm3QzSTRgzmr1SexpW9ZjMpJ1mAnUxx4iF05XOTu44sk0qQG-8XgBcYmGZGAD-5SAZvJl3TjtmhgWnn-w0C2XKwhBscV78RVvhwZfyp0v_Pa6sNj5zxpOvRW.png', 'this one is a funny one', TRUE, TRUE, 50, 1),
-       ('funny2', 'https://pbs.twimg.com/media/D46dvSSW4AE2Mm9.jpg', 'this one is a funny one', TRUE, FALSE, 66, 1),
-       ('funny3', 'https://devhumor.com/content/uploads/images/March2022/new_bugs.jpg', 'this one is a funny one', TRUE, FALSE, 0, 2);
-       
-  
+VALUES ('funny1', 'meme1.png', 'this one is a funny 1st @med @latifa #code-review #bug', TRUE, TRUE, 50, 1),
+       ('funny2', 'meme2.jpg', 'this one is a funny 2nd', TRUE, FALSE, 66, 1),
+       ('funny3', 'meme3.jpg', 'this one is a funny 3rd', TRUE, FALSE, 13, 2),
+       ('funny4', 'meme4.jpg', 'this one is a funny 4th', TRUE, FALSE, 66, 3),
+       ('funny5', 'meme5.png', 'this one is a funny 5th', TRUE, FALSE, 66, 1),
+       ('funny6', 'meme6.png', 'this one is a funny 6th', TRUE, FALSE, 3, 2),
+       ('funny7', 'meme7.jpg', 'this one is a funny 7th', TRUE, FALSE, 66, 4),
+       ('funny8', 'meme8.jpg', 'this one is a funny 8th', TRUE, FALSE, 66, 1),
+       ('funny9', 'meme9.jpg', 'this one is a funny 9th', TRUE, FALSE, 0, 2),
+       ('funny10', 'meme10.jpg', 'this one is a funny 10th', TRUE, FALSE, 66, 5),
+       ('funny11', 'meme11.jpg', 'this one is a funny 11st', TRUE, FALSE, 66, 1),
+       ('funny12', 'meme12.jpg', 'this one is a funny 12nd', TRUE, FALSE, 0, 2),
+       ('funny13', 'meme13.jpg', 'this one is a funny 13rd', TRUE, FALSE, 66, 7),
+       ('funny14', 'meme14.jpg', 'this one is a funny 14th', TRUE, FALSE, 66, 1),
+       ('funny15', 'meme15.jpg', 'this one is a funny 15th', TRUE, FALSE, 0, 2),
+       ('funny16', 'meme16.png', 'this one is a funny 16th', TRUE, FALSE, 66, 1),
+       ('funny17', 'meme17.jpg', 'this one is a funny 17th', TRUE, FALSE, 66, 1),
+       ('funny18', 'meme18.jpg', 'this one is a funny 18th', TRUE, FALSE, 0, 2),
+       ('funny19', 'meme19.jpg', 'this one is a funny 19th', TRUE, FALSE, 66, 1),      
+       ('funny20', 'meme20.png', 'this one is a funny 20th', TRUE, FALSE, 0, 4),
+       ('funny21', 'meme21.jpg', 'this one is a funny 21st', TRUE, FALSE, 0, 2),       
+       ('funny22', 'meme22.png', 'this one is a funny 22nd', TRUE, FALSE, 0, 5),
+       ('funny23', 'meme23.jpg', 'this one is a funny 23rd', TRUE, FALSE, 66, 6),
+       ('funny24', 'meme24.jpg', 'this one is a funny 24th', TRUE, FALSE, 66, 1),
+       ('funny25', 'meme25.jpg', 'this one is a funny 25th', TRUE, FALSE, 0, 2),
+       ('funny26', 'meme26.jpg', 'this one is a funny 26th', TRUE, FALSE, 66, 1),      
+       ('funny27', 'meme27.jpg', 'this one is a funny 27th', TRUE, FALSE, 0, 2),
+       ('funny28', 'meme28.png', 'this one is a funny 28th', TRUE, FALSE, 0, 2),
+       ('funny29', 'meme29.png', 'this one is a funny 29th', TRUE, FALSE, 0, 2),
+       ('funny30th', 'meme30.jpg', 'this one is a funny 30th', TRUE, FALSE, 0, 2);
+
        
 /*Seed TABLE followers:*/
 INSERT INTO public.followers (follower_id, followed_id)
