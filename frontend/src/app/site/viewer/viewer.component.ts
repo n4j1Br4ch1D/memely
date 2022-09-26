@@ -74,6 +74,9 @@ export class ViewerComponent implements OnInit {
 
   public masonryOptions: NgxMasonryOptions = {
     gutter: 0,
+    horizontalOrder:true,
+    initLayout:true,
+    percentPosition:true
     
   };
 }

@@ -1,9 +1,9 @@
 /*Seed TABLE Users:*/
 INSERT INTO public.users (full_name, username, description, email, password, role, enabled, active, avatar, followers_count)
-VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.ma','$2a$10$OLqXyrDqoKyGkJu.3Tr/lesUfNs05hM.ZFRHzX6e8mnkBgh5.oo4G', 'ROLE_ADMIN',TRUE , FALSE, 'https://avatars.githubusercontent.com/u/38995898?v=4', 4),
-       ('Mohammed idlmhor', 'med', 'Web Developer', 'med@anmoon.ma','$2a$10$iZstRX1sXhxnJpGfCUI2quSxvld5XDPRbB5Scw7eq27mqntCWA59C', 'ROLE_ADMIN',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 3),
+VALUES ('Najib Rachid','najib-rachid', 'FullStack Web Developer', 'najib@anmoon.ma','$2a$10$OLqXyrDqoKyGkJu.3Tr/lesUfNs05hM.ZFRHzX6e8mnkBgh5.oo4G', 'ROLE_ADMIN',TRUE , FALSE, 'https://avatars.githubusercontent.com/u/38995898?v=4', 2),
+       ('Mohammed idlmhor', 'med', 'Web Developer', 'med@anmoon.ma','$2a$10$iZstRX1sXhxnJpGfCUI2quSxvld5XDPRbB5Scw7eq27mqntCWA59C', 'ROLE_ADMIN',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 1),
        ('Ayoub Oudor', 'ayoub', 'Ethical Hacker','ayoub@anmoon.ma','$2a$10$3Rk0JxAID7kSqWYijvtB6eu7DplUsXnIMvcwr04sOGzaK3pRwk726', 'ROLE_USER',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 2),
-       ('Fatiha El habti', 'fatiha', 'Web Designer', 'fatiha@anmoon.ma','$2a$10$uOqFjk3kQ482jDRIRaZmhe20slxLkM4c/b4YMRVfKCPOOU88HAC72' ,'ROLE_USER',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 1),
+       ('Fatiha El habti', 'fatiha', 'Web Designer', 'fatiha@anmoon.ma','$2a$10$uOqFjk3kQ482jDRIRaZmhe20slxLkM4c/b4YMRVfKCPOOU88HAC72' ,'ROLE_USER',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 0),
        ('Latifa Amouguay', 'latifa', 'Web Developer', 'latifa@anmoon.ma','$2a$10$HvPODtiJ1K9jmDY10iUt9.fVMSzvuTVYP4cPoMqbEV41JrtORpfbm', 'ROLE_USER',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 0),
        ('Anass ELmkhloufi', 'anas', 'Mobile Developer',  'anas@anmoon.ma','$2a$10$U6FJN3PbkePwVUoRSG7waOt0iBRdme9r1og5jLIdfdU3VjnX0yZry', 'ROLE_USER',TRUE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 0),
        ('Omar Dbaa', 'omar', 'Graphic Designer', 'omar@anmoon.ma','$2a$10$zTkULoo0xe9w6KDdNt185e0HvPCaxr80X/RejhnhthbNKgy8oJhiq', 'ROLE_USER', FALSE, FALSE, 'https://avatars.githubusercontent.com/u/105658089?v=4', 0);
@@ -52,7 +52,7 @@ VALUES ('funny1', 'meme1.png', 'this one is a funny 1st @med @latifa #code-revie
        ('funny27', 'meme27.jpg', 'this one is a funny 27th', TRUE, FALSE, 0, 2),
        ('funny28', 'meme28.png', 'this one is a funny 28th', TRUE, FALSE, 0, 2),
        ('funny29', 'meme29.png', 'this one is a funny 29th', TRUE, FALSE, 0, 2),
-       ('funny30th', 'meme30.jpg', 'this one is a funny 30th', TRUE, FALSE, 0, 2);
+       ('funny30', 'meme30.jpg', 'this one is a funny 30th', TRUE, FALSE, 0, 2);
 
        
 /*Seed TABLE followers:*/
@@ -60,7 +60,8 @@ INSERT INTO public.followers (follower_id, followed_id)
 VALUES (1, 2),
        (1, 3),
        (2, 1),
-       (2, 3);
+       (2, 3),
+       (4, 1);
 
 /*Seed TABLE Reactions:*/
 INSERT INTO public.reactions (user_id, meme_id)

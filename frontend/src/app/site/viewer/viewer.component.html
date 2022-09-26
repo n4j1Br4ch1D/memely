@@ -4,11 +4,11 @@
     <p>Try Using diffrent Keywords!</p>
   </div>
   <div *ngIf="memes.length" class="meme-view text-center text-lg-start">
-    <ngx-masonry [options]="masonryOptions" class="row">
+    <ngx-masonry [options]="masonryOptions"  [ordered]="true" class="row">
       <div
         ngxMasonryItem
         *ngFor="let meme of memes"
-        class="col col-sm-6 col-md-4 col-lg-3 mb-4"
+        class="col col-sm-6 col-md-4 col-lg-3 my-5"
       >
         <div class="post-block p-2">
           <div class="d-flex justify-content-between">

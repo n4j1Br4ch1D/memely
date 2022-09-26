@@ -1,10 +1,10 @@
-# :zipper_mouth_face: SoussTalent101 memely Activity Manager.
+# :zipper_mouth_face: Memely;
 
 Conceptualization for a Dynamic Web Application For Managing Evenets, Built using Java Spring Boot,
 DAO Design Pattern, Repository Design Pattern, PostregSQL, and ORM: Hibernate, also Thymleaf.
 
  - :date: Date Started: **16-08-2022.** 
- - :computer:	Developed By: [MohamedIdlmhor](https://github.com/idmed22/) &&[NajibRachid](https://github.com/n4j1Br4ch1D).
+ - :computer: [NajibRachid](https://github.com/n4j1Br4ch1D).
  - :office: Developed At: TechnoPark Agadir, Simplon Talent4Startups, Group *SoussTalent101*.
  - :pushpin: Version: **Alpha Version 0.0.1**.
 
