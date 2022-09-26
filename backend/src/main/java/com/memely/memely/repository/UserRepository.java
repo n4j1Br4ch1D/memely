@@ -31,6 +31,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value="SELECT * FROM users as u JOIN followers ON followers.followed_id = u.id WHERE followers.follower_id = ?1 ;", nativeQuery = true)
     List<User> getUserFollowings(Long UserId);
     
+    
+    
+    @Query(value="SELECT CASE WHEN EXISTS (SELECT TRUE FROM users as u JOIN followers ON followers.follower_id = u.id OR followers.followed_id = u.id WHERE followers.follower_id = ?1  AND u.username = ?2 ) THEN 'TRUE' ELSE 'FALSE' END;", nativeQuery = true)
+    Boolean isFollowed(Long UserId, String username);
+    
+    @Query(value="SELECT CASE WHEN EXISTS (SELECT TRUE FROM users as u JOIN followers ON followers.follower_id = u.id OR followers.followed_id = u.id WHERE followers.followed_id = ?1  AND u.username = ?2 ) THEN 'TRUE' ELSE 'FALSE' END;", nativeQuery = true)
+    Boolean isFollowing(Long UserId, String username);
+    
+    
 //	Page<User> findByRoleContainingIgnoreCaseAndIsMaleAndEnabled(String role, Boolean isMale, Boolean enabled, Pageable pageable);
 //	Page<User> findByRoleContainingIgnoreCaseOrIsMaleOrEnabled(String role, Boolean isMale, Boolean enabled, Pageable pageable);
 }

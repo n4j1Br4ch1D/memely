@@ -80,6 +80,12 @@ public class UserController {
 		return ResponseEntity.ok(userService.getOneByUsername(username));
 	}
     
+    @Operation(summary = "Get User By username By req user id", description = "Get User By Username By req user id REST API")
+	@GetMapping(value = "/{requestUserId}/username/{username}")
+	public ResponseEntity<UserDto> getOneByUsernameByReqUserId(@PathVariable(name = "requestUserId") Long requestUserId, @PathVariable(name = "username") String username) {
+		return ResponseEntity.ok(userService.getOneByUsernameByReqUserId(requestUserId, username));
+	}
+    
 
     @Operation(summary = "Create User", description = "Create New User REST API")
 	@PostMapping

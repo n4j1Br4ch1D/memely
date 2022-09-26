@@ -85,7 +85,14 @@ public class User extends BaseEntity{
 
     private Long followersCount;
     private SocialLinks socialLinks;
-
+    
+    @JsonInclude()
+    @Transient
+    private Boolean followed;
+    
+    @JsonInclude()
+    @Transient
+    private Boolean following;
     
 //	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //	@JoinColumn(name = "user_id", nullable = false, columnDefinition = "integer")

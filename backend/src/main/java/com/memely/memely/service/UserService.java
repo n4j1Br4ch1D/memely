@@ -75,6 +75,14 @@ public class UserService {
 		User user = userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
 		return mapToDTO(user);
 	}
+	
+	public UserDto getOneByUsernameByReqUserId(Long requestUserId, String username) {
+		User user = userRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
+		user.setFollowed(userRepository.isFollowed(requestUserId, username) || false);
+		user.setFollowing(userRepository.isFollowing(requestUserId, username) || false);
+		return mapToDTO(user);
+	}
+	
 	public UserDto create(UserDto userDto) {
 		User user = mapToEntity(userDto);
 		User newUser = userRepository.save(user);

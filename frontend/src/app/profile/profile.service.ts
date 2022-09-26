@@ -31,6 +31,9 @@ export class ProfileService {
   getOneByUsername(username: string | null): Observable<Profile> {
     return this.http.get<Profile>(`${this.ResPath}/username/${username}`);
   }
+  getOneByUsernameBy(requestUserId:Number, username: string | null): Observable<Profile> {
+    return this.http.get<Profile>(`${this.ResPath}/${requestUserId}/username/${username}`);
+  }
   getFollowers(id: any): Observable<Profile> {
     return this.http.get<Profile>(`${this.ResPath}/${id}/followers`);
   }

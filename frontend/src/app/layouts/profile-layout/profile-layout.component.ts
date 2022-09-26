@@ -29,6 +29,20 @@ export class ProfileLayoutComponent implements OnInit {
    return false;
   }
 
+  get isFollowed():boolean{
+    if (this.currentProfile['followed']) {
+      return true;
+    }
+     return false;
+   }
+
+   get isFollower():boolean{
+    if (this.currentProfile['following']) {
+      return true;
+    }
+     return false;
+    }
+
   ngOnInit(): void {
     this.signedInUser = this.storageService.getUser();
     this.currentProfile = this.route.snapshot.data['profile'];
