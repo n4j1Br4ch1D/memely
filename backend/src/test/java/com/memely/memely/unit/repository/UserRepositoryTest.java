@@ -50,7 +50,7 @@ public class UserRepositoryTest {
 		Assertions.assertEquals(users.size(), 7, "Expected 7 users in the database");
 
 //        Page<User> filterUsersAnd = 
-// userRepository.findByRoleContainingIgnoreCaseAndIsMaleAndEnabled(Role.ROLE_ADMIN.name(), null, null, null);
+// userRepository.findByRoleContainingIgnoreCaseAndIsMaleAndEnabled("ROLE_ADMIN".name(), null, null, null);
 //        Assertions.assertEquals(filterUsersAnd.getSize(), 2, "Expected 2 Admins in the database");
 
 //    	Page<User> findByRoleContainingIgnoreCaseOrIsMaleOrEnabled(Role role, Boolean isMale, Boolean enabled, Pageable pageable);
@@ -59,16 +59,16 @@ public class UserRepositoryTest {
 
 	@Test
 	void findAllByRole_success() {
-		List<User> admins = userRepository.findAllByRole(Role.ROLE_ADMIN, null);
+		List<User> admins = userRepository.findAllByRole("ROLE_ADMIN", null);
 		Assertions.assertEquals(admins.size(), 2, "Expected 2 admins in the database");
-		List<User> clients = userRepository.findAllByRole(Role.ROLE_CLIENT, null);
+		List<User> clients = userRepository.findAllByRole("ROLE_USER", null);
 		Assertions.assertEquals(clients.size(), 5, "Expected 5 clients in the database");
 	}
 
 	@Test
 	void findByUserNameOrEmail_success() {
 
-		Optional<User> userByUserName = userRepository.findByUsernameOrEmail("najib", "najib");
+		Optional<User> userByUserName = userRepository.findByUsernameOrEmail("najib-rachid", "najib-rachid");
 		Assertions.assertTrue(userByUserName.isPresent(), "We should find a user with UserName");
 
 		Optional<User> userByUserName404 = userRepository.findByUsernameOrEmail("joey", "joey");
@@ -83,7 +83,7 @@ public class UserRepositoryTest {
 
 	@Test
 	void existsByUserNameOrEmail_success() {
-		Boolean userNameExist = userRepository.existsByUsername("najib");
+		Boolean userNameExist = userRepository.existsByUsername("najib-rachid");
 		Assertions.assertTrue(userNameExist, "UserName Exist");
 		Boolean userNameExistNot = userRepository.existsByUsername("joey");
 		Assertions.assertFalse(userNameExistNot, "UserName Doesnt Exist");
@@ -100,16 +100,16 @@ public class UserRepositoryTest {
 
 		User ua = userAdmin.get();
 		Assertions.assertEquals(1, ua.getId(), "The user ID should be 1");
-		Assertions.assertEquals("najib", ua.getUsername(), "Incorrect admin user username");
+		Assertions.assertEquals("najib-rachid", ua.getUsername(), "Incorrect admin user username");
 		Assertions.assertEquals("najib@anmoon.ma", ua.getEmail(), "Incorrect admin user email");
-		Assertions.assertEquals(Role.ROLE_ADMIN, ua.getRole(), "Incorrect admin user role");
+		Assertions.assertEquals("ROLE_ADMIN", ua.getRole(), "Incorrect admin user role");
 
 		Optional<User> userClient = userRepository.findById(5L);
 		User uc = userClient.get();
 		Assertions.assertEquals(5, uc.getId(), "The user ID should be 1");
 		Assertions.assertEquals("latifa", uc.getUsername(), "Incorrect client user username");
 		Assertions.assertEquals("latifa@anmoon.ma", uc.getEmail(), "Incorrect client user email");
-		Assertions.assertEquals(Role.ROLE_CLIENT, uc.getRole(), "Incorrect client user role");
+		Assertions.assertEquals("ROLE_USER", uc.getRole(), "Incorrect client user role");
 
 		Optional<User> user404 = userRepository.findById(8L);
 		Assertions.assertFalse(user404.isPresent(), "A User with ID 8 should not be found");

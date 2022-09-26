@@ -5,55 +5,55 @@ version: '3'
 services:
 
   #PostgreSQL Database for the application
-  devops-postgres:
+  memely-postgres:
     image: "postgres:14"
-    container_name: devops-postgres
+    container_name: memely-postgres
     #Volume mounted for database for the storage
     volumes:
-      - devops-data:/var/lib/postgresql/data
+      - memely-data:/var/lib/postgresql/data
     networks:
-      - devops-network
+      - memely-network
     ports:
       - 5432:5432 # Forward the exposed port 5432 on the container to port 5432 on the host machine
 
     #Environment variable for DB name, user and password
     environment:
-      - POSTGRES_DB=DevOps
+      - POSTGRES_DB=memely
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
 
   #Back-end Spring Boot Application
-  devops-app:
-    #The docker file in devops-app build the jar and provides the docker image with the following name.
-    # build: ./devops-app
-    image: "najibrachid/devops"
-    container_name: devops
+  memely-app:
+    #The docker file in memely-app build the jar and provides the docker image with the following name.
+    # build: ./memely-app
+    image: "najibrachid/memely"
+    container_name: memely
 
     #Environment variables for Spring Boot Application.
     environment:
-      - DB_SERVER=devops-postgres
-      - POSTGRES_DB=DevOps
+      - DB_SERVER=memely-postgres
+      - POSTGRES_DB=memely
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
     networks:
-      - devops-network
+      - memely-network
     ports:
       - 8082:8080 # Forward the exposed port 8080 on the container to port 8080 on the host machine
     links:
-      - devops-postgres
+      - memely-postgres
 
   # #Fron-end Angular Application
-  # devops-ui:
-  #   build: ./devops-ui
-  #   container_name: devops-ui
+  # memely-ui:
+  #   build: ./memely-ui
+  #   container_name: memely-ui
   #   ports:
   #     - 4200:80
   #   links:
-  #     - devops-app
+  #     - memely-app
 
 #Volumes for DB data
 volumes:
-  devops-data:
+  memely-data:
 
 networks:
-  devops-network:
+  memely-network:
