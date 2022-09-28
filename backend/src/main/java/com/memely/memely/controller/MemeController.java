@@ -92,6 +92,7 @@ public class MemeController {
 		return memeService.getAllFavorites();
 	}
 	
+//	@PreAuthorize("@authComponent.hasPermission(#authUser, #userId)")
 	@GetMapping(value="{userId}/favorites") //Next Version add pagination & filtering
 	public List<Meme> getUserFavorites(@PathVariable(name = "userId") Long userId) {
 //		return userService.getOne(id).getFavorites();

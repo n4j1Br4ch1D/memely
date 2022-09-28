@@ -21,7 +21,9 @@ export class AuthGuard implements CanActivate {
        if (this.storageService.getUser()['role']=="ROLE_ADMIN") {
         return true;
        } else {
-        this.router.navigate(['/profile']);
+        console.log(1123);
+        
+        this.router.navigate(['/'+this.storageService.getUser()['username']]);
         return false;
        }
     } else {

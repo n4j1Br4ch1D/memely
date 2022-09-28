@@ -5,55 +5,58 @@ version: '3'
 services:
 
   #PostgreSQL Database for the application
-  memely-postgres:
+  devops-postgres:
     image: "postgres:14"
-    container_name: memely-postgres
+    container_name: devops-postgres
     #Volume mounted for database for the storage
     volumes:
-      - memely-data:/var/lib/postgresql/data
+      - devops-data:/var/lib/postgresql/data
     networks:
-      - memely-network
+      - devops-network
     ports:
       - 5432:5432 # Forward the exposed port 5432 on the container to port 5432 on the host machine
 
     #Environment variable for DB name, user and password
     environment:
-      - POSTGRES_DB=memely
+      - POSTGRES_DB=DevOps
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
 
   #Back-end Spring Boot Application
-  memely-app:
-    #The docker file in memely-app build the jar and provides the docker image with the following name.
-    # build: ./memely-app
-    image: "najibrachid/memely"
-    container_name: memely
+  devops-app:
+    #The docker file in devops-app build the jar and provides the docker image with the following name.
+    # build: ./devops-app
+    image: "najibrachid/devops"
+    container_name: devops
 
     #Environment variables for Spring Boot Application.
     environment:
-      - DB_SERVER=memely-postgres
-      - POSTGRES_DB=memely
+      - DB_SERVER=devops-postgres
+      - POSTGRES_DB=DevOps
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
     networks:
-      - memely-network
+      - devops-network
     ports:
-      - 8082:8080 # Forward the exposed port 8080 on the container to port 8080 on the host machine
+      - 8087:8080 # Forward the exposed port 8080 on the container to port 8080 on the host machine
     links:
-      - memely-postgres
+      - devops-postgres
 
-  # #Fron-end Angular Application
-  # memely-ui:
-  #   build: ./memely-ui
-  #   container_name: memely-ui
+  #Fron-end Angular Application
+  # devops-ui:
+  #   build: ./frontend
+  #   container_name: devops-ui
   #   ports:
   #     - 4200:80
   #   links:
-  #     - memely-app
+  #     - devops-app
+  #   networks:
+  #     - frontend
 
 #Volumes for DB data
 volumes:
-  memely-data:
+  devops-data:
 
 networks:
-  memely-network:
+  devops-network:
+  # frontend:

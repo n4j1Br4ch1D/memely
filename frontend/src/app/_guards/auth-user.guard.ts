@@ -35,7 +35,7 @@ export class AuthUserGuard implements CanActivate {
            } 
            console.log("disallowed Else  or Disallowed");
 
-      this.router.navigateByUrl(`/404`, {skipLocationChange: true})
+      this.router.navigateByUrl(`/memes/404`, {skipLocationChange: true})
          return  false;
        } else {
         console.log("disallowed", this.storageService.getUser()['role']);

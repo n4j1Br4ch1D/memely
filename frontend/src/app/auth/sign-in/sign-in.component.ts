@@ -49,7 +49,7 @@ export class SignInComponent implements OnInit {
         if (this.role == "ROLE_ADMIN") {          
           this.router.navigate(['dashboard']);
         } else {
-          this.router.navigate([`/${this.storageService.getUser().id}`]);
+          this.router.navigate([`/${this.storageService.getUser().username}`]);
         }
       },
       error: err => {
